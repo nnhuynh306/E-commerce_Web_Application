@@ -139,6 +139,40 @@ template {
 
 
 
+.top-nav {
+  background-color: #111;
+  padding: 0.75em 0; }
+@media only screen and (max-width: 768px) {
+  .top-nav {
+    display: none; } }
+.top-nav__wrapper {
+  display: flex;
+  float: right;
+  justify-content: space-between;
+  align-items: center; }
+.top-nav.-style-2 .top-nav__wrapper__quick-links ul li{
+  display: inline-block; }
+.top-nav.-style-2 .top-nav__wrapper__quick-links ul li a{
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1;
+
+  cursor: pointer; }
+.top-nav.-style-2 .top-nav__wrapper__quick-links ul li a:hover{
+  color: #d16868; 
+  transition: 0.2s ease-in-out;}
+.top-nav.-style-2 .top-nav__wrapper__quick-links ul li::after{
+  content: "|";
+  margin: 0 0.76923em;
+  color: #fff; }
+.top-nav.-style-2 .top-nav__wrapper__quick-links ul li:last-child::after{
+  display: none; }
+
+
+
+
 
 
 @media only screen and (max-width: 992px) {
@@ -513,7 +547,7 @@ ul {
       line-height: 1;
       font-family: "Braga";
       margin-bottom: 0.83333em; }
-    .dow-three__content .btn, .dow-three__content .blog-sidebar__section.-newsletter .blog-sidebar-newsletter .mc-form button, .blog-sidebar__section.-newsletter .blog-sidebar-newsletter .mc-form .dow-three__content button, .dow-three__content .paginator li button, .paginator li .dow-three__content button, .dow-three__content .category-two .slick-arrow, .category-two .dow-three__content .slick-arrow, .dow-three__content .footer-one__header__newsletter .footer-one-newsletter .mc-form button, .footer-one__header__newsletter .footer-one-newsletter .mc-form .dow-three__content button, .dow-three__content .footer-two__content .footer-two-newsletter .mc-form button, .footer-two__content .footer-two-newsletter .mc-form .dow-three__content button, .dow-three__content .product-detail__slide-two__small .slick-arrow, .product-detail__slide-two__small .dow-three__content .slick-arrow, .dow-three__content .product-tab-slide__content .slick-arrow, .product-tab-slide__content .dow-three__content .slick-arrow, .dow-three__content .slider.-style-3 .slider__carousel .slick-arrow, .slider.-style-3 .slider__carousel .dow-three__content .slick-arrow, .dow-three__content .testimonial-three .slick-arrow, .testimonial-three .dow-three__content .slick-arrow {
+    .dow-three__content .btn, .dow-three__content .category-two .slick-arrow, .category-two .dow-three__content .slick-arrow, .dow-three__content .footer-one__header__newsletter .footer-one-newsletter .mc-form button, .footer-one__header__newsletter .footer-one-newsletter .mc-form .dow-three__content button, .dow-three__content .footer-two__content .footer-two-newsletter .mc-form button, .footer-two__content .footer-two-newsletter .mc-form .dow-three__content button, .dow-three__content .product-detail__slide-two__small .slick-arrow, .product-detail__slide-two__small .dow-three__content .slick-arrow, .dow-three__content .product-tab-slide__content .slick-arrow, .product-tab-slide__content .dow-three__content .slick-arrow, .dow-three__content .slider.-style-3 .slider__carousel .slick-arrow, .slider.-style-3 .slider__carousel .dow-three__content .slick-arrow, .dow-three__content .testimonial-three .slick-arrow, .testimonial-three .dow-three__content .slick-arrow {
       color: #fff; }
 
 .footer-one {
@@ -533,8 +567,8 @@ ul {
     .footer-one__header__logo a {
       display: inline-block; }
       .footer-one__header__logo a img {
-        height: 100%;
-        width: 100px;
+        height: 90px;
+        width: 180px;
         object-fit: contains; }
     @media only screen and (max-width: 768px) {
       .footer-one__header__logo {
@@ -683,10 +717,10 @@ ul {
             top: 50%;
             left: -100%;
             background-color: #f2646061;
+            transition: 0.2s ease-in-out;
             height: 0.53333em;
             width: 100%;
-            z-index: 0;
-            transition: 0.2s ease-in-out; }
+            z-index: 0;}
         .menu__wrapper .navigator > ul > li:hover > a:after {
           left: 0; }
     .menu__wrapper .search-box {
