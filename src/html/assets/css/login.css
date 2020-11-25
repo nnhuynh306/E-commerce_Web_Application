@@ -183,8 +183,8 @@ template {
     .footer-one__header__logo a {
       display: inline-block; }
       .footer-one__header__logo a img {
-        height: 100%;
-        width: 100px;
+        height: 90%;
+        width: 180px;
         object-fit: contains; }
     @media only screen and (max-width: 768px) {
       .footer-one__header__logo {
@@ -419,13 +419,17 @@ template {
 
 
   .login {
-    margin-bottom: 6.25rem; }
+    margin-bottom: 2%;
+    padding: 2cm; 
+    background-color: grey;
+    }
     .login-title {
       color: #111;
       font-size: 1.875em;
       font-weight: 600;
       line-height: 1;
-      margin-bottom: 2.5em;
+      margin-bottom: 1em;
+      margin-top: 5%;
       text-align: center; }
     .login-form form .input-validator {
       margin-bottom: 1.42857em; 
@@ -505,15 +509,22 @@ template {
           line-height: 3.21429em; 
         
         }
-        .login-form form .login #btn-login{
-          margin-top: 10%;
-          position: absolute;
+        .login-form form .loginBTN #btn-login{
+          margin-top: 1cm;
+          margin-left: 50%;
           top: 50%;
           left: 50%;
           -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
           padding: 10px;
             
+        }
+        .login-form form .register{
+          margin-left: 31%;
+        }
+        .login-form form .forgotPass{
+          margin-left: 31%;
+          margin-top: 2%;
         }
 
 
