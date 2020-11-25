@@ -158,103 +158,7 @@ template {
     display: none; }
 
 
-  .login {
-    margin-bottom: 6.25rem; }
-    .login-title {
-      color: #111;
-      font-size: 1.875em;
-      font-weight: 600;
-      line-height: 1;
-      margin-bottom: 2.5em;
-      text-align: center; }
-    .login-form form .input-validator {
-      margin-bottom: 1.42857em; 
-      margin-left: 30%;
-      margin-right: 30%;}
-      .login-form form .input-validator input {
-        background-color: paleturquoise;
-        border: 1px solid #e1e1e1;
-        height: 3.21429em;
-        width: 100%;
-        transition: 0.2s ease-in-out;
-        -webkit-appearance: none;
-        padding: 1.25rem;
-        border-radius: 0px;
-        color: #111;
-        font-size: 0.8125rem;
-        font-weight: normal;
-        line-height: 3.21429em;
-        margin: 10px; }
-        .login-form form .input-validator input:focus {
-          outline: 0; }
-        .login-form form .input-validator .labelName {
-            margin-left: 10px; }
-        .login-form form .input-validator .labelPass {
-          margin-left: 10px; }
-        .login-form form .input-validator input:-webkit-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input::-webkit-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input:-moz-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em;
-          line-height: -moz-block-height; }
-        .login-form form .input-validator input::-moz-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em;
-          line-height: -moz-block-height; }
-        .login-form form .input-validator input:-ms-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input::-ms-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input:-o-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input::-o-input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input:input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; }
-        .login-form form .input-validator input::input-placeholder {
-          color: #888;
-          font-size: 0.8125rem;
-          font-weight: normal;
-          line-height: 3.21429em; 
-        
-        }
-        .login-form form .login #btn-login{
-          margin-top: 3%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-          padding: 10px;
-            
-        }
+
      
         
   
@@ -514,6 +418,102 @@ template {
 
 
 
-
+  .login {
+    margin-bottom: 6.25rem; }
+    .login-title {
+      color: #111;
+      font-size: 1.875em;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 2.5em;
+      text-align: center; }
+    .login-form form .input-validator {
+      margin-bottom: 1.42857em; 
+      margin-left: 30%;
+      margin-right: 30%;}
+      .login-form form .input-validator input {
+        background-color: paleturquoise;
+        border: 1px solid #e1e1e1;
+        height: 3.21429em;
+        width: 100%;
+        transition: 0.2s ease-in-out;
+        -webkit-appearance: none;
+        padding: 1.25rem;
+        border-radius: 0px;
+        color: #111;
+        font-size: 0.8125rem;
+        font-weight: normal;
+        line-height: 3.21429em;
+        margin: 10px; }
+        .login-form form .input-validator input:focus {
+          outline: 0; }
+        .login-form form .input-validator .labelName {
+            margin-left: 10px; }
+        .login-form form .input-validator .labelPass {
+          margin-left: 10px; }
+        .login-form form .input-validator input:-webkit-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input::-webkit-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input:-moz-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em;
+          line-height: -moz-block-height; }
+        .login-form form .input-validator input::-moz-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em;
+          line-height: -moz-block-height; }
+        .login-form form .input-validator input:-ms-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input::-ms-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input:-o-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input::-o-input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input:input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; }
+        .login-form form .input-validator input::input-placeholder {
+          color: #888;
+          font-size: 0.8125rem;
+          font-weight: normal;
+          line-height: 3.21429em; 
+        
+        }
+        .login-form form .login #btn-login{
+          margin-top: 10%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          padding: 10px;
+            
+        }
 
 
