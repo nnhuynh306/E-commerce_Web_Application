@@ -2,22 +2,20 @@
 @keyframes pill-selected {
     from {margin-left: 0px;
         background: rgb(167, 163, 163);
-        left: 00%;
         border-radius: 10px;
         margin-right: 10px;
+    
     }
     to {margin-left: 10px;
         background: black;
-        left: 100%;
         border-radius: 10px 0 0 10px;
         margin-right: 0;
+ 
     }
   }
 
   /*ALL devices*/
-.tab-pane {
-    animation-duration: 0.5s;
-}
+
 
 .submit-btn {
     background-color: rgb(0, 81, 255);
@@ -70,7 +68,7 @@ a.profile-pill:hover {
         text-align: right;    
         font-weight: bold;
         margin-left: 10px;
-        animation: pill-selected 0.5s;
+        animation: pill-selected 1s ease;
         border-radius: 10px 0 0 10px;
          
     }
@@ -90,21 +88,32 @@ a.profile-pill:hover {
 @media only screen and (max-width: 575px) {
     a.profile-pill, a.profile-pill-active {
         background-color: rgb(167, 163, 163);
-        
-        
+        padding: 10px 10px;
+        margin: 2px 2px;
+        color: black;
+
+        border-radius: 10px;
     }
     
     a.profile-pill.active {
-        background-color: rgb(75, 100, 209);
+        background-color: black;
         color:white;
-    
+        font-weight: bold;
     }
     
     a.profile-pill:hover {
         text-decoration: none;
     }
     
-    #profile-pills-tabContent {
-        background-color: aquamarine;
+    #profile-pills-tabContent input {
+        min-width: 200px;
+        width: 50%;
     }
+
+    #profile-pills-tabContent {
+
+        border-radius: 10px;
+    }
+
+
 }
