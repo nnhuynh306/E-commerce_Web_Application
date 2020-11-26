@@ -1,0 +1,51 @@
+/*pc*/
+@media only screen and (min-width: 576px) {
+    a.profile-pill, a.profile-pill-active {
+        padding: 10px 10px;
+        margin: 0;
+        border: 1px solid;
+        background-color: rgb(167, 163, 163);
+        color:black;
+        margin-right: 0;
+    }
+    
+    a.profile-pill.active {
+        background-color: rgb(75, 100, 209);
+        color:white;
+        border: 1px solid black;
+        margin-left: 10px;
+        margin-right: 0;
+        border-right: none;
+        text-align: right;
+    }
+    
+    a.profile-pill:hover {
+        text-decoration: none;
+    }
+    
+    #profile-pills-tabContent {
+        background-color: aquamarine;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    a.profile-pill, a.profile-pill-active {
+        background-color: rgb(167, 163, 163);
+        
+        
+    }
+    
+    a.profile-pill.active {
+        background-color: rgb(75, 100, 209);
+        color:white;
+    
+    }
+    
+    a.profile-pill:hover {
+        text-decoration: none;
+    }
+    
+    #profile-pills-tabContent {
+        background-color: aquamarine;
+    }
+}
