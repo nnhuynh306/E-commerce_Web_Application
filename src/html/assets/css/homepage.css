@@ -552,72 +552,72 @@ ul {
 
 .footer-one {
   padding-top: 2.5rem; }
+.footer-one__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 2.5em;
+  margin-bottom: 3.125em;
+  border-bottom: 1px solid #e1e1e1; }
+@media only screen and (max-width: 768px) {
   .footer-one__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-bottom: 2.5em;
-    margin-bottom: 3.125em;
-    border-bottom: 1px solid #e1e1e1; }
-    @media only screen and (max-width: 768px) {
-      .footer-one__header {
-        flex-direction: column;
-        align-items: center; } }
-    .footer-one__header__logo a {
-      display: inline-block; }
-      .footer-one__header__logo a img {
-        height: 90px;
-        width: 180px;
-        object-fit: contains; }
-    @media only screen and (max-width: 768px) {
-      .footer-one__header__logo {
-        margin-bottom: 1.07143em; } }
-    @media only screen and (max-width: 992px) {
-      .footer-one__header__social {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1.875em; }
-        .footer-one__header__social .social-icons {
-          width: 100%; } }
-    @media only screen and (max-width: 768px) {
-      .footer-one__header__social {
-        margin-top: 0; } }
-  .footer-one .footer-title {
-    color: #111;
-    font-size: 1em;
-    font-weight: 600;
-    line-height: 1;
-    margin-bottom: 2.5em; }
-    @media only screen and (max-width: 992px) {
-      .footer-one .footer-title {
-        margin-bottom: 1.42857em; } }
-  .footer-one__body {
-    padding-bottom: 3.125em; }
-    @media only screen and (max-width: 992px) {
-      .footer-one__body .footer__section {
-        margin-bottom: 1.875em; } }
-    .footer-one__body .footer__section.-info p {
-      color: #888;
-      font-size: 0.875em;
-      font-weight: normal;
-      line-height: 1.71429em;
-      margin-bottom: 0.625em; }
-      .footer-one__body .footer__section.-info p span {
-        color: #111; }
-      .footer-one__body .footer__section.-info p:last-child {
-        margin-bottom: 0; }
-    .footer-one__body .footer__section.-payment p {
-      color: #888;
-      font-size: 0.875em;
-      font-weight: normal;
-      line-height: 1.71429em;
-      margin-bottom: 2.14286em; }
-    .footer-one__body .footer__section.-payment .payment-methods img {
-      max-width: 100%; }
-  .footer-one__footer {
-    background-color: #f7f5f4;
-    padding: 1em 0; }
+    flex-direction: column;
+    align-items: center; } }
+.footer-one__header__logo a {
+  display: inline-block; }
+.footer-one__header__logo a img {
+  height: 90px;
+  width: 180px;
+  object-fit: contains; }
+@media only screen and (max-width: 768px) {
+  .footer-one__header__logo {
+    margin-bottom: 1.07143em; } }
+@media only screen and (max-width: 992px) {
+  .footer-one__header__social {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.875em; }
+  .footer-one__header__social .social-icons {
+    width: 100%; } }
+@media only screen and (max-width: 768px) {
+  .footer-one__header__social {
+    margin-top: 0; } }
+.footer-one .footer-title {
+  color: #111;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 2.5em; }
+  @media only screen and (max-width: 992px) {
+.footer-one .footer-title {
+  margin-bottom: 1.42857em; } }
+.footer-one__body {
+  padding-bottom: 3.125em; }
+@media only screen and (max-width: 992px) {
+  .footer-one__body .footer__section {
+    margin-bottom: 1.875em; } }
+.footer-one__body .footer__section.-info p {
+  color: #888;
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 1.71429em;
+  margin-bottom: 0.625em; }
+.footer-one__body .footer__section.-info p span {
+  color: #111; }
+.footer-one__body .footer__section.-info p:last-child {
+  margin-bottom: 0; }
+.footer-one__body .footer__section.-payment p {
+  color: #888;
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 1.71429em;
+  margin-bottom: 2.14286em; }
+.footer-one__body .footer__section.-payment .payment-methods img {
+  max-width: 100%; }
+.reference {
+  background-color: #f7f5f4;
+}
 
 
 
