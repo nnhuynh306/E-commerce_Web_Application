@@ -349,7 +349,7 @@
             .quantity-controller.-border {
               padding: 0 1.25em;
               border: 1px solid #e1e1e1; }
-            .quantity-controller.-round, .paginator li button.quantity-controller, .product-detail__slide-two__small .quantity-controller.slick-arrow {
+            .quantity-controller.-round, .product-detail__slide-two__small .quantity-controller.slick-arrow {
               border-radius: 999px; }
             .quantity-controller__btn {
               color: #888;
@@ -439,3 +439,7 @@
         color: #fff; 
     }
 
+    .btn.-dark{
+      background-color: #111;
+      color: #fff; 
+  }
