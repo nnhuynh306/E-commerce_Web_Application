@@ -1,4 +1,4 @@
-const PORT = process.dnv.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const express = require(`express`);
 const {get} = require('http');
 const fs = require('fs');
