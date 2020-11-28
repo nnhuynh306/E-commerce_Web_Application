@@ -1,0 +1,22 @@
+{
+  "name": "e-commerce_web_application",
+  "version": "1.0.0",
+  "description": "ktpm1-Group06",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npm main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnhuynh306/E-commerce_Web_Application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nnhuynh306/E-commerce_Web_Application/issues"
+  },
+  "homepage": "https://github.com/nnhuynh306/E-commerce_Web_Application#readme"
+}
