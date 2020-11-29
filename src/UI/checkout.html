@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>People's Cosmetic Shop</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;700;900&amp;display=swap"/>
+    <link rel="shortcut icon" type="image/ico" href="./assets/images/nav.ico"/>
+
+
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+
+    <!--slider and carousel-->
+    <link rel="stylesheet" href="assets/css/slick.min.css"/>
+
+    <!--font-->
+    <link rel="stylesheet" href="assets/css/fontawesome.css"/>
+
+    <!--page layout-->
+    <link rel="stylesheet" href="assets/css/checkout.css"/>
+
+    <!--Mobile nav bar-->
+    <link rel="stylesheet" href="assets/css/bootstrap-drawer.min.css"/>
+
+
+
+  </head>
+  <body>
+    <div class="top-nav -style-2  pb-4">
+      <div class="container">
+          <div class="top-nav__wrapper">
+              <div class="top-nav__wrapper__quick-links">
+                  <ul>
+                      <li><a href="./login.html">Login</a></li>
+                      <li><a href="./register.html">Register</a></li>
+                      <li><a href="edit_profile.html">Edit profile</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--Top navigator bar-->
+  <div class="menu -style-6">
+      <div class="container">
+        <div class="menu__wrapper">
+              <div class="menu-functions "><a class="menu-icon -search" href="#"><img src="assets/images/header/search-icon.png" alt="Search icon"/></a>
+                <div class="search-box">
+                  <form>
+                    <input type="text" placeholder="What are you looking for?" name="search"/>
+                    <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
+                  </form>
+                </div>
+              </div>
+              <div class="navigator">
+                  <ul class="navigator_part -left">
+                      <li><a href="shop-fullwidth-4col.html">Perfume</a></li>
+                      <li><a href="shop-fullwidth-4col.html">Cosmetic</a></li>
+                  </ul>
+                  <a class="menu__wrapper__logo" href="homepage1.html"><img src="assets/images/logo.png" alt="Logo"/></a>
+                  <ul class="navigator_part -right">
+                      <li><a href="shop-fullwidth-4col.html">Clothes</a></li>
+                      <li><a href="shop-fullwidth-4col.html">Skincare</a></li>
+                  </ul>
+              </div>
+              <div class="menu-functions "><a class="menu-icon" href="/wishlist.html"></a>
+                  <div class="menu-cart"><a class="menu-icon -cart" href=""><img src="assets/images/header/cart-icon.png" alt="Wishlist icon"/><span class="cart__quantity"></span></a>
+                      <h5>Cash:<span>0</span></h5>
+                  </div>
+                  <a class="menu-icon -navbar" href="#">
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <!--Mobile top nav bar-->
+  <div id="content">
+      <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
+          <div class="drawer-content drawer-content-scrollable" role="document">
+              <div class="drawer-body">
+                  <div class="cart-sidebar">
+                      <div class="cart-items__wrapper">
+                          <div class="navigation-sidebar">
+                              <div class="search-box">
+                                  <form>
+                                      <input type="text" placeholder="What are you looking for?"/>
+                                      <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
+                                  </form>
+                              </div>
+                              <div class="navigator-mobile">
+                                  <ul>
+                                      <li><a href="homepage1.html">Home</a></li>
+                                      <li><a class="dropdown-menu-controller" href="#">Account<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
+                                          <ul class="dropdown-menu">
+                                              <ul class="dropdown-menu__col">
+                                                  <li><a href="./login.html">Login</a></li>
+                                                  <li><a href="./register.html">Register</a></li>
+                                                  <li><a href="edit_profile.html">Edit profile</a></li>
+                                              </ul>
+                                          </ul>
+                                      </li>
+                                      <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
+                                          <ul class="dropdown-menu">
+                                              <ul class="dropdown-menu__col">
+                                                  <li><a href="shop-fullwidth-4col.html">All</a></li>
+                                                  <li><a href="shop-fullwidth-4col.html">Perfume</a></li>
+                                                  <li><a href="shop-fullwidth-4col.html">Cosmetic</a></li>
+                                                  <li><a href="shop-fullwidth-4col.html">Clothes</a></li>
+                                                  <li><a href="shop-fullwidth-4col.html">Skincare</a></li>
+                                              </ul>
+                                              <ul class="dropdown-menu__col">
+                                                  <li><a href="cart.html">Shopping cart</a></li>
+                                                  <li><a href="checkout.html">Checkout</a></li>
+                                              </ul>
+                                          </ul>
+                                      </li>
+                                      <li><a href="contact.html">Contact</a></li>
+                                  </ul>
+                              </div>
+                              <div class="social-icons ">
+                                  <ul>
+                                      <li><a href="https://www.facebook.com/" style="color: undefined"><i class="fab fa-facebook-f"></i></a></li>
+                                      <li><a href="https://twitter.com" style="color: undefined"><i class="fab fa-twitter"></i></a></li>
+                                      <li><a href="https://instagram.com/" style="color: undefined"><i class="fab fa-instagram"> </i></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div >
+          <div class="breadcrumb">
+            <div class="container">
+              <h2>Checkout</h2>
+              <ul>
+                <li><a href="./homepage1.html"><strong>Home</strong></a></li>
+                <li><a href="./shop-fullwidth-4col.html"><strong>Shop</strong></a></li>
+                <li class="active">Checkout</li>
+              </ul>
+            </div>
+          </div>
+      <div class="shop">
+        <div class="container">
+          <div class="checkout">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-8">
+                  <form action="">
+                    <div class="checkout__form">
+                      <div class="checkout__form__shipping">
+                        <h5 class="checkout-title">Shipping address</h5>
+                        <div class="row">
+                          <div class="col-12 col-md-6">
+                            <div class="input-validator">
+                              <label>First name <span>*</span>
+                                <input type="text" name="firstName"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6">
+                            <div class="input-validator">
+                              <label>Last name<span>*</span>
+                                <input type="text" name="lastName"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-validator">
+                              <label>Country<span>*</span>
+                                <input type="text" name="country"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-validator">
+                              <label>Address <span>*</span>
+                                <input type="text" name="streetAddress" placeholder="Steet address"/>
+                                <input type="text" name="apartment" placeholder="Apartment, suite, unite ect ( optinal )"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-validator">
+                              <label>Town/City <span>*</span>
+                                <input type="text" name="town"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-validator">
+                              <label>Country/State <span>*</span>
+                                <input type="text" name="state"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-validator">
+                              <label>Postcode/ZIP <span>*</span>
+                                <input type="text" name="zip"/>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="input-validator">
+                              <label>Order note
+                                <input type="text" name="note" placeholder="Note about your order, e.g, special noe for delivery"/>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-12 ml-auto">
+                      <div class="checkout__total">
+                        <h5 class="checkout-title">Your order</h5>
+                        <form class="checkout__total__coupon">
+                          <h5>Coupon code</h5>
+                          <div class="input-validator">
+                            <input type="text" placeholder="Your code here" name="coupon"/>
+                          </div><a class="btn -dark" href="#">apply</a>
+                        </form>
+                        <div class="checkout__total__price">
+                          <h5>Product</h5>
+                          <table>
+                            <colgroup>
+                              <col style="width: 70%"/>
+                              <col style="width: 30%"/>
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <td><span>01 x </span>The expert mascaraa
+                                </td>
+                                <td>$35.00</td>
+                              </tr>
+                              <tr>
+                                <td><span>01 x </span>Velvet Melon High Intensity
+                                </td>
+                                <td>$38.00</td>
+                              </tr>
+                              <tr>
+                                <td><span>01 x </span>Leather shopper bag
+                                </td>
+                                <td>$35.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="checkout__total__price__total-count">
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td>Subtotal</td>
+                                  <td>$108.00</td>
+                                </tr>
+                                <tr>
+                                  <td>Total</td>
+                                  <td>$108.00</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="checkout__total__price__payment">
+                            <label class="checkbox-label" for="payment">
+                              <input id="payment" type="checkbox" name="payment"/>Cheque payment
+                            </label>
+                            <label class="checkbox-label" htmlfor="paypal">
+                              <input id="paypal" type="checkbox" name="paypal"/>PayPal
+                            </label>
+                          </div>
+                        </div>
+                            <button class="btn -red">Place order
+                            </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <!--Footer-->
+    <div class="footer-one">
+      <div class="container">
+          <div class="footer-one__header">
+              <div class="footer-one__header__logo"><a href="/homepage1.html"><img src="assets/images/logo.png" alt="Logo"/></a></div>
+              <div class="footer-one__header__social">
+                  <div class="social-icons -border">
+                      <ul>
+                          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" ><i class="fab fa-facebook-f"></i></a></li>
+                          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a></li>
+                          <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"> </i></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-one__body">
+              <div class="row">
+                  <div class="col-12 col-md-6 col-lg-6">
+                      <div class="footer__section -info">
+                          <h5 class="footer-title">Contact info</h5>
+                          <p>Address:<span>227 Nguyễn Văn Cừ, phường 4, quận 5, Thành phố Hồ Chí Minh</span></p>
+                          <p>Phone:<span>+84 28 6288 4499</span></p>
+                          <p>Email:<span>Group6@student.hcmus.edu.vn</span></p>
+                          <p>Opentime:<span>9.00am - 10.00.pm</span></p>
+                      </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                      <div class="footer__section -payment">
+                          <h5 class="footer-title">Payment methods</h5>
+                          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit gravida facilisis.</p>
+                          <div class="payment-methods"><img src="assets/images/footer/payment.png" alt="Payment methods"/></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="container-fluid reference">
+      <div class="container py-3 text-center">
+          <a><strong>Base on Eliah©</strong></a>
+      </div>
+  </div>
+    <!--build:js assets/js/main.min.js-->
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/parallax.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/jquery.modal.min.js"></script>
+    <script src="./assets/js/bootstrap-drawer.min.js"></script>
+    <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/main.min.js"></script>
+    <!--endbuild-->
+  </body>
+</html>

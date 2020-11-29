@@ -83,7 +83,7 @@
     </div>
 
     <!--Mobile top nav bar-->
-    <div id="content1">
+    <div id="content">
         <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
             <div class="drawer-content drawer-content-scrollable" role="document">
                 <div class="drawer-body">
@@ -99,8 +99,15 @@
                                 <div class="navigator-mobile">
                                     <ul>
                                         <li><a href="homepage1.html">Home</a></li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a class="dropdown-menu-controller" href="#">Account<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
+                                            <ul class="dropdown-menu">
+                                                <ul class="dropdown-menu__col">
+                                                    <li><a href="./login.html">Login</a></li>
+                                                    <li><a href="./register.html">Register</a></li>
+                                                    <li><a href="edit_profile.html">Edit profile</a></li>
+                                                </ul>
+                                            </ul>
+                                        </li>
                                         <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
                                             <ul class="dropdown-menu">
                                                 <ul class="dropdown-menu__col">
@@ -114,10 +121,8 @@
                                                     <li><a href="cart.html">Shopping cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
                                                 </ul>
-                                                <!-- <ul class="dropdown-menu__col -banner"><a href="#"><img src="#" alt="View all product"/></a></ul> -->
                                             </ul>
                                         </li>
-                                        <li><a href="blog.html">Blog</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
