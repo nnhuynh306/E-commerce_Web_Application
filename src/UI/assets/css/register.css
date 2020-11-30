@@ -2,7 +2,7 @@
 .register {
   margin-bottom: 2%;
   padding: 2cm; 
-  background-color: grey;
+  background-color: lightgray;
   }
       .register-title {
         color: #111;
@@ -56,7 +56,7 @@
             }
           }
         .register-form form .input-validator input {
-          background-color: paleturquoise;
+          background-color: white;
           border: 1px solid #e1e1e1;
           height: 3.21429em;
           width: 100%;
