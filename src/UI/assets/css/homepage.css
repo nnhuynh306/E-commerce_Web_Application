@@ -567,7 +567,7 @@ ul {
 .footer-one__header__logo a {
   display: inline-block; }
 .footer-one__header__logo a img {
-  height: 90px;
+  height: 60px;
   width: 180px;
   object-fit: contains; }
 @media only screen and (max-width: 768px) {
