@@ -145,7 +145,7 @@
             padding: 10px;
               
           }
-          .register-form form .login{
+          .register-form form .loginLink{
             margin-left: 31%;
           }
           .register-form form .forgotPass{
@@ -153,7 +153,7 @@
             margin-top: 2%;
           }
           @media only screen and (max-width: 1170px) {
-              .register-form form .login{
+              .register-form form .loginLink{
                 margin-left: 16%;
               }
               .register-form form .forgotPass{
@@ -162,7 +162,7 @@
               }
           }
           @media only screen and (max-width: 992px) {
-              .register-form form .login{
+              .register-form form .loginLink{
                 margin-left: 11%;
               }
               .register-form form .forgotPass{
@@ -171,7 +171,7 @@
               }
           }
           @media only screen and (max-width: 768px) {
-              .register-form form .login{
+              .register-form form .loginLink{
                 margin-left: 4%;
               }
               .register-form form .forgotPass{
