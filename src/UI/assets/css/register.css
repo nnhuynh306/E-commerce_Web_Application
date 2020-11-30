@@ -532,3 +532,8 @@ template {
         }
 
 
+        .base_on{
+          text-align: center;
+          padding: 20px;
+          background-color: rgb(240, 230, 230);
+        }
