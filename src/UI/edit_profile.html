@@ -10,6 +10,9 @@
 
 
     <!--bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--bootstrap-->
     <link rel="stylesheet" href="assets/css/bootstrap.css"/>
 
     <!--slider and carousel-->
@@ -24,27 +27,25 @@
     <!--Mobile nav bar-->
     <link rel="stylesheet" href="assets/css/bootstrap-drawer.min.css"/>
 
-
-
     
 
   </head>
   <body>
 
     <div class="top-nav -style-2  pb-4">
-        <div class="container">
-            <div class="top-nav__wrapper">
-                <div class="top-nav__wrapper__quick-links">
-                    <ul>
-                        <li><a href="./login.html">Login</a></li>
-                        <li><a href="./register.html">Register</a></li>
-                        <li><a href="edit_profile.html">Edit profile demo</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+          <div class="top-nav__wrapper">
+              <div class="top-nav__wrapper__quick-links">
+                  <ul>
+                      <li><a href="./login.html">Login</a></li>
+                      <li><a href="./register.html">Register</a></li>
+                      <li><a href="edit_profile.html">Edit profile</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
     </div>
-    
+
     <!--Top navigator bar-->
     <div class="menu -style-6">
         <div class="container">
@@ -68,8 +69,8 @@
                         <li><a href="shop-fullwidth-4col.html">Skincare</a></li>
                     </ul>
                 </div>
-                <div class="menu-functions ">
-                    <div class="menu-cart"><a class="menu-icon -cart" href="#"><img src="assets/images/header/cart-icon.png" alt="Wishlist icon"/><span class="cart__quantity"></span></a>
+                <div class="menu-functions "><a class="menu-icon" href="/wishlist.html"></a>
+                    <div class="menu-cart"><a class="menu-icon -cart" href=""><img src="assets/images/header/cart-icon.png" alt="Wishlist icon"/><span class="cart__quantity"></span></a>
                         <h5>Cash:<span>0</span></h5>
                     </div>
                     <a class="menu-icon -navbar" href="#">
@@ -85,64 +86,61 @@
 
     <!--Mobile top nav bar-->
     <div id="content">
-      <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
-          <div class="drawer-content drawer-content-scrollable" role="document">
-              <div class="drawer-body">
-                  <div class="cart-sidebar">
-                      <div class="cart-items__wrapper">
-                          <div class="navigation-sidebar">
-                              <div class="search-box">
-                                  <form>
-                                      <input type="text" placeholder="What are you looking for?"/>
-                                      <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
-                                  </form>
-                              </div>
-                              <div class="navigator-mobile">
-                                  <ul>
-                                      <li><a href="homepage1.html">Home</a></li>
-                                      <li><a class="dropdown-menu-controller" href="#">Account<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                                          <ul class="dropdown-menu">
-                                              <ul class="dropdown-menu__col">
-                                                  <li><a href="./login.html">Login</a></li>
-                                                  <li><a href="./register.html">Register</a></li>
-                                                  <li><a href="edit_profile.html">Edit profile</a></li>
-                                              </ul>
-                                          </ul>
-                                      </li>
-                                      <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
-                                          <ul class="dropdown-menu">
-                                              <ul class="dropdown-menu__col">
-                                                  <li><a href="shop-fullwidth-4col.html">All</a></li>
-                                                  <li><a href="shop-fullwidth-4col.html">Perfume</a></li>
-                                                  <li><a href="shop-fullwidth-4col.html">Cosmetic</a></li>
-                                                  <li><a href="shop-fullwidth-4col.html">Clothes</a></li>
-                                                  <li><a href="shop-fullwidth-4col.html">Skincare</a></li>
-                                              </ul>
-                                              <ul class="dropdown-menu__col">
-                                                  <li><a href="cart.html">Shopping cart</a></li>
-                                                  <li><a href="checkout.html">Checkout</a></li>
-                                              </ul>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <div class="social-icons ">
-                                  <ul>
-                                      <li><a href="https://www.facebook.com/" style="color: undefined"><i class="fab fa-facebook-f"></i></a></li>
-                                      <li><a href="https://twitter.com" style="color: undefined"><i class="fab fa-twitter"></i></a></li>
-                                      <li><a href="https://instagram.com/" style="color: undefined"><i class="fab fa-instagram"> </i></a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        <div class="drawer drawer-right slide" id="mobile-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true">
+            <div class="drawer-content drawer-content-scrollable" role="document">
+                <div class="drawer-body">
+                    <div class="cart-sidebar">
+                        <div class="cart-items__wrapper">
+                            <div class="navigation-sidebar">
+                                <div class="search-box">
+                                    <form>
+                                        <input type="text" placeholder="What are you looking for?"/>
+                                        <button><img src="assets/images/header/search-icon.png" alt="Search icon"/></button>
+                                    </form>
+                                </div>
+                                <div class="navigator-mobile">
+                                    <ul>
+                                        <li><a href="homepage1.html">Home</a></li>
+                                        <li><a class="dropdown-menu-controller" href="#">Account<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
+                                            <ul class="dropdown-menu">
+                                                <ul class="dropdown-menu__col">
+                                                    <li><a href="./login.html">Login</a></li>
+                                                    <li><a href="./register.html">Register</a></li>
+                                                    <li><a href="edit_profile.html">Edit profile</a></li>
+                                                </ul>
+                                            </ul>
+                                        </li>
+                                        <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
+                                            <ul class="dropdown-menu">
+                                                <ul class="dropdown-menu__col">
+                                                    <li><a href="shop-fullwidth-4col.html">All</a></li>
+                                                    <li><a href="shop-fullwidth-4col.html">Perfume</a></li>
+                                                    <li><a href="shop-fullwidth-4col.html">Cosmetic</a></li>
+                                                    <li><a href="shop-fullwidth-4col.html">Clothes</a></li>
+                                                    <li><a href="shop-fullwidth-4col.html">Skincare</a></li>
+                                                </ul>
+                                                <ul class="dropdown-menu__col">
+                                                    <li><a href="cart.html">Shopping cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                </ul>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="social-icons ">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/" style="color: undefined"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://twitter.com" style="color: undefined"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://instagram.com/" style="color: undefined"><i class="fab fa-instagram"> </i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-  </div>
-
-    
-
 
 
 
