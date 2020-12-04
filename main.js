@@ -5,21 +5,31 @@ const { get } = require('http')
 const app = express()
 const port = process.env.PORT || 3000;
 
-app.use(express.static('./src/UI'));
+//CREATE HANDLEBARS
+var hbs = require('express-handlebars')
+
+app.use(express.static(__dirname + '/src/UI'));
+
+app.set('views', __dirname + '/src/views');
+
+app.engine('hbs', hbs({
+    extname: 'hbs',
+    defaultLayout: 'layout',
+    layoutsDir: __dirname + '/src/views/layouts',
+    partialsDir: __dirname + '/src/views/partials'
+}))
+
+app.set('view engine', 'hbs');
 
 
-// app.get('/', (req, res) => {
-//   fs.readFile('/src/homepage1.html', (err, data) => {
-//       console.log(data);
-//       res.set('Content-Type', 'text/html');
-//       res.send(data);
-//   })
-
-// })
-
+//REPONSE
 app.get('/', function(req, res) {
-    res.sendFile('/src/UI/homepage1.html', {root: __dirname })
+    res.render('homepage')
 });
+
+app.get('/edit_profile', (req, res) => {
+    res.render('edit_profile')
+})
 
 
 
