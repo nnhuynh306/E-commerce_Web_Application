@@ -31,6 +31,29 @@ app.get('/edit_profile', (req, res) => {
     res.render('edit_profile')
 })
 
+app.get('/cart.html', (req, res) => {
+    res.render('cart')
+})
+
+app.get('/checkout.html', (req, res) => {
+    res.render('checkout')
+})
+
+app.get('/login.html', (req, res) => {
+    res.render('login')
+})
+
+app.get('/product-detail.html', (req, res) => {
+    res.render('product-detail')
+})
+
+app.get('/register.html', (req, res) => {
+    res.render('register')
+})
+
+app.get('/shop-fullwidth-4col.html', (req, res) => {
+    res.render('shop-fullwidth-4col')
+})
 
 
 app.listen(process.env.PORT || 3000);
