@@ -24,6 +24,7 @@ app.set('view engine', 'hbs');
 
 //REPONSE
 app.get('/', function(req, res) {
+    res.locals.user.login = false;
     res.render('homepage')
 });
 
