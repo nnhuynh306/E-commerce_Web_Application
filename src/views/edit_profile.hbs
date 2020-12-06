@@ -1,4 +1,5 @@
-<div class="container-fluid">
+{{#if user.login}}
+  <div class="container-fluid">
       <div class="container">
         <div class="row">
           <div class="col-sm-3 col-xs-12 px-0">
@@ -103,6 +104,13 @@
         </div>
       </div>
     </div>
+{{else}}
+
+  <h1 class="text-center">REQUIRE USER TO LOGIN (MOVE TO LOGIN PAGE)<br>
+    <h5 class = 'text-center'><a  href="/edit_profile_demo">click here to access edit profile for demo</a></h5>
+    <h3 class = 'text-center'>Đây là demo cho phân hệ user và anonymous </h3>
+  </h1>
+{{/if}}
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

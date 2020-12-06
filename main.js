@@ -55,5 +55,19 @@ app.get('/shop-fullwidth-4col.html', (req, res) => {
     res.render('shop-fullwidth-4col')
 })
 
+app.get('/cart_demo.html', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('cart')
+})
+
+app.get('/edit_profile_demo', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('edit_profile')
+})
+
 
 app.listen(process.env.PORT || 3000);
