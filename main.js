@@ -47,6 +47,21 @@ app.get('/my_profile_address', (req, res) => {
         page:'address'
     })
 })
+app.get('/my_profile_edit_profile', (req, res) => {
+    res.render('my_profile',{
+        page:'edit_profile'
+    })
+})
+app.get('/my_profile_security', (req, res) => {
+    res.render('my_profile',{
+        page:'security'
+    })
+})
+app.get('/my_profile_setting', (req, res) => {
+    res.render('my_profile',{
+        page:'setting'
+    })
+})
 
 app.get('/cart.html', (req, res) => {
     res.render('cart')
@@ -91,7 +106,7 @@ app.get('/my_profile_demo_history', (req, res) => {
         login: true,
     };
     res.render('my_profile',{
-        active_history:'active'
+        active_history:'show active'
     })
 })
 app.get('/my_profile_demo_status', (req, res) => {
@@ -99,7 +114,7 @@ app.get('/my_profile_demo_status', (req, res) => {
         login: true,
     };
     res.render('my_profile',{
-        active_status:'active'
+        active_status:'show active'
     })
 })
 app.get('/my_profile_demo_address', (req, res) => {
@@ -107,9 +122,35 @@ app.get('/my_profile_demo_address', (req, res) => {
         login: true,
     };
     res.render('my_profile',{
-        active_address:'active'
+        active_address:'show active'
     })
 })
-
+app.get('/my_profile_demo_edit_profile', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('my_profile',{
+        active_edit_profile:'show active'
+    })
+})
+app.get('/my_profile_demo_security', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('my_profile',{
+        active_security:'show active'
+    })
+})
+app.get('/my_profile_demo_setting', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('my_profile',{
+        active_setting:'show active'
+    })
+})
+app.get('/forgot_pass',(req,res)=>{
+    res.render('forgot_pass')
+})
 
 app.listen(process.env.PORT || 3000);
