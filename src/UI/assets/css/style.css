@@ -1790,8 +1790,7 @@ a.profile-pill:hover {
 
 .product-detail__slide-two__big {
   margin-bottom: 1.25em; }
-
-  
+ 
 .product-detail__content__header h5 {
   color: medium;
   font-size: 0.8125em;
@@ -2226,6 +2225,73 @@ a.profile-pill:hover {
     background-color: #111;
     color: #fff; 
 }
+
+.product-detail__slide-two__small .add-to-cart.-disable .slick-arrow{
+  left: 100%;
+  transform: translateX(-100%); }
+.product-detail__slide-two__small .add-to-cart .slick-arrow{
+position: absolute;
+left: 0;
+top: 0;
+height: 3.84615em;
+width: 3.84615em;
+padding: 0;
+line-height: 3.84615em;
+transition: 0.2s ease-in-out; }
+
+.product-detail__slide-two__big {
+  margin-bottom: 1.25em; }
+
+  .product-detail__slide-two__small .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 0;
+    height: 2.5em;
+    width: 2.5em;
+    line-height: 2.5em; }
+    .product-detail__slide-two__small .slick-arrow.slick-prev {
+      left: 0.9375em; }
+    .product-detail__slide-two__small .slick-arrow.slick-next {
+      right: 0.9375em; }
+  
+  .product-detail__slide-two__small .slick-current .slider__item img {
+    border: 2px solid #f26460; }
+  
+  .product-detail__slide-two__small .slider__item {
+    padding: 0 0.3125em; }
+    .product-detail__slide-two__small .slider__item img {
+      height: 7.5em;
+      width: 100%;
+      object-fit: cover; }
+
+      .product-detail__slide-two__small .slick-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        padding: 0;
+        height: 2.5em;
+        width: 2.5em;
+        line-height: 2.5em;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 999px;
+        color: #111;
+        transition: 0.2s ease-in-out;
+        font-size: 0.8125em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+    }
 
 
 /* Cart */
@@ -2746,3 +2812,5 @@ a.profile-pill:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
