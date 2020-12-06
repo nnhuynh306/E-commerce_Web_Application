@@ -2714,3 +2714,35 @@ a.profile-pill:hover {
       .checkout__total__price__payment .checkbox-label:first-child {
         margin-bottom: 0.9375em; 
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #111;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 12px 16px;
+}
+.dropdown-content a{
+  color: white;
+  padding: 12px 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 160px;
+  font-weight: normal;
+  
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

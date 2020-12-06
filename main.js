@@ -31,6 +31,23 @@ app.get('/edit_profile', (req, res) => {
     res.render('edit_profile')
 })
 
+
+app.get('/my_profile_history', (req, res) => {
+    res.render('my_profile',{
+        page:'history'
+    })
+})
+app.get('/my_profile_status', (req, res) => {
+    res.render('my_profile',{
+        page:'status'
+    })
+})
+app.get('/my_profile_address', (req, res) => {
+    res.render('my_profile',{
+        page:'address'
+    })
+})
+
 app.get('/cart.html', (req, res) => {
     res.render('cart')
 })
@@ -67,6 +84,31 @@ app.get('/edit_profile_demo', (req, res) => {
         login: true,
     };
     res.render('edit_profile')
+})
+
+app.get('/my_profile_demo_history', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('my_profile',{
+        active_history:'active'
+    })
+})
+app.get('/my_profile_demo_status', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('my_profile',{
+        active_status:'active'
+    })
+})
+app.get('/my_profile_demo_address', (req, res) => {
+    res.locals.user = {
+        login: true,
+    };
+    res.render('my_profile',{
+        active_address:'active'
+    })
 })
 
 
