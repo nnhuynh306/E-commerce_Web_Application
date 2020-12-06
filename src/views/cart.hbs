@@ -1,3 +1,5 @@
+{{#if user.login}}
+  
 <!-- Cart detail -->
     <div class="shop">
         <div class="container">
@@ -125,4 +127,11 @@
           </div>
         </div>
     </div>
+{{else}}
+  <h1 class="text-center">REQUIRE USER TO LOGIN (MOVE TO LOGIN PAGE)<br>
+    <h5 class = 'text-center'><a  href="/cart_demo.html">click here to access cart for demo</a></h5>
+    <h3 class = 'text-center'>Đây là demo cho phân hệ user và anonymous </h3>
+  </h1>
+{{/if}}
+
 
