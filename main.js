@@ -27,9 +27,6 @@ app.get('/', function(req, res) {
     res.render('homepage')
 });
 
-app.get('/edit_profile', (req, res) => {
-    res.render('edit_profile')
-})
 
 
 app.get('/my_profile_history', (req, res) => {
