@@ -2825,5 +2825,27 @@ transition: 0.2s ease-in-out; }
 #history #content .row{
   padding: 5px;
 }
+@media only screen and (max-width: 768px) {
+  #v-pills-history #date{
+   font-size: 12px;
 
+ }
+  #v-pills-history #name_product{
+    font-size: 12px;
+    font-weight: bold;
+  }
+  #v-pills-history #quantity{
+    font-size: 12px;
+
+  }
+  #v-pills-history #price{
+    font-size: 12px;
+    
+
+  }
+  #v-pills-history #status{
+    font-size: 12px;
+
+  }
+}
 
