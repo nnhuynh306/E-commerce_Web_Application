@@ -1519,7 +1519,7 @@ a.profile-pill:hover {
     border-bottom-right-radius: 10px;
     border: 2px solid;
 
-    min-height: 200px;
+    min-height: 400px;
 }
 
 #address {
