@@ -24,6 +24,7 @@
     "express-handlebars": "^5.2.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
+    "php": "^1.0.1",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
   }

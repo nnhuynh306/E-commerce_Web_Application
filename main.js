@@ -45,5 +45,7 @@ app.get('/createTable', (req,res)=>{
       res.send('table created');
     });
   });
-
+app.get('/testDB',(req,res)=>{
+    res.render('testDB.php')
+});
 app.listen(process.env.PORT || 3000);
