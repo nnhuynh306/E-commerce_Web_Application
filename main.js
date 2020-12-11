@@ -39,4 +39,11 @@ app.use('/login', require(__dirname + '/src/routes/loginRoutes'))
 
 app.use('/', require(__dirname + '/src/routes/homepageRoutes'))
 
+app.get('/createTable', (req,res)=>{
+    let models = require('./src/models');
+    models.sequelize.sync().then(() => {
+      res.send('table created');
+    });
+  });
+
 app.listen(process.env.PORT || 3000);
