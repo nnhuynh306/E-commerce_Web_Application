@@ -39,7 +39,7 @@ app.use('/login', require(__dirname + '/src/routes/loginRoutes'))
 
 app.use('/', require(__dirname + '/src/routes/homepageRoutes'))
 
-app.get('/adminer.php.',(req,res)=>{
+app.get('/adminer.php',(req,res)=>{
     res.render('./adminer-4.7.8.php')
 })
 
