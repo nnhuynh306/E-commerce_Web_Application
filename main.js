@@ -21,12 +21,27 @@ app.engine('hbs', hbs({
 
 app.set('view engine', 'hbs');
 
+//BODY PARSER
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-//ROUTES
+//SESSION
+const session = require('express-session');
+app.use(session({
+    resave: false, 
+    saveUninitialized: false, 
+    secret: 'somesecret', 
+    cookie: { maxAge: null }}
+));
 
-app.get('/', function(req, res) {
-    res.render('homepage')  
-});
+
+app.use((req, res, next) => {
+      res.locals.username = req.session.user ? req.session.user.name : "";
+      res.locals.userLoggedIn = req.session.user ? true: false;
+      next();
+})
+//ROUTER
 
 
 app.use('/my_profile', require(__dirname + '/src/routes/my_profileRouter'))
@@ -47,7 +62,21 @@ app.get('/createTable', (req,res)=>{
       res.send('table created');
     });
   });
+
 app.get('/testDB',(req,res)=>{
     res.render('testDB.php')
 });
+
+//ERROR HANDLER
+app.use((req, res) => {
+  res.locals.message = "Request Not Found"
+  res.status(404).render('error')
+})
+
+app.use((err, req, res, next) => {
+  res.locals.message = "Internal server error"
+  console.log(err)
+  res.status(500).render('error')
+})
+
 app.listen(process.env.PORT || 3000);

@@ -1,0 +1,9 @@
+express
+express-handlebars
+sequelize
+sequelize-cli
+pg
+pg-hstore
+body-parser
+bcryptjs
+express-session

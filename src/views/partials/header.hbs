@@ -1,4 +1,4 @@
-{{#unless user.login}}
+{{#unless userLoggedIn}}
     <div class="top-nav -style-2  pb-4">
         <div class="container">
             <div class="top-nav__wrapper">
@@ -6,17 +6,6 @@
                     <ul>
                         <li><a href="/user/login">Login</a></li>
                         <li><a href="/user/signup">Signup</a></li>
-                        <div class="dropdown">
-                            <span class="text-white">My profile demo</span>
-                            <div class="dropdown-content">
-                                <a href="/my_profile/edit_profile">Edit profile</a>
-                                <a href="/my_profile/history">History</a>
-                                <a href="/my_profile/status">Order Status </a>
-                                <a href="/my_profile/address">My Address </a>
-                                <a href="/my_profile/security">Security</a>
-                                <a href="/my_profile/setting">Setting</a>
-                            </div>
-                        </div>
                     </ul>
                 </div>
             </div>
@@ -28,7 +17,18 @@
             <div class="top-nav__wrapper">
                 <div class="top-nav__wrapper__quick-links">
                     <ul>
-                        <li><a href="/">Log out</a></li>
+                        <li><a href="/user/logout">Log out</a></li>
+                         <div class="dropdown">
+                            <span class="text-white">{{username}}</span>
+                            <div class="dropdown-content">
+                                <a href="/my_profile/edit_profile">Edit profile</a>
+                                <a href="/my_profile/history">History</a>
+                                <a href="/my_profile/status">Order Status </a>
+                                <a href="/my_profile/address">My Address </a>
+                                <a href="/my_profile/security">Security</a>
+                                <a href="/my_profile/setting">Setting</a>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>

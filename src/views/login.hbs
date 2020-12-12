@@ -2,14 +2,15 @@
     <div class="login">
         <h3 class="login-title">LOGIN</h3>
         <div class="login-form">
-          <form>
+          <form action='/user/login' method="POST">
+            <p class="text-center font-weight-bold text-{{type}}">{{message}}</p>
             <div class="input-validator">
                 <label class="labelName" for="username"> UserName: </label>
                 <input type="text" name="username" placeholder="User Name"/>
             </div>
             <div class="input-validator">
                 <label class="labelPass" for="password"> Password: </label>
-                <input type="text" name="password" placeholder="Password"/>
+                <input type="password" name="password" placeholder="Password"/>
             </div>
             <div class="registerlink">
                 <a href="/user/signup">Sign Up</a>

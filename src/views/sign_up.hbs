@@ -2,10 +2,11 @@
     <div class="register">
         <h3 class="register-title">SIGN UP</h3>
         <div class="register-form">
-        <form>
+        <form action="/user/signup" method="POST">
+             <p class="text-center font-weight-bold text-{{type}}">{{message}}</p>
             <div class="input-validator">
                 <label class="labelEmail" for="email">Email: </label>
-                <input type="text" name="email" placeholder="Enter your email"/>
+                <input type="email" name="email" placeholder="Enter your email"/>
             </div>
             <div class="input-validator">
                 <label class="labelName" for="username"> UserName: </label>
@@ -13,11 +14,11 @@
             </div>
             <div class="input-validator">
                 <label class="labelPass" for="password"> Password: </label>
-                <input type="text" name="password" placeholder="Enter your Password"/>
+                <input type="password" name="password" placeholder="Enter your Password"/>
             </div>
             <div class="input-validator">
-                <label class="labelRePass" for="re-password">Enter Password Again: </label>
-                <input type="text" name="re-password" placeholder="Enter Password Again"/>
+                <label class="labelRePass" for="confirmPassword">Enter Password Again: </label>
+                <input type="password" name="confirmPassword" placeholder="Enter Password Again"/>
             </div>
             <div class="loginLink">
                 <a href="/user/login">Login</a>
