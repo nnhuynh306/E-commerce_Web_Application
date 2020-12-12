@@ -29,13 +29,13 @@ app.get('/', function(req, res) {
 });
 
 
-app.use('/my_profile', require(__dirname + '/src/routes/my_profileRoutesr'))
+app.use('/my_profile', require(__dirname + '/src/routes/my_profileRouter'))
 
 app.use('/cart', require(__dirname + '/src/routes/cartRouter'))
 
 app.use('/product-detail', require(__dirname + '/src/routes/product-detailRouter'))
 
-app.use('/login', require(__dirname + '/src/routes/userRouter'))
+app.use('/user', require(__dirname + '/src/routes/userRouter'))
 
 app.use('/shop-fullwidth-4col', require(__dirname + '/src/routes/shop-fullwidth-4colRouter'))
 
