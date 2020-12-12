@@ -1,15 +1,18 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('productAttributes', {
+    await queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      text: {
         type: Sequelize.STRING
+      },
+      rating: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -19,18 +22,28 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      productId: {
+      UserId: {
         type: Sequelize.INTEGER,
         references: {
-            model: 'product',
+            model: 'Users',
             key: 'id'
         },
         onDelete: 'cascade',
         onUpdate: 'cascade'
-    }
+      },
+      ProductId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Products',
+          key: 'id'
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade'
+      }
+    
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('productAttributes');
+    await queryInterface.dropTable('Comments');
   }
 };

@@ -4,19 +4,24 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
       var Orders = [{
           address: '414 Duong Ba Trac',
-          totalPrice: 3000000
+          totalPrice: 3000000,
+          state: 'Đang vận chuyển'
       },{
           address: '100 Duong Ba Trac',
-          totalPrice: 4500000
+          totalPrice: 4500000,
+          state: 'Đang vận chuyển'
       },{
           address: '300 Duong Ba Trac',
-          totalPrice: 345600
+          totalPrice: 345600,
+          state: 'Đã giao'
       },{
           address: '200 Duong Ba Trac',
-          totalPrice: 456456456
+          totalPrice: 456456456,
+          state: 'Đang vận chuyển'
       },{
           address: '1000 Duong Ba Trac',
-          totalPrice: 7897455543
+          totalPrice: 7897455543,
+          state: 'Đã giao'
     }
     ];
       Orders.forEach((item, index) => {
