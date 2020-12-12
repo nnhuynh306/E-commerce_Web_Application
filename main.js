@@ -29,15 +29,17 @@ app.get('/', function(req, res) {
 });
 
 
-app.use('/my_profile', require(__dirname + '/src/routes/my_profileRoutes'))
+app.use('/my_profile', require(__dirname + '/src/routes/my_profileRoutesr'))
 
-app.use('/cart', require(__dirname + '/src/routes/cartRoutes'))
+app.use('/cart', require(__dirname + '/src/routes/cartRouter'))
 
-app.use('/product-detail', require(__dirname + '/src/routes/product-detailRoutes'))
+app.use('/product-detail', require(__dirname + '/src/routes/product-detailRouter'))
 
-app.use('/login', require(__dirname + '/src/routes/loginRoutes'))
+app.use('/login', require(__dirname + '/src/routes/userRouter'))
 
-app.use('/', require(__dirname + '/src/routes/homepageRoutes'))
+app.use('/shop-fullwidth-4col', require(__dirname + '/src/routes/shop-fullwidth-4colRouter'))
+
+app.use('/', require(__dirname + '/src/routes/homepageRouter'))
 
 app.get('/createTable', (req,res)=>{
     let models = require('./src/models');
