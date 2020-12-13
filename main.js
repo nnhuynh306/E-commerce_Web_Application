@@ -35,11 +35,16 @@ app.use(session({
     cookie: { maxAge: null }}
 ));
 
+var Cart = require(__dirname + '/src/controllers/cartController')
 
 app.use((req, res, next) => {
-      res.locals.username = req.session.user ? req.session.user.name : "";
-      res.locals.userLoggedIn = req.session.user ? true: false;
-      next();
+  var cart = new Cart(req.session.cart? req.session.cart : {});
+  req.session.cart = cart;
+  res.locals.cartQuantity = cart.getTotalQuantity();
+
+  res.locals.username = req.session.user ? req.session.user.name : "";
+  res.locals.userLoggedIn = req.session.user ? true: false;
+  next();
 })
 //ROUTER
 
@@ -55,6 +60,7 @@ app.use('/user', require(__dirname + '/src/routes/userRouter'))
 app.use('/shop-fullwidth-4col', require(__dirname + '/src/routes/shop-fullwidth-4colRouter'))
 
 app.use('/', require(__dirname + '/src/routes/homepageRouter'))
+app.use('/comment', require(__dirname + '/src/routes/comment'))
 
 app.get('/createTable', (req,res)=>{
     let models = require('./src/models');
@@ -66,6 +72,13 @@ app.get('/createTable', (req,res)=>{
 app.get('/testDB',(req,res)=>{
     res.render('testDB.php')
 });
+
+app.get('/testing', (req, res) => {
+  var productController = require(__dirname + '/src/controllers/productController');
+  productController.getProductById(1).then(data => {
+    res.json(data);
+  })
+})
 
 //ERROR HANDLER
 app.use((req, res) => {

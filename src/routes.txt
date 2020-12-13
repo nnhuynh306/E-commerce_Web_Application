@@ -1,6 +1,6 @@
 page			URL			routes
 
-homepage:		/			homepageRoutes.js	
+homepage:		/			homepageRouter.js	
 
 profile: 		/my_profile		my_profileRoutes.js
 
@@ -8,8 +8,9 @@ cart: 			/cart			cartRoutes.js
 
 shop-4col:		/shop-fullwidth-4col	homepageRoutes.js
 
-product detai:		/product-detail		product-detailRoutes.js
+product detai:		/product-detail		product-detailRouter.js
 
-login:			/login			loginRoutes.js
-signup:			/login/signup		loginRoutes.js
-forgotpass:		/login/forgot_pass	loginRoutes.js
+login:			/user/login		userRouter.js
+signup:			/user/signup		userRouter.js
+forgotpass:		/user/forgot_pass	userRouter.js
+comment:		/comment		comment.js
