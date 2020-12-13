@@ -13,3 +13,4 @@ product detai:		/product-detail		product-detailRouter.js
 login:			/user/login		userRouter.js
 signup:			/user/signup		userRouter.js
 forgotpass:		/user/forgot_pass	userRouter.js
+comment:		/comment		comment.js
