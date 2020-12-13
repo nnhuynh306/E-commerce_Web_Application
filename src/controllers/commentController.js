@@ -1,7 +1,7 @@
 const controller = {}
 
 const models = require('../models');
-const Op = require('sequelize').Op;
+const Op = require('Sequelize').Op;
 
 controller.getAll = (userID, productID) => {
     models.Comment.findAll({
