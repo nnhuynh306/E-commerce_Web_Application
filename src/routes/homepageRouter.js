@@ -13,7 +13,6 @@ router.get('/', function(req, res) {
     })
     
 });
-
 router.get('/shop-fullwidth-4col', function(req, res) {
     res.render('shop-fullwidth-4col')
 });
