@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     if (userController.isLoggedIn(req)) {
         // var cart = req.session.cart;
         // res.local.items = cart.generateArray();
-        // res.local.totalPrice = cart.totalPrice();
+        // res.local.totalPrice = cart.getTotalPrice();
 
         res.render('cart')
     } else {

@@ -35,12 +35,12 @@ app.use(session({
     cookie: { maxAge: null }}
 ));
 
-//CART
 var Cart = require(__dirname + '/src/controllers/cartController')
 
 app.use((req, res, next) => {
   var cart = new Cart(req.session.cart? req.session.cart : {});
   req.session.cart = cart;
+  res.locals.cartQuantity = cart.getTotalQuantity();
 
   res.locals.username = req.session.user ? req.session.user.name : "";
   res.locals.userLoggedIn = req.session.user ? true: false;
