@@ -1,11 +1,13 @@
 let controller = {};
 let models = require('../models');
-let Product = models.Product;
 
 controller.getProductById = (id) => {
-    return Product.findOne({
+    return models.Product.findOne({
         where: {
             id: id,
+        },
+        include: {
+            model: models.ProductAttribute
         }
     })
 }

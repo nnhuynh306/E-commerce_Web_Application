@@ -36,6 +36,9 @@
                           <li>Hàng tồn: {{product.stock}}</li>
                         </ul>
                         <div class="product-detail__colors"><span>Màu:</span>
+                        {{#each colors}}
+                          <div class="product-detail__colors__item" style="background-color: {{color}}"></div>
+                        {{/each}}
                           <div class="product-detail__colors__item" style="background-color: #8B0000"></div>
                           <div class="product-detail__colors__item" style="background-color: #4169E1"></div>
                         </div>
