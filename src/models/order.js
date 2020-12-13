@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Order.init({
     address: DataTypes.STRING,
+    requireOrder: DataTypes.TEXT,
     totalPrice: DataTypes.FLOAT,
     state: DataTypes.STRING
   }, {

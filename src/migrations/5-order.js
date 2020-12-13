@@ -11,6 +11,9 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
+      requireOrder: {
+        type: Sequelize.TEXT
+      },
       totalPrice: {
         type: Sequelize.FLOAT
       },
