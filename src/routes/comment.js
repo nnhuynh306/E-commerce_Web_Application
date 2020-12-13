@@ -6,7 +6,7 @@ router.post('/', function(req, res) {
     let comment = req.body.comment;
     console.log('Rating: ', rating);
     console.log('Text: ', comment);
-    res.render('product-detail')
+    res.redirect('product-detail');
 });
 
 module.exports = router
