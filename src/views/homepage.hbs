@@ -96,20 +96,21 @@
                 <div class="product-tab-slide__header__controller">
                     <ul>
                         <li class="active"><a href="#">all</a></li>
-                        <li><a href="/shop-fullwidth-4col">perfume</a></li>
-                        <li><a href="/shop-fullwidth-4col">cosmetics</a></li>
-                        <li><a href="/shop-fullwidth-4col">fashion</a></li>
-                        <li><a href="/shop-fullwidth-4col">skincare</a></li>
+                        <li><a href="/shop-fullwidth-4col/perfume">perfume</a></li>
+                        <li><a href="/shop-fullwidth-4col/cosmetic">cosmetics</a></li>
+                        <li><a href="/shop-fullwidth-4col/fashion">fashion</a></li>
+                        <li><a href="/shop-fullwidth-4col/skincare">skincare</a></li>
                     </ul><a class="btn -white" href="shop-fullwidth-4col">View all</a>
                 </div>
             </div>
             <div class="product-tab__content">
                 <div class="product-tab_content__wrapper">
                     <div class="row mx-n1 mx-md-n3">
+                        {{#each Product}}
                         <div class="col-6 col-md-3 px-1 px-md-3 mb-4">
                             <div class="product ">
-                                <div class="product-type"><h5 class="-new">New</h5></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
+                                <div class="product-type"><h5 class="-new">{{this.brand}}</h5></div>
+                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="{{this.smallImagePath}}" alt="Product image"/><img src="{{this.bigImagePath}}" alt="Product image"/></a>
                                     <div class="product-thumb__actions">
                                         <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
                                         </div>
@@ -121,9 +122,9 @@
                                     <div class="product-content__header">
                                         <div class="product-category">eyes</div>
                                             <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">The expert mascaraa</a>
+                                    </div><a class="product-name" href="product-detail">{{this.name}}</a>
                                     <div class="product-content__footer">
-                                        <h5 class="product-price--main">$35.00</h5>
+                                        <h5 class="product-price--main">${{this.price}}</h5>
                                         <div class="product-colors">
                                             <div class="product-colors__item" style="background-color: #8B0000"></div>
                                             <div class="product-colors__item" style="background-color: #4169E1"></div>
@@ -132,180 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3 px-1 px-md-3 mb-4">
-                            <div class="product ">
-                                <div class="product-type"></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="/product-detail"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">eyes</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">Velvet Melon High Intensity</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$38.00</h5>
-                                        <div class="product-colors">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-1 px-md-3">
-                            <div class="product ">
-                                <div class="product-type"><h5 class="-sale">-15%</h5></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">eyes</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">Leather shopper bag</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$30.00</h5>
-                                        <h5 class="product-price--discount">$35.00</h5>
-                                        <div class="product-colors">
-                                            <div class="product-colors__item" style="background-color: #8B0000"></div>
-                                            <div class="product-colors__item" style="background-color: #4169E1"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-1 px-md-3">
-                            <div class="product ">
-                                <div class="product-type"></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">eyes</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">Luxe jewel lipstick</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$38.00</h5>
-                                        <div class="product-colors">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mx-n1 mx-md-n3 mt-4">
-                        <div class="col-6 col-md-3 px-1 px-md-3 mb-4">
-                            <div class="product ">
-                                <div class="product-type"><h5 class="-sale">-50%</h5></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">face</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">Penpoint seamless beauty</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$40.00</h5>
-                                        <h5 class="product-price--discount">$20.00</h5>
-                                        <div class="product-colors">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-1 px-md-3 mb-4">
-                            <div class="product ">
-                                <div class="product-type"></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">face</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">The sneaky lips</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$38.00</h5>
-                                        <div class="product-colors">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-1 px-md-3">
-                            <div class="product ">
-                                <div class="product-type"></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">face</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">White Facial Cream</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$38.00</h5>
-                                        <div class="product-colors">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-1 px-md-3">
-                            <div class="product ">
-                                <div class="product-type"></div>
-                                <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/2.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                                    <div class="product-thumb__actions">
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-content__header">
-                                        <div class="product-category">face</div>
-                                            <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                    </div><a class="product-name" href="product-detail">Orange Massage Cream</a>
-                                    <div class="product-content__footer">
-                                        <h5 class="product-price--main">$55.00</h5>
-                                        <div class="product-colors">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>
@@ -321,20 +149,21 @@
                 <div class="product-tab-slide__header__controller">
                     <ul>
                         <li class="active"><a href="#">all</a></li>
-                        <li><a href="/shop-fullwidth-4col">perfume</a></li>
-                        <li><a href="/shop-fullwidth-4col">cosmetics</a></li>
-                        <li><a href="/shop-fullwidth-4col">fashion</a></li>
-                        <li><a href="/shop-fullwidth-4col">skincare</a></li>
+                        <li><a href="/shop-fullwidth-4col/perfume">perfume</a></li>
+                        <li><a href="/shop-fullwidth-4col/cosmetic">cosmetics</a></li>
+                        <li><a href="/shop-fullwidth-4col/fashion">fashion</a></li>
+                        <li><a href="/shop-fullwidth-4col/skincare">skincare</a></li>
                     </ul>
                     <a class="btn -white" href="shop-fullwidth-4col">View all</a>
                 </div>
             </div>
         </div>
         <div class="product-tab-slide__content">
+            {{#each Product}}
             <div class="product-slide__item">
                 <div class="product ">
-                    <div class="product-type"><h5 class="-new">New</h5></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
+                    <div class="product-type"><h5 class="-new">{{this.brand}}</h5></div>
+                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="{{this.smallImagePath}}" alt="Product image"/><img src="{{this.bigImagePath}}" alt="Product image"/></a>
                         <div class="product-thumb__actions">
                             <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
                             </div>
@@ -346,9 +175,9 @@
                         <div class="product-content__header">
                             <div class="product-category">eyes</div>
                                 <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">The expert mascaraa</a>
+                        </div><a class="product-name" href="product-detail">{{this.name}}</a>
                         <div class="product-content__footer">
-                            <h5 class="product-price--main">$35.00</h5>
+                            <h5 class="product-price--main">{{this.price}}</h5>
                             <div class="product-colors">
                                 <div class="product-colors__item" style="background-color: #8B0000"></div>
                                 <div class="product-colors__item" style="background-color: #4169E1"></div>
@@ -357,192 +186,7 @@
                     </div>
                 </div>
             </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">eyes</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">Orange Massage Cream</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$55.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: #8B0000"></div>
-                                <div class="product-colors__item" style="background-color: #4169E1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">eyes</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">White Facial Cream</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$55.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: #8B0000"></div>
-                                <div class="product-colors__item" style="background-color: #4169E1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">face</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">The Sneaky Lips</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$38.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: #8B0000"></div>
-                                <div class="product-colors__item" style="background-color: #4169E1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"><h5 class="-sale">-50%</h5></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">face</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">TPenpoint seamless beauty</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$40.00</h5>
-                            <h5 class="product-price--discount">$20.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: #8B0000"></div>
-                                <div class="product-colors__item" style="background-color: #4169E1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"><h5 class="-sale">-15%</h5></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">eyes</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">Leather shopper bag</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$35.00</h5>
-                            <h5 class="product-price--discount">$30.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: brown"></div>
-                                <div class="product-colors__item" style="background-color: #4169E1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">lips</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">Luxe jewel lipstick</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$35.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: #8B0000"></div>
-                                <div class="product-colors__item" style="background-color: lightpink"></div>
-                                <div class="product-colors__item" style="background-color: darkred"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-slide__item">
-                <div class="product ">
-                    <div class="product-type"><h5 class="-new d-inline-block mr-1">New</h5><h5 class="-sale d-inline-block">-20%</h5></div>
-                    <div class="product-thumb"><a class="product-thumb__image" href="product-detail"><img src="/assets/images/product/1.png" alt="Product image"/><img src="/assets/images/product/2.png" alt="Product image"/></a>
-                        <div class="product-thumb__actions">
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-atc" href="/cart"><i class="fas fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="product-btn"><a class="btn -white product__actions__item -round product-qv" href="#"><i class="fas fa-eye"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content__header">
-                            <div class="product-category">lips</div>
-                                <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                        </div><a class="product-name" href="product-detail">Something</a>
-                        <div class="product-content__footer">
-                            <h5 class="product-price--main">$64.00</h5>
-                            <h5 class="product-price--discount">$80.00</h5>
-                            <div class="product-colors">
-                                <div class="product-colors__item" style="background-color: lightgreen"></div>
-                                <div class="product-colors__item" style="background-color: lightpink"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 

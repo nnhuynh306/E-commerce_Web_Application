@@ -16,7 +16,10 @@ app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/src/views/layouts',
-    partialsDir: __dirname + '/src/views/partials'
+    partialsDir: __dirname + '/src/views/partials',
+    runtimeOptions:{
+      allowProtoPropertiesByDefault: true
+    }
 }))
 
 app.set('view engine', 'hbs');
