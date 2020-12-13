@@ -5,16 +5,16 @@
             <div class="col-12 col-md-6">
               <div class="product-detail__slide-two">
                 <div class="product-detail__slide-two__big">
-                  <div class="slider__item"><img src="./../assets/images/product/1.png" alt="Product image"/></div>
+                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
                   <div class="slider__item"><img src="./../assets/images/product/2.png" alt="Product image"/></div>
                   <div class="slider__item"><img src="./../assets/images/product/3.png" alt="Product image"/></div>
-                  <div class="slider__item"><img src="./../assets/images/product/4.png" alt="Product image"/></div>
+                  <div class="slider__item"><img src="./../images/Perfume/212 Sexy Man.jpg" alt="Product image"/></div>
                 </div>
                 <div class="product-detail__slide-two__small">
-                  <div class="slider__item"><img src="./../assets/images/product/1.png" alt="Product image"/></div>
+                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
                   <div class="slider__item"><img src="./../assets/images/product/2.png" alt="Product image"/></div>
                   <div class="slider__item"><img src="./../assets/images/product/3.png" alt="Product image"/></div>
-                  <div class="slider__item"><img src="./../assets/images/product/4.png" alt="Product image"/></div>
+                  <div class="slider__item"><img src="./../images/Perfume/212 Sexy Man.jpg" alt="Product image"/></div>
                 </div>
               </div>
 
@@ -25,15 +25,15 @@
                     <div class="product-detail__content">
                       <div class="product-detail__content__header">
                         <h5>Kẻ mắt</h5>
-                        <h2>The expert mascaraa</h2>
+                        <h2>{{product.name}}</h2>
                       </div>
-                      <h3>$35.00</h3>
+                      <h3>${{product.price}}</h3>
                       <div class="divider"></div>
                       <div class="product-detail__content__footer">
                         <ul>
-                          <li>Nhãn hiệu: Gucci</li>
-                          <li>Mã sản phẩm: PM 01</li>
-                          <li>Tình trạng: Còn hàng</li>
+                          <li>Nhãn hiệu: {{product.brand}}</li>
+                          <li>Mã sản phẩm: {{product.id}}</li>
+                          <li>Hàng tồn: {{product.stock}}</li>
                         </ul>
                         <div class="product-detail__colors"><span>Màu:</span>
                           <div class="product-detail__colors__item" style="background-color: #8B0000"></div>
@@ -56,7 +56,7 @@
                           </ul>
                           <div id="allTabsContainer">
                             <div class="tab-content__item -description" data-tab-index="0">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                              <p>{{product.description}}</p>
                             </div>
                           </div>
                         </div>
