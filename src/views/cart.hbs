@@ -24,70 +24,38 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {{!-- CART ITEM}}
+                      {{#if items}}
+                      {{#each items}}
+                      
+                      <form class="form-cart-item-update" data-id="{{item.id}}">
+                  
                       <tr>
                         <td>
                           <div class="cart-product">
-                            <div class="cart-product__image"><img src="assets/images/product/1.png" alt="Product image"/></div>
+                            <div class="cart-product__image"><img src="{{item.smallImagePath}}" alt="Product image"/></div>
                             <div class="cart-product__content">
-                              <h5>eyes</h5><a href="product-detail.html">The expert mascaraa</a>
+                              <h5>{{item.category}}</h5><a href="product-detail.html">{{item.name}}</a>
                             </div>
                           </div>
                         </td>
-                        <td>The expert mascaraa</td>
+                        <td>{{item.price}}</td>
                         <td>
-                              <div class="quantity-controller ">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">1</div>
-                                <div class="quantity-controller__btn -increase">+</div>
-                              </div>
+                              <input type="number" name="quantity{{item.id}}" class="form-control" min="1" max="10" value="{{quantity}}">
                         </td>
-                        <td>35.00</td>
-                        <td><a href="#"><i class="fal fa-times"></i></a></td>
+                        <td>{{price}}</td>
+                        <td><button type="submit" class="btn-primary btn-circle cart-button"><i class="fas fa-check"></i></button>
+                            <button class="btn-primary btn-danger cart-button btn-cart-remove" data-id="{{item.id}}"><i class="fas fa-times"></i></button>
+                        </td>
                       </tr>
-                      <tr>
-                        <td>
-                          <div class="cart-product">
-                            <div class="cart-product__image"><img src="assets/images/product/2.png" alt="Product image"/></div>
-                            <div class="cart-product__content">
-                              <h5>eyes</h5><a href="product-detail.html">Velvet Melon High Intensity</a>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Velvet Melon High Intensity</td>
-                        <td>
-                              <div class="quantity-controller ">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">1</div>
-                                <div class="quantity-controller__btn -increase">+</div>
-                              </div>
-                        </td>
-                        <td>38.00</td>
-                        <td><a href="#"><i class="fal fa-times"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="cart-product">
-                            <div class="cart-product__image"><img src="assets/images/product/3.png" alt="Product image"/></div>
-                            <div class="cart-product__content">
-                              <h5>eyes</h5><a href="product-detail.html">Leather shopper bag</a>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Leather shopper bag</td>
-                        <td>
-                              <div class="quantity-controller ">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">1</div>
-                                <div class="quantity-controller__btn -increase">+</div>
-                              </div>
-                        </td>
-                        <td>35.00</td>
-                        <td><a href="#"><i class="fal fa-times"></i></a></td>
-                      </tr>
+                      </form>
+                      {{/each}}
+                      {{/if}}
+                    {{!-- CART ITEM}}
                     </tbody>
                   </table>
                 </div>
-                <div class="cart__table__footer"><a href="shop-fullwidth-4col.html"><i class="fal fa-long-arrow-left"></i>Continue Shopping</a><a href="#"><i class="fal fa-trash"></i>Clear Shopping Cart</a></div>
+                <div class="cart__table__footer"><a href="/"><i class="fal fa-long-arrow-left"></i>Continue Shopping</a><a href="#"><i class="fal fa-trash"></i>Clear Shopping Cart</a></div>
               </div>
               <div class="cart__total">
                 <div class="row">
@@ -110,11 +78,11 @@
                         <tbody>
                           <tr>
                             <th>Subtotal</th>
-                            <td>$169.00</td>
+                            <td>{{totalPrice}}</td>
                           </tr>
                           <tr>
                             <th>Total</th>
-                            <td class="final-price">$169.00</td>
+                            <td class="final-price">{{totalPrice}}</td>
                           </tr>
                         </tbody>
                       </table><a class="btn -dark" href="/cart/checkout">Proceed to checkout</a>

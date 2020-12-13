@@ -3,7 +3,7 @@ var router = express.Router()
 let userController = require('../controllers/userController')
 
 router.get('/login', function(req, res) {
-    if (req.session.user) {
+    if (userController.isLoggedIn(req)) {
         res.redirect('/')
     } else {
         res.render('login')
@@ -38,7 +38,7 @@ router.post('/login', (req, res, next) => {
 })
 
 router.get('/signup', function(req, res) {
-    if (req.session.user) {
+    if (userController.isLoggedIn(req)) {
         res.redirect('/')
     } else {
         res.render('sign_up')

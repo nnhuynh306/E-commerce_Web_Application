@@ -35,11 +35,16 @@ app.use(session({
     cookie: { maxAge: null }}
 ));
 
+//CART
+var Cart = require(__dirname + '/src/controllers/cartController')
 
 app.use((req, res, next) => {
-      res.locals.username = req.session.user ? req.session.user.name : "";
-      res.locals.userLoggedIn = req.session.user ? true: false;
-      next();
+  var cart = new Cart(req.session.cart? req.session.cart : {});
+  req.session.cart = cart;
+
+  res.locals.username = req.session.user ? req.session.user.name : "";
+  res.locals.userLoggedIn = req.session.user ? true: false;
+  next();
 })
 //ROUTER
 
@@ -66,6 +71,13 @@ app.get('/createTable', (req,res)=>{
 app.get('/testDB',(req,res)=>{
     res.render('testDB.php')
 });
+
+app.get('/testing', (req, res) => {
+  var productController = require(__dirname + '/src/controllers/productController');
+  productController.getProductById(1).then(data => {
+    res.json(data);
+  })
+})
 
 //ERROR HANDLER
 app.use((req, res) => {
