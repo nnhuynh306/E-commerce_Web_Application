@@ -7,8 +7,6 @@ var router = express.Router()
 router.get('/', function(req, res) {
     var productID = req.query.id || 1;
 
-    
-    // res.json() = controller.getProductById(productID);
     commentController.getProductComment(productID).then(cmt => {
         res.locals.comment = cmt
         console.log(cmt)

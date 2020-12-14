@@ -6,9 +6,9 @@ controller.getProductById = (id) => {
         where: {
             id: id,
         },
-        include: {
+        include: [{
             model: models.ProductAttribute
-        }
+        }]
     })
 }
 
