@@ -9,7 +9,6 @@ router.get('/', function(req, res) {
 
     commentController.getProductComment(productID).then(cmt => {
         res.locals.comment = cmt
-        console.log(cmt)
         controller.getProductById(productID).then(product => {
             res.locals.product = product
             res.render('product-detail');
