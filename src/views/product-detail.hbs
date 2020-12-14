@@ -24,7 +24,9 @@
               <div class="product-detail__content">
                     <div class="product-detail__content">
                       <div class="product-detail__content__header">
-                        <h5>{{product.ProductAttributes.name}}</h5>
+                        {{#each product.ProductAttributes}}
+                          <h5>{{name}}</h5>
+                        {{/each}}
                         <h2>{{product.name}}</h2>
                       </div>
                       <h3>${{product.price}}</h3>
