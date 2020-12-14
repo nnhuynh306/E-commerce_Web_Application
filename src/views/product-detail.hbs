@@ -35,18 +35,22 @@
                           <li>Mã sản phẩm: {{product.id}}</li>
                           <li>Hàng tồn: {{product.stock}}</li>
                         </ul>
-                        <form action="/cart" method="POST">
-                          <input type="hidden" name="id" value="{{product.id}}">
+                        <form class="form-add-to-cart" data-id={{product.id}}>
                           <div class="product-detail__colors"><span>Màu:</span>
                             <div class="product-detail__colors__item" style="background-color: #8B0000"></div>
                             <div class="product-detail__colors__item" style="background-color: #4169E1"></div>
                           </div>
                           <div class="product-detail__controller">
                               <div class="quantity-controller -border -round">
-                                <input type="number" class="border-0" name="quantity" class="form-control" min="1" max="{{product.stock}}" value="1">
+                                <input type="number" class="border-0" id="product-quantity" class="form-control" min="1" max="{{product.stock}}" value="1">
                                 
                               </div>
-                              <button type="submit" class="btn-primary -round cart-button"><i class="fas fa-check"></i></button>
+                              {{#if userLoggedIn}}
+                                <button type="submit" class="btn -round -red"><i class="fas fa-shopping-bag"></i></button>
+                              {{else}}                               
+                                  <a class="btn -round -red" href="/user/login?returnURL=&#47;product-detail&#63;id={{product.id}}"><i class="fas fa-shopping-bag"></i></a>                      
+                              {{/if}}
+
                           </div>
                   
                         </div>

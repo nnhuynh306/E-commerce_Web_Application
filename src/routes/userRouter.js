@@ -3,9 +3,10 @@ var router = express.Router()
 let userController = require('../controllers/userController')
 
 router.get('/login', function(req, res) {
-    if (userController.isLoggedIn(req)) {
+    if (req.session.user) {
         res.redirect('/')
     } else {
+        req.session.returnURL = req.query.returnURL;
         res.render('login')
     }
 });
@@ -20,7 +21,12 @@ router.post('/login', (req, res, next) => {
             if (user) {
                 if (userController.comparePassword(password, user.pass)) {
                     req.session.user = user;
-                    res.redirect('/');
+                    if (req.session.returnURL) {
+                        res.redirect(req.session.returnURL);
+                    } else{
+                        res.redirect('/');
+                    }
+                   
                 } else {
                     res.render('login', {
                         message: 'Mật khẩu sai',
@@ -38,7 +44,7 @@ router.post('/login', (req, res, next) => {
 })
 
 router.get('/signup', function(req, res) {
-    if (userController.isLoggedIn(req)) {
+    if (req.session.user) {
         res.redirect('/')
     } else {
         res.render('sign_up')
