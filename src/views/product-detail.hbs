@@ -119,40 +119,26 @@
 
 <!--Comment-->
  <div class="container">
+   {{#each comment}}
      <div class="row">
 			<div class="col-sm-12">
 				<hr/>
 				<div class="review-block">
 					<div class="row">
 						<div class="col-sm-3">
-							<div class="review-block-name">nktailor</div>
-							<div class="review-block-date">January 29, 2016</div>
+							<div class="review-block-name">{{User.name}}</div>
+							<div class="review-block-date">{{createdAt}}</div>
 						</div>
 						<div class="col-sm-9">
-              <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+              <div class="rate">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
 							<div class="review-block-title">this was nice in buy</div>
-							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+							<div class="review-block-description">{{text}}</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-         <div class="row">
-			<div class="col-sm-12">
-				<hr/>
-				<div class="review-block">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="review-block-name">nktailor</div>
-							<div class="review-block-date">January 29, 2016</div>
-						</div>
-						<div class="col-sm-9">
-              <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-							<div class="review-block-title">this was nice in buy</div>
-							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    {{/each}}
  </div>
