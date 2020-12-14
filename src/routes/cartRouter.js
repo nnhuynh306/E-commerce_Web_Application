@@ -5,9 +5,9 @@ var productController = require('../controllers/productController')
 
 router.get('/', function(req, res) {
     if (userController.isLoggedIn(req)) {
-        // var cart = req.session.cart;
-        // res.local.items = cart.generateArray();
-        // res.local.totalPrice = cart.getTotalPrice();
+        var cart = req.session.cart;
+        res.locals.items = cart.generateArray();
+        res.locals.totalPrice = cart.getTotalPrice();
 
         res.render('cart')
     } else {
@@ -23,8 +23,8 @@ router.post('/', (req, res) => {
         res.render('cart');
     }
 
-    productController.getProductById(productId).then(data => {
-        if (data) {
+    productController.getProductById(productId).then(product => {
+        if (product) {
             req.session.cart.add(product, productId, quantity);
             res.sendStatus(204);
             res.end();  
@@ -41,9 +41,11 @@ router.delete('/', (req, res) => {
 
 router.put('/', (req, res) => {
     var productId = req.body.id;
+    console.log(productId);
     var quantity = parseInt(req.body.quantity);
+    console.log(quantity);
     req.session.cart.update(productId, quantity);
-    req.sendStatus(204);
+    res.sendStatus(204);
     res.end();
 })
 
