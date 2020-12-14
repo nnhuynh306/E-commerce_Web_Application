@@ -95,4 +95,16 @@ app.use((err, req, res, next) => {
   res.status(500).render('error')
 })
 
+//HANDLEBAR HELPER IF_EQ
+var hbs_helper = hbs.create({});
+
+// register new function
+hbs_helper.handlebars.registerHelper('if_eq', function(a, b, opts) {
+  if(a == b)
+      return opts.fn(this);
+  else
+      return opts.inverse(this);
+});
+
+
 app.listen(process.env.PORT || 3000);

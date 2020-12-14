@@ -1,11 +1,13 @@
 const express = require('express')
 var router = express.Router()
+const commentController = require('./../controllers/commentController');
 
 router.post('/', function(req, res) {
-    let rating = req.body.rating;
+    let rating = parseInt(req.body.rating);
     let comment = req.body.comment;
-    console.log('Rating: ', rating);
-    console.log('Text: ', comment);
+    let productID = parseInt(req.body.productID);
+    let userID = parseInt(req.session.user.id);
+    commentController.insertComment(userID, productID, rating, comment)
     res.redirect('product-detail');
 });
 

@@ -112,6 +112,7 @@
         <div class="form-group">
           <label for="comment">Your comment:</label>
           <input type="text" class="form-control" name="comment" placeholder="">
+          <input type="hidden" class="form-control" name="productID" value="{{product.id}}">
         </div>
 
         <input type="submit" value="Add comment">
@@ -136,10 +137,28 @@
 						</div>
 						<div class="col-sm-9">
               <div class="rate">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                {{#if_eq rating 1}}
+                  <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                {{else}}
+                  {{#if_eq rating 2}}
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                  {{else}}
+                    {{#if_eq rating 3}}
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    {{else}}
+                      {{#if_eq rating 4}}
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      {{else}}
+                        {{#if_eq rating 5}}
+                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        {{/if_eq}}
+                      {{/if_eq}}
+                    {{/if_eq}}  
+                  {{/if_eq}}
+                {{/if_eq}}
                 </div>
-							<div class="review-block-title">this was nice in buy</div>
-							<div class="review-block-description">{{text}}</div>
+							<div class="review-block-title">{{text}}</div>
+							{{!-- <div class="review-block-description">{{text}}</div> --}}
 						</div>
 					</div>
 				</div>

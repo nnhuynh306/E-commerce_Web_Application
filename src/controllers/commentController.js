@@ -15,6 +15,15 @@ controller.getProductComment = (productID) => {
     });
 };
 
+controller.insertComment = (userID, productID, rate,  cmt) => {
+    models.Comment.create({
+        text: cmt,
+        rating: rate,
+        ProductId: productID,
+        UserId: userID
+    })
+};
+
 
 
 module.exports = controller
