@@ -579,37 +579,3 @@ $(document).ready(function () {
   tab();
   openSearchBox();
 });
-
-$('.form-cart-item-update').on('submit', function(e) {
-  e.preventDefault();
-  var id = $(this).data('id');
-  var quantity = $('#quantity' + id).val();
-  $.ajax({
-    url: '/cart',
-    type: 'PUT',
-    data: {
-      id: id,
-      quantity: quantity,
-    },
-    success: function() {
-      location.reload();
-    }
-  })
-})
-
-$('.btn-cart-delete').on('click', (e) => {
-  if (confirm('Xóa sản phẩm?')) {
-    var id = $(this).data('id')
-    $.ajax({
-      url: '/cart',
-      type: 'DELETE',
-      data: {
-        id:id,
-      },
-      success: () => {
-        location.reload();
-      }
-    })
-  }
-
-})

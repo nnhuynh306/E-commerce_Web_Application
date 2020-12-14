@@ -24,7 +24,6 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {{!-- CART ITEM}}
                       {{#if items}}
                       {{#each items}}
                       
@@ -35,23 +34,22 @@
                           <div class="cart-product">
                             <div class="cart-product__image"><img src="{{item.smallImagePath}}" alt="Product image"/></div>
                             <div class="cart-product__content">
-                              <h5>{{item.category}}</h5><a href="product-detail.html">{{item.name}}</a>
+                              <h5>{{item.category}}</h5><a href="product-detail?id={{item.id}}">{{item.name}}</a>
                             </div>
                           </div>
                         </td>
                         <td>{{item.price}}</td>
                         <td>
-                              <input type="number" name="quantity{{item.id}}" class="form-control" min="1" max="10" value="{{quantity}}">
+                              <input type="number" id="quantity{{item.id}}" class="form-control" min="1" max="10" value="{{quantity}}">
                         </td>
                         <td>{{price}}</td>
-                        <td><button type="submit" class="btn-primary btn-circle cart-button"><i class="fas fa-check"></i></button>
+                        <td><button type="submit" class="btn-primary -round cart-button"><i class="fas fa-check"></i></button>
                             <button class="btn-primary btn-danger cart-button btn-cart-remove" data-id="{{item.id}}"><i class="fas fa-times"></i></button>
                         </td>
                       </tr>
                       </form>
                       {{/each}}
                       {{/if}}
-                    {{!-- CART ITEM}}
                     </tbody>
                   </table>
                 </div>

@@ -5,16 +5,16 @@
             <div class="col-12 col-md-6">
               <div class="product-detail__slide-two">
                 <div class="product-detail__slide-two__big">
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
                 </div>
                 <div class="product-detail__slide-two__small">
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
-                  <div class="slider__item"><img src={{product.bigImagePath}} alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
+                  <div class="slider__item"><img src="{{product.bigImagePath}}" alt="Product image"/></div>
                 </div>
               </div>
 
@@ -35,23 +35,25 @@
                           <li>Mã sản phẩm: {{product.id}}</li>
                           <li>Hàng tồn: {{product.stock}}</li>
                         </ul>
-                        <div class="product-detail__colors"><span>Màu:</span>
-                        {{#each colors}}
-                          <div class="product-detail__colors__item" style="background-color: {{color}}"></div>
-                        {{/each}}
-                          <div class="product-detail__colors__item" style="background-color: #8B0000"></div>
-                          <div class="product-detail__colors__item" style="background-color: #4169E1"></div>
-                        </div>
-                        <div class="product-detail__controller">
+                        <form action="/cart" method="POST">
+                          <input type="hidden" name="id" value="{{product.id}}">
+                          <div class="product-detail__colors"><span>Màu:</span>
+                          {{#each colors}}
+                            <div class="product-detail__colors__item" style="background-color: {{color}}"></div>
+                            {{/each}}
+                            <div class="product-detail__colors__item" style="background-color: #8B0000"></div>
+                            <div class="product-detail__colors__item" style="background-color: #4169E1"></div>
+                          </div>
+                          <div class="product-detail__controller">
                               <div class="quantity-controller -border -round">
-                                <div class="quantity-controller__btn -descrease">-</div>
-                                <div class="quantity-controller__number">2</div>
-                                <div class="quantity-controller__btn -increase">+</div>
+                                <input type="number" class="border-0" name="quantity" class="form-control" min="1" max="{{product.stock}}" value="1">
+                                
                               </div>
-                              <div class="add-to-cart -dark"><a class="btn -round -red" href="#"><i class="fas fa-shopping-bag"></i></a>
-                                <h5>Thêm vào giỏ</h5>
-                              </div>
+                              <button type="submit" class="btn-primary -round cart-button"><i class="fas fa-check"></i></button>
+                          </div>
+                  
                         </div>
+                        </form>
                         <div class="divider"></div>
                         <div class="product-detail__content__tab">
                           <ul class="tab-content__header">
