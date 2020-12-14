@@ -1,25 +1,25 @@
 <!--Login-->
     <div class="login">
-        <h3 class="login-title">LOGIN</h3>
+        <h3 class="login-title">ĐĂNG NHẬP</h3>
         <div class="login-form">
           <form action='/user/login' method="POST">
             <p class="text-center font-weight-bold text-{{type}}">{{message}}</p>
             <div class="input-validator">
-                <label class="labelName" for="username"> UserName: </label>
+                <label class="labelName" for="username"> Tên đăng nhập hoặc Email: </label>
                 <input type="text" name="username" placeholder="User Name"/>
             </div>
             <div class="input-validator">
-                <label class="labelPass" for="password"> Password: </label>
+                <label class="labelPass" for="password"> Mật khẩu: </label>
                 <input type="password" name="password" placeholder="Password"/>
             </div>
             <div class="registerlink">
-                <a href="/user/signup">Sign Up</a>
+                <a href="/user/signup">Đăng ký</a>
             </div>
             <div class="forgotPass">
-                <a href="/user/forgotpass">Forgot Password</a>
+                <a href="/user/forgotpass">Lấy lại mật khẩu</a>
             </div>
             <div class="loginBTN">
-                <button id="btn-login" type="submit" >Login</button>
+                <button id="btn-login" type="submit" >Đăng nhập</button>
             </div>
           </form>
         </div>

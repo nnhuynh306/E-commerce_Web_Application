@@ -6,23 +6,30 @@ router.get('/login', function(req, res) {
     if (req.session.user) {
         res.redirect('/')
     } else {
-        req.session.returnURL = req.query.returnURL;
+        req.session.nextURL = req.query.nextURL;
         res.render('login')
     }
 });
 
 router.post('/login', (req, res, next) => {
+    if (req.session.user) {
+        return res.render('login', {
+            message: 'Bạn đang đăng nhập bằng một tài khoản khác',
+            type: 'danger'
+        })
+    }
+
     let username = req.body.username;
     let password = req.body.password;
 
     userController
-        .getUserByUsername(username)
+        .getUserByUsernameOrEmail(username)
         .then(user => {
             if (user) {
                 if (userController.comparePassword(password, user.pass)) {
                     req.session.user = user;
-                    if (req.session.returnURL) {
-                        res.redirect(req.session.returnURL);
+                    if (req.session.nextURL) {
+                        res.redirect(req.session.nextURL);
                     } else{
                         res.redirect('/');
                     }
@@ -47,22 +54,62 @@ router.get('/signup', function(req, res) {
     if (req.session.user) {
         res.redirect('/')
     } else {
+        req.session.nextURL = req.query.nextURL;
         res.render('sign_up')
     }
 });
 
 router.post('/signup', function(req, res, next) {
-    let  email  =  req.body.email;
-    let  name =  req.body.username;
-    let   pass = req.body.password;
- 
+    let email  =  req.body.email;
+    let name =  req.body.username;
+    let pass = req.body.password;
     let confirmPassword = req.body.confirmPassword
 
-    //kiem tra confirmPassword
+    if (email.length ==0) {
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: pass,
+            preRePass: confirmPassword,
+            message: `Mail không được để trống`,
+            type: 'danger'
+        })
+    }
+
+    if (name.length ==0) {
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: pass,
+            preRePass: confirmPassword,
+            message: `Tên đăng nhập không được để trống`,
+            type: 'danger'
+        })
+    }
+    if (pass.length < 3) {
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: pass,
+            preRePass: confirmPassword,
+            message: `Độ dài mật khẩu phải lớn hơn 3`,
+            type: 'danger'
+        })
+    }
 
     if (pass != confirmPassword) {
-        return res.render('sign_up', {message: "Mật khẩu nhập lại không đúng"})
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: pass,
+            preRePass: confirmPassword,
+            message: `Mật khẩu nhập lại không trùng khớp`,
+            type: 'danger'
+        })
     }
+
+    //kiem tra input values
+
 
     //kiem tra username chua ton tai
     userController
@@ -70,23 +117,54 @@ router.post('/signup', function(req, res, next) {
         .then(user => {
             if (user) {
                 return res.render('sign_up', {
-                    message: `Username ${name} is already taken. Please choose another one`,
+                    preEmail: email,
+                    preName: name,
+                    prePass: pass,
+                    preRePass: confirmPassword,
+                    message: `Tên đăng nhập đã tồn tại`,
                     type: 'danger'
                 })
             }
-            user = {
-                email: email,
-                name: name,
-                pass: pass
-            }
-            return userController
-                .createUser(user)
-                .then(user => {
-                    res.render('login', {
-                        message: 'You have signed up.',
-                        type: 'primary',
+            else {
+                userController
+                    .getUserByEmail(email)
+                    .then(user => {
+                        if (user) {
+                            return res.render('sign_up', {
+                                preEmail: email,
+                                preName: name,
+                                prePass: pass,
+                                preRePass: confirmPassword,
+                                message: `Email đã được đăng ký bởi một tài khoản khác`,
+                                type: 'danger'
+                            })
+                        }
+                        user = {
+                            email: email,
+                            name: name,
+                            pass: pass
+                        }
+                        return userController
+                            .createUser(user)
+                            .then(user => {
+                                if (req.session.nextURL) {
+                                    res.render('login', {
+                                        message: 'You have signed up.',
+                                        type: 'primary',
+                                    })
+                                } else {
+                                    res.render('login', {
+                                        message: 'You have signed up.',
+                                        type: 'primary',
+                                    })
+                                }
+                            });
                     })
-                });
+                    .catch(error => {
+                        next(error);
+                    })
+            }
+           
         })
         .catch(error => {
             next(error);
@@ -96,10 +174,14 @@ router.post('/signup', function(req, res, next) {
 router.get('/logout', (req, res, next) => {
     req.session.destroy(error => {
         if (error) {
-            req.user
             return next(error);
         } else {
-            return res.redirect('/user/login')
+            var nextURL = req.query.nextURL;
+            if (nextURL) {
+                return res.redirect(`${nextURL}`)
+            } else {
+                return res.redirect('/user/login')
+            }
         }
     })
 })

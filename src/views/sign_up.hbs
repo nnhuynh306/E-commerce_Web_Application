@@ -1,33 +1,33 @@
 <!--Register-->
     <div class="register">
-        <h3 class="register-title">SIGN UP</h3>
+        <h3 class="register-title">ĐĂNG KÝ TÀI KHOẢN</h3>
         <div class="register-form">
         <form action="/user/signup" method="POST">
              <p class="text-center font-weight-bold text-{{type}}">{{message}}</p>
             <div class="input-validator">
                 <label class="labelEmail" for="email">Email: </label>
-                <input type="email" name="email" placeholder="Enter your email"/>
+                <input type="email" name="email" placeholder="Enter your email" value="{{preEmail}}"/>
             </div>
             <div class="input-validator">
-                <label class="labelName" for="username"> UserName: </label>
-                <input type="text" name="username" placeholder="Enter your UserName"/>
+                <label class="labelName" for="username"> Tên đăng nhập: </label>
+                <input type="text" name="username" placeholder="Enter your UserName" value="{{preName}}"/>
             </div>
             <div class="input-validator">
-                <label class="labelPass" for="password"> Password: </label>
-                <input type="password" name="password" placeholder="Enter your Password"/>
+                <label class="labelPass" for="password"> Mật khẩu: </label>
+                <input type="password" name="password" placeholder="Enter your Password"value="{{prePass}}"/>
             </div>
             <div class="input-validator">
-                <label class="labelRePass" for="confirmPassword">Enter Password Again: </label>
-                <input type="password" name="confirmPassword" placeholder="Enter Password Again"/>
+                <label class="labelRePass" for="confirmPassword">Nhập lại mật khẩu: </label>
+                <input type="password" name="confirmPassword" placeholder="Enter Password Again"value="{{preRePass}}"/>
             </div>
             <div class="loginLink">
-                <a href="/user/login">Login</a>
+                <a href="/user/login">Đăng nhập</a>
             </div>
             <div class="forgotPass">
-                <a href="/user/forgotpass">Forgot Password</a>
+                <a href="/user/forgotpass">Lấy lại mật khẩu</a>
             </div>
             <div class="registerBTN">
-                <button id="btn-register" type="submit" >Sign up</button>
+                <button id="btn-register" type="submit" >Đăng ký</button>
             </div>
         </form>
         </div>

@@ -41,6 +41,7 @@ app.use(session({
 var Cart = require(__dirname + '/src/controllers/cartController')
 
 app.use((req, res, next) => {
+  res.locals.currentURL = req.path;
   var cart = new Cart(req.session.cart? req.session.cart : {}); 
   req.session.cart = cart;
   res.locals.cartQuantity = cart.getTotalQuantity();

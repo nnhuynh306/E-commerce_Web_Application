@@ -4,8 +4,8 @@
             <div class="top-nav__wrapper">
                 <div class="top-nav__wrapper__quick-links">
                     <ul>
-                        <li><a href="/user/login">Login</a></li>
-                        <li><a href="/user/signup">Signup</a></li>
+                        <li><a href="/user/login?nextURL={{currentURL}}">Login</a></li>
+                        <li><a href="/user/signup?nextURL={{currentURL}}">Signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -16,10 +16,10 @@
         <div class="container">
             <div class="top-nav__wrapper">
                 <div class="top-nav__wrapper__quick-links">
-                    <ul>
-                        <li><a href="/user/logout">Log out</a></li>
-                         <div class="dropdown">
-                            <span class="text-white">{{username}}</span>
+                    <ul>               
+                        <li>
+                             <div class="dropdown">
+                            <span class="text-white font-weight-bold">{{username}}</span>
                             <div class="dropdown-content">
                                 <a href="/my_profile/edit_profile">Edit profile</a>
                                 <a href="/my_profile/history">History</a>
@@ -28,7 +28,9 @@
                                 <a href="/my_profile/security">Security</a>
                                 <a href="/my_profile/setting">Setting</a>
                             </div>
-                        </div>
+                            </div>
+                        </li>
+                        <li><a href="/user/logout?nextURL={{currentURL}}">Log out</a></li>
                     </ul>
                 </div>
             </div>
