@@ -2,6 +2,7 @@
       <div class="shop">
         <div class="container">
           <div class="checkout">
+            
             <form action="/cart/checkout" method="POST">
             <div class="container">
               <div class="row">
@@ -50,13 +51,7 @@
                     <div class="col-12 col-md-6 col-lg-12 ml-auto">
                       <div class="checkout__total">
                         <h5 class="checkout-title">Your order</h5>
-                        <form class="checkout__total__coupon form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
-                          <h5>Coupon code</h5>
-                          <div class="input-validator">
-                            <input type="text" class="my-2 input-discount-checkout " id="discountCode" name="discountCode" placeholder="Your code here"/>
-                          </div> <button type="submit" class="btn -dark btn-apply-coupon-checkout my-2">Apply
-                              </button>
-                        </form>
+                    
                         <div class="checkout__total__price">
                           <h5>Product</h5>
                           <table>
@@ -104,7 +99,23 @@
                 </div>
               
               </div>
-            </form>  
+            </form>
+            <div class="row">
+                  <div class="col-12 col-md-8">
+                    <p class="text-center text-{{couponMessageColor}}">{{couponMessage}}</p>
+                    <div class="cart__total__discount">
+                      <p>Nhập mã giảm giá</p>
+                      <div class="input-validator">
+                        <form class="form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
+                        
+                          <input type="text" id="discountCode" name="discountCode" required="true" placeholder="Your code here"/>
+                              <button type="submit" class="btn -dark btn-apply-coupon">Áp dụng
+                              </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
             </div>
           </div>
         </div>
