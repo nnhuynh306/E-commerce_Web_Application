@@ -58,12 +58,14 @@
               <div class="cart__total">
                 <div class="row">
                   <div class="col-12 col-md-8">
+                    <p class="text-center text-{{couponMessageColor}}">{{couponMessage}}</p>
                     <div class="cart__total__discount">
                       <p>Enter coupon code. It will be applied at checkout.</p>
                       <div class="input-validator">
-                        <form class="form-apply-coupon">
-                          <input type="text" id="discountCode" required="true" placeholder="Your code here"/>
-                              <button class="btn -dark btn-coupon">Apply
+                        <form class="form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
+                        
+                          <input type="text" id="discountCode" name="discountCode" required="true" placeholder="Your code here"/>
+                              <button type="submit" class="btn -dark btn-apply-coupon">Apply
                               </button>
                         </form>
                       </div>
@@ -75,8 +77,12 @@
                       <table>
                         <tbody>
                           <tr>
+                            <th>Discount</th>
+                            <td>{{discount}}%</td>
+                          </tr>
+                          <tr>
                             <th>Subtotal</th>
-                            <td>{{totalPrice}}</td>
+                            <td>{{subTotalPrice}}</td>
                           </tr>
                           <tr>
                             <th>Total</th>

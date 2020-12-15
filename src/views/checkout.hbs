@@ -77,11 +77,12 @@
                     <div class="col-12 col-md-6 col-lg-12 ml-auto">
                       <div class="checkout__total">
                         <h5 class="checkout-title">Your order</h5>
-                        <form class="checkout__total__coupon">
+                        <form class="checkout__total__coupon form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
                           <h5>Coupon code</h5>
                           <div class="input-validator">
-                            <input type="text" placeholder="Your code here" name="coupon"/>
-                          </div><a class="btn -dark" href="#">apply</a>
+                            <input type="text" id="discountCode" name="discountCode" required="true" placeholder="Your code here" name="coupon"/>
+                          </div> <button type="submit" class="btn -dark btn-apply-coupon">Apply
+                              </button>
                         </form>
                         <div class="checkout__total__price">
                           <h5>Product</h5>
@@ -91,33 +92,30 @@
                               <col style="width: 30%"/>
                             </colgroup>
                             <tbody>
-                              <tr>
-                                <td><span>01 x </span>The expert mascaraa
-                                </td>
-                                <td>$35.00</td>
+                              {{#each items}}
+                                <tr>
+                                  <td><span>{{quantity}} x </span>{{item.name}}
+                                  </td>
+                                <td>{{price}}</td>
                               </tr>
-                              <tr>
-                                <td><span>01 x </span>Velvet Melon High Intensity
-                                </td>
-                                <td>$38.00</td>
-                              </tr>
-                              <tr>
-                                <td><span>01 x </span>Leather shopper bag
-                                </td>
-                                <td>$35.00</td>
-                              </tr>
+                              {{/each}}
+                      
                             </tbody>
                           </table>
                           <div class="checkout__total__price__total-count">
                             <table>
                               <tbody>
+                                 <tr>
+                                  <td>Discount: </td>
+                                  <td>{{discount}}%</td>
+                                </tr>
                                 <tr>
                                   <td>Subtotal</td>
-                                  <td>$108.00</td>
+                                  <td>{{subTotalPrice}}</td>
                                 </tr>
                                 <tr>
                                   <td>Total</td>
-                                  <td>$108.00</td>
+                                  <td>{{totalPrice}}</td>
                                 </tr>
                               </tbody>
                             </table>

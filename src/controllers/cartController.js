@@ -1,4 +1,7 @@
 'use strict';
+var models = require('../models')
+var Coupon = models.Coupon;
+var url = require('url')
 
 module.exports = function Cart(oldCart) {
     this.items = oldCart.items || {};
@@ -6,6 +9,9 @@ module.exports = function Cart(oldCart) {
     this.totalPrice = oldCart.totalPrice || 0;
     this.address = oldCart.address || {};
     this.paymentMethod = oldCart.paymentMethod || "COD";
+    this.couponCheck = oldCart.couponCheck || false;
+    this.discount = oldCart.discount || 0;
+    this.couponID = oldCart.counponID || 0;
 
     this.getTotalQuantity = () => {
         var quantity = 0;
@@ -15,10 +21,22 @@ module.exports = function Cart(oldCart) {
         return quantity;
     };
 
+    this.getSubTotalPrice = () => {
+        var price = 0;
+        for (var id in this.items) {
+            price += parseFloat(this.items[id].price);
+        }
+        price = parseFloat(price).toFixed(2);
+        return price;
+    };
+
     this.getTotalPrice = () => {
         var price = 0;
         for (var id in this.items) {
             price += parseFloat(this.items[id].price);
+        }
+        if (this.couponCheck) {
+            price = parseFloat(price) - (parseFloat(price) * parseFloat(this.discount));
         }
         price = parseFloat(price).toFixed(2);
         return price;
@@ -92,5 +110,54 @@ module.exports = function Cart(oldCart) {
             totalPrice: this.totalPrice,
         }
         return cartItem;
+    }
+
+    this.findCoupon = (code) => {
+        return Coupon.findOne({
+            where: {
+                code: code,
+            }
+        });
+    }
+
+    this.applyCoupon = (req, res, code) => {
+        this.findCoupon(code).then(coupon => {
+            if (coupon) {
+                if (coupon.useNumber < coupon.maxUseNumber) {
+                    var afterUse = coupon.useNumber + 1;
+                    this.discount = coupon.discount;
+                    this.couponCheck = true;
+                    res.redirect(url.format({
+                        pathname: req.query.nextURL,
+                        query: {
+                            "couponMessageColor": "primary",
+                            "couponMessage": "Phiếu giảm giá đã được áp dụng"
+                        }
+                    }))
+                } else {
+                    // res.locals.couponMessageColor = "danger";
+                    // res.locals.couponMessage = "Phiếu giảm giá đã hết số lần sử dụng";
+                    // res.render('cart')
+                    res.redirect(url.format({
+                        pathname: req.query.nextURL,
+                        query: {
+                            "couponMessageColor": "danger",
+                            "couponMessage": "Phiếu giảm giá đã hết số lần sử dụng",
+                        }
+                    }))
+                }
+            } else {
+                // res.locals.couponMessageColor = "danger";
+                // res.locals.couponMessage = "Phiếu giảm giá không tồn tại";
+                // res.render('cart')
+                res.redirect(url.format({
+                    pathname: req.query.nextURL,
+                    query: {
+                        "couponMessageColor": "danger",
+                        "couponMessage": "Phiếu giảm giá không tồn tại",
+                    }
+                }))
+            }
+        })
     }
 };

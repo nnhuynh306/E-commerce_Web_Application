@@ -7,7 +7,10 @@ router.get('/', userController.isLoggedIn, (req, res) => {
     var cart = req.session.cart;
     res.locals.items = cart.generateArray();
     res.locals.totalPrice = cart.getTotalPrice();
-
+    res.locals.subTotalPrice = cart.getSubTotalPrice();
+    res.locals.discount = parseInt(cart.discount * 100);
+    res.locals.couponMessage = req.query.couponMessage;
+    res.locals.couponMessageColor = req.query.couponMessageColor;
     res.render('cart')
 });
 
@@ -44,6 +47,13 @@ router.put('/', (req, res) => {
 })
 
 router.get('/checkout', (req, res) => {
+    var cart = req.session.cart;
+    res.locals.items = cart.generateArray();
+    res.locals.totalPrice = cart.getTotalPrice();
+    res.locals.subTotalPrice = cart.getSubTotalPrice();
+    res.locals.discount = parseInt(cart.discount * 100);
+    res.locals.couponMessage = req.query.couponMessage;
+    res.locals.couponMessageColor = req.query.couponMessageColor;
     res.render('checkout')
 })
 
@@ -51,9 +61,7 @@ router.post('/coupon', (req, res , next) => {
     if (req.session.user) {
         var cart = req.session.cart;
         var code = req.body.discountCode;
-        if (code) {
-
-        }
+        cart.applyCoupon(req, res, code);
     } else {
         next();
     }
