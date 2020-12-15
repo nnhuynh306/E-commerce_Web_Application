@@ -24,9 +24,7 @@
               <div class="product-detail__content">
                     <div class="product-detail__content">
                       <div class="product-detail__content__header">
-                        {{#each product.ProductAttributes}}
-                          <h5>{{name}}</h5>
-                        {{/each}}
+                          <h5>{{product.Category.name}}</h5>
                         <h2>{{product.name}}</h2>
                       </div>
                       <h3>${{product.price}}</h3>
@@ -39,8 +37,9 @@
                         </ul>
                         <form class="form-add-to-cart" data-id={{product.id}}>
                           <div class="product-detail__colors"><span>Màu:</span>
-                            <div class="product-detail__colors__item" style="background-color: #8B0000"></div>
-                            <div class="product-detail__colors__item" style="background-color: #4169E1"></div>
+                          {{#each product.ProductAttributes}}
+                            <div class="product-detail__colors__item" style="background-color: ;">{{name}}</div>
+                          {{/each}}
                           </div>
                           <div class="product-detail__controller">
                               <div class="quantity-controller -border -round">
@@ -84,7 +83,7 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-    Add your comment
+    Thêm bình luận
     </div>
     <div class="card-body">
       <form action="/comment" method="POST">
