@@ -37,8 +37,8 @@
                         </ul>
                         <form class="form-add-to-cart" data-id={{product.id}}>
                           <div class="product-detail__colors"><span>Màu:</span>
-                          {{#each product.ProductAttributes}}
-                            <div class="product-detail__colors__item" style="background-color: ;">{{name}}</div>
+                          {{#each colors}}
+                            <div class="product-detail__colors__item" style="background-color: {{color}};"></div>
                           {{/each}}
                           </div>
                           <div class="product-detail__controller">
