@@ -1,7 +1,7 @@
 const express = require('express')
 var router = express.Router()
 var userController = require('../controllers/userController')
-var productController = require('../controllers/productController')
+var productController = require('../controllers/productController');
 
 router.get('/', userController.isLoggedIn, (req, res) => {
     var cart = req.session.cart;
@@ -44,7 +44,19 @@ router.put('/', (req, res) => {
 })
 
 router.get('/checkout', (req, res) => {
+    res.render('checkout')
+})
 
+router.post('/coupon', (req, res , next) => {
+    if (req.session.user) {
+        var cart = req.session.cart;
+        var code = req.body.discountCode;
+        if (code) {
+
+        }
+    } else {
+        next();
+    }
 })
 
 module.exports = router
