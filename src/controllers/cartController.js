@@ -9,7 +9,8 @@ module.exports = function Cart(oldCart) {
     this.totalPrice = oldCart.totalPrice || 0;
     this.couponCheck = oldCart.couponCheck || false;
     this.discount = oldCart.discount || 0;
-    this.couponID = oldCart.counponID || 0;
+    this.couponID = oldCart.couponID || 0;
+    this.afterUse = oldCart.afterUse || 0;
 
     this.getTotalQuantity = () => {
         var quantity = 0;
@@ -130,8 +131,9 @@ module.exports = function Cart(oldCart) {
         this.findCoupon(code).then(coupon => {
             if (coupon) {
                 if (coupon.useNumber < coupon.maxUseNumber) {
-                    var afterUse = coupon.useNumber + 1;
+                    this.afterUse = coupon.useNumber + 1;
                     this.discount = coupon.discount;
+                    this.couponID = coupon.id;
                     this.couponCheck = true;
                     res.redirect(url.format({
                         pathname: req.query.nextURL,
@@ -141,9 +143,6 @@ module.exports = function Cart(oldCart) {
                         }
                     }))
                 } else {
-                    // res.locals.couponMessageColor = "danger";
-                    // res.locals.couponMessage = "Phiếu giảm giá đã hết số lần sử dụng";
-                    // res.render('cart')
                     res.redirect(url.format({
                         pathname: req.query.nextURL,
                         query: {
@@ -152,10 +151,59 @@ module.exports = function Cart(oldCart) {
                         }
                     }))
                 }
+                // if (this.couponCheck) {
+                //     models.Coupon.update({
+                //         useNumber: this.preUseNumber,
+                //     },
+                //     {
+                //         where: {
+                //             id: this.couponID,
+                //         }
+                //     }).then(()=> {
+                //         this.discount = coupon.discount;
+                //         this.couponID = coupon.id;
+                //         this.preUseNumber = coupon.useNumber;
+                //         models.Coupon.update({
+                //                 useNumber: afterUse,
+                //             },
+                //             {
+                //                 where: {
+                //                     id: coupon.id,
+                //                 }
+                //             }).then(()=> {
+                //                 this.couponCheck = true;
+                //                 res.redirect(url.format({
+                //                 pathname: req.query.nextURL,
+                //                 query: {
+                //                     "couponMessageColor": "primary",
+                //                     "couponMessage": "Phiếu giảm giá đã được áp dụng"
+                //                 }
+                //                 }))
+                //             })
+                //     })
+                // } else {
+                //     this.discount = coupon.discount;
+                //     this.couponID = coupon.id;
+                //     this.preUseNumber = coupon.useNumber;
+                //     models.Coupon.update({
+                //             useNumber: afterUse,
+                //         },
+                //         {
+                //             where: {
+                //                 id: coupon.id,
+                //             }
+                //         }).then(()=> {
+                //             this.couponCheck = true;
+                //             res.redirect(url.format({
+                //             pathname: req.query.nextURL,
+                //             query: {
+                //                 "couponMessageColor": "primary",
+                //                 "couponMessage": "Phiếu giảm giá đã được áp dụng"
+                //             }
+                //             }))
+                //         })
+                // }
             } else {
-                // res.locals.couponMessageColor = "danger";
-                // res.locals.couponMessage = "Phiếu giảm giá không tồn tại";
-                // res.render('cart')
                 res.redirect(url.format({
                     pathname: req.query.nextURL,
                     query: {
@@ -165,5 +213,16 @@ module.exports = function Cart(oldCart) {
                 }))
             }
         })
+    }
+
+    this.applyDiscountDatabase = () => {
+        return models.Coupon.update({
+                useNumber: this.afterUse,
+            },
+            {
+                where: {
+                    id: this.couponID,
+                }
+            })
     }
 };

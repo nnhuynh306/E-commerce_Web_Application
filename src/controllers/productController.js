@@ -7,6 +7,9 @@ controller.getProductById = (id) => {
             id: id,
         },
         include: [{
+            model: models.Category,
+        },
+        {
             model: models.ProductAttribute,
         }]
     })

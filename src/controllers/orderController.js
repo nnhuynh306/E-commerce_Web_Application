@@ -17,8 +17,11 @@ controller.saveOrder = (cart, order, next) => {
                 models.OrderDetail.create(orderDetail);
             })
 
-            cart.empty();
-            next();
+            cart.applyDiscountDatabase().then(()=> {
+                cart.empty();
+                next();
+            });
+    
         })
 }
 
