@@ -3,11 +3,12 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
       var Users = [{
         name: 'thinhnguyenphuc',
-        pass: 'abc123',
+        pass: '$2y$12$MJHly8VRv4W.WwRkdspB5eH0otvKLT8Eioc7OcEspwXuiSh2HZsNG',
         email: 'thinhnguyenphuc55@gmail.com',
         address: '414 Duong Ba Trac',
         phoneNumber: "0944779167",
-        fullName: 'Nguyen Phuc Thinh'
+        fullName: 'Nguyen Phuc Thinh',
+        isAdmin: true
       }];
       Users.forEach((item, index) => {
           item.createdAt = Sequelize.literal('NOW()');

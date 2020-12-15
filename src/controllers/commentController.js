@@ -25,5 +25,4 @@ controller.insertComment = (userID, productID, rate,  cmt) => {
 };
 
 
-
 module.exports = controller

@@ -2,13 +2,13 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
       var Categories = [{
-          name: 'Perfume'
+          name: 'Nước hoa'
       },{
-          name: 'Cosmectic'
+          name: 'Mỹ phẩm'
       },{
-          name: 'Fashion'
+          name: 'Thời trang'
       },{
-          name: 'Skincare'
+          name: 'Chăm sóc da'
       }];
       Categories.forEach((item, index) => {
           item.createdAt = Sequelize.literal('NOW()');

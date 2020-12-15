@@ -3,16 +3,16 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
       var ProductAttributes = [{
           ProductId:1,
-          name: 'sadfasf'
+          name: 'Đỏ'
       },{
         ProductId:1,
-          name: 'asdfasdf'
+          name: 'Vàng'
       },{
         ProductId:2,
-          name: 'asdfasdf'
+          name: 'Đen'
       },{
         ProductId:3,
-          name: 'sadfasdf'
+          name: 'Trắng'
       }];
       ProductAttributes.forEach((item, index) => {
           item.createdAt = Sequelize.literal('NOW()');

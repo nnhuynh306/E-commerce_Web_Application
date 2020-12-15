@@ -5,9 +5,18 @@ const { response } = require('express');
 var router = express.Router()
 
 router.get('/', function(req, res) {
+    const comment=[]
     var productID = req.query.id || 1;
-
     commentController.getProductComment(productID).then(cmt => {
+        cmt.forEach(element => {
+            comment.push(element.dataValues)
+        });
+        comment.forEach(element=>{
+            let tmp=[]
+            tmp=JSON.stringify(element.createdAt)
+            tmp=tmp.substr(1,10)
+            element.createdAt=tmp
+        })
         res.locals.comment = cmt
         controller.getProductById(productID).then(product => {
             res.locals.product = product

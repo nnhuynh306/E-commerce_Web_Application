@@ -6,10 +6,18 @@ controller.getProductByCategory = (CategoryId) => {
         where: {
             CategoryId: CategoryId,
         },
+        include: [{
+            model: models.Category,
+            attributes:['name']
+       }]
     })
 }
 controller.getAll = () => {
     return models.Product.findAll({
+        include: [{
+            model: models.Category,
+            attributes:['name']
+       }]
     })
 }
 

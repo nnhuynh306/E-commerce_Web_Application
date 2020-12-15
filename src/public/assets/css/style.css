@@ -2909,3 +2909,7 @@ transition: 0.2s ease-in-out; }
 #discountCode {
   width: 100%;
 }
+
+.review-block-date{
+  color: #de1339;
+}
