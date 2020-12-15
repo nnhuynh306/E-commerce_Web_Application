@@ -7,8 +7,6 @@ module.exports = function Cart(oldCart) {
     this.items = oldCart.items || {};
     this.totalQuantity = oldCart.totalQuantity || 0;
     this.totalPrice = oldCart.totalPrice || 0;
-    this.address = oldCart.address || {};
-    this.paymentMethod = oldCart.paymentMethod || "COD";
     this.couponCheck = oldCart.couponCheck || false;
     this.discount = oldCart.discount || 0;
     this.couponID = oldCart.counponID || 0;
@@ -81,6 +79,14 @@ module.exports = function Cart(oldCart) {
         this.totalQuantity = 0;
         this.totalPrice = 0;
     };
+
+    this.isEmpty = () => {
+        if (this.getTotalQuantity() <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     this.generateArray = () => {
         var arr = [];

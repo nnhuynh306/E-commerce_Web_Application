@@ -2,6 +2,7 @@ const express = require('express')
 var router = express.Router()
 var userController = require('../controllers/userController')
 var productController = require('../controllers/productController');
+var orderController = require('../controllers/orderController');
 
 router.get('/', userController.isLoggedIn, (req, res) => {
     var cart = req.session.cart;
@@ -11,6 +12,7 @@ router.get('/', userController.isLoggedIn, (req, res) => {
     res.locals.discount = parseInt(cart.discount * 100);
     res.locals.couponMessage = req.query.couponMessage;
     res.locals.couponMessageColor = req.query.couponMessageColor;
+    res.locals.errorCheckoutMessage = req.query.errorCheckoutMessage;
     res.render('cart')
 });
 
@@ -32,10 +34,16 @@ router.post('/', (req, res) => {
 })
 
 router.delete('/', (req, res) => {
-    var productId = req.body.id;
-    req.session.cart.remove(productId);
-    res.sendStatus(204);
-    res.end();
+    if (req.body.deleteAll) {
+        req.session.cart.empty();
+        res.sendStatus(204);
+        res.end();
+    } else {
+        var productId = req.body.id;
+        req.session.cart.remove(productId);
+        res.sendStatus(204);
+        res.end();
+    }
 })
 
 router.put('/', (req, res) => {
@@ -46,15 +54,77 @@ router.put('/', (req, res) => {
     res.end();
 })
 
-router.get('/checkout', (req, res) => {
+router.get('/checkout',userController.isLoggedIn, (req, res) => {
+    var nextURL = req.query.nextURL;
+    
     var cart = req.session.cart;
+
+    if (cart.isEmpty()) {
+        return res.redirect(`/cart?errorCheckoutMessage= Giỏ hàng trống`);
+    }
+
+    res.locals.infoErrorMessage = req.query.infoErrorMessage;
+
     res.locals.items = cart.generateArray();
     res.locals.totalPrice = cart.getTotalPrice();
     res.locals.subTotalPrice = cart.getSubTotalPrice();
     res.locals.discount = parseInt(cart.discount * 100);
     res.locals.couponMessage = req.query.couponMessage;
     res.locals.couponMessageColor = req.query.couponMessageColor;
+    res.locals.userFullName = req.session.user.fullName;
+    res.locals.userPhoneNumber = req.session.user.phoneNumber;
+    
     res.render('checkout')
+})
+
+router.post('/checkout', userController.isLoggedIn, (req, res) => {
+    var nextURL = req.query.nextURL;
+    
+    var cart = req.session.cart;
+
+    if (cart.isEmpty()) {
+        return res.redirect(`/cart?errorCheckoutMessage= Giỏ hàng trống`);
+    }
+
+    res.locals.items = cart.generateArray();
+    res.locals.totalPrice = cart.getTotalPrice();
+    res.locals.subTotalPrice = cart.getSubTotalPrice();
+    res.locals.discount = parseInt(cart.discount * 100);
+    res.locals.couponMessage = req.query.couponMessage;
+    res.locals.couponMessageColor = req.query.couponMessageColor;
+    res.locals.userFullName = req.session.user.fullName;
+    res.locals.userPhoneNumber = req.session.user.phoneNumber;
+
+    var address = req.body.shippingAddress;
+    var phoneNumber = req.body.phoneNumber;
+    var fullName = req.body.fullName;
+
+    //CHECKING ERRORs
+
+    if (address.length == 0) {
+        return res.redirect('/cart/checkout?infoErrorMessage=Địa chỉ giao hàng không được để trống')
+    }
+    if (phoneNumber.length == 0) {
+        return res.redirect('/cart/checkout?infoErrorMessage=Số điện thoại không được để trống')
+    }
+    if (fullName.length == 0) {
+        return res.redirect('/cart/checkout?infoErrorMessage=Họ và tên không được để trống')
+    }
+    
+    var order = {
+        address: address,
+        note: req.body.note,
+        phoneNumber: phoneNumber,
+        fullName: fullName,
+        totalPrice: cart.getTotalPrice(),
+        state: "Đang giao",
+        UserId: req.session.user.id,
+    }
+
+    orderController.saveOrder(cart, order, () => {
+        res.redirect('/cart/checkout/confirm');
+    })
+    
 })
 
 router.post('/coupon', (req, res , next) => {
@@ -65,6 +135,10 @@ router.post('/coupon', (req, res , next) => {
     } else {
         next();
     }
+})
+
+router.get('/checkout/confirm', (req, res) => {
+    res.render('checkout_confirm')
 })
 
 module.exports = router

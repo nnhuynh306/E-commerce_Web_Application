@@ -2,64 +2,37 @@
       <div class="shop">
         <div class="container">
           <div class="checkout">
+            <form action="/cart/checkout" method="POST">
             <div class="container">
               <div class="row">
+            
                 <div class="col-12 col-lg-8">
-                  <form action="">
                     <div class="checkout__form">
                       <div class="checkout__form__shipping">
-                        <h5 class="checkout-title">Địa chỉ giao hàng</h5>
+                        <p class="py-3 text-danger">{{infoErrorMessage}}</p>
+                        <h5 class="checkout-title">Thông tin giao hàng</h5>
                         <div class="row">
                           <div class="col-12 col-md-6">
                             <div class="input-validator">
-                              <label>Họ <span>*</span>
-                                <input type="text" name="firstName"/>
+                              <label>Họ và tên <span>*</span>
+                                <input type="text" name="fullName"  value="{{userFullName}}"/>
                               </label>
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="input-validator">
-                              <label>Tên<span>*</span>
-                                <input type="text" name="lastName"/>
+                              <label>Số điện thoại<span>*</span>
+                                <input type="text" name="phoneNumber"  value="{{userPhoneNumber}}"/>
                               </label>
                             </div>
                           </div>
-                          <div class="col-12">
+                          <div class="col-12 ">
                             <div class="input-validator">
-                              <label>Quốc tịch<span>*</span>
-                                <input type="text" name="country"/>
+                              <label>Địa chỉ giao hàng<span>*</span>
+                                <textarea name="shippingAddress" class="mt-3"id="shippingAddress"  cols="200" rows="4" placeholder="Địa chỉ gói hàng của bạn sẽ được giao tới"></textarea>
                               </label>
                             </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Địa chỉ <span>*</span>
-                                <input type="text" name="streetAddress" placeholder="Steet address"/>
-                                <input type="text" name="apartment" placeholder="Apartment, suite, unite ect ( optinal )"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Town/City <span>*</span>
-                                <input type="text" name="town"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Country/State <span>*</span>
-                                <input type="text" name="state"/>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="input-validator">
-                              <label>Postcode/ZIP <span>*</span>
-                                <input type="text" name="zip"/>
-                              </label>
-                            </div>
-                          </div>
+                          </div>                      
                           <div class="col-12">
                             <div class="input-validator">
                               <label>Order note
@@ -70,7 +43,7 @@
                         </div>
                       </div>
                     </div>
-                  </form>
+              
                 </div>
                 <div class="col-12 col-lg-4">
                   <div class="row">
@@ -80,8 +53,8 @@
                         <form class="checkout__total__coupon form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
                           <h5>Coupon code</h5>
                           <div class="input-validator">
-                            <input type="text" id="discountCode" name="discountCode" required="true" placeholder="Your code here" name="coupon"/>
-                          </div> <button type="submit" class="btn -dark btn-apply-coupon">Apply
+                            <input type="text" class="my-2 input-discount-checkout " id="discountCode" name="discountCode" placeholder="Your code here"/>
+                          </div> <button type="submit" class="btn -dark btn-apply-coupon-checkout my-2">Apply
                               </button>
                         </form>
                         <div class="checkout__total__price">
@@ -106,36 +79,32 @@
                             <table>
                               <tbody>
                                  <tr>
-                                  <td>Discount: </td>
+                                  <td>Giảm giá: </td>
                                   <td>{{discount}}%</td>
                                 </tr>
                                 <tr>
-                                  <td>Subtotal</td>
+                                  <td>Tổng tiền hàng:</td>
                                   <td>{{subTotalPrice}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Total</td>
+                                  <td>Tổng thanh toán:</td>
                                   <td>{{totalPrice}}</td>
                                 </tr>
                               </tbody>
                             </table>
                           </div>
-                          <div class="checkout__total__price__payment">
-                            <label class="checkbox-label" for="payment">
-                              <input id="payment" type="checkbox" name="payment"/>Cheque payment
-                            </label>
-                            <label class="checkbox-label" htmlfor="paypal">
-                              <input id="paypal" type="checkbox" name="paypal"/>PayPal
-                            </label>
-                          </div>
+                         
                         </div>
-                            <button class="btn -red">Place order
+                            <button type="submit" class="btn -red">ĐẶT HÀNG
                             </button>
                       </div>
                     </div>
                   </div>
+                  
                 </div>
+              
               </div>
+            </form>  
             </div>
           </div>
         </div>

@@ -53,19 +53,19 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="cart__table__footer"><a href="/"><i class="fal fa-long-arrow-left"></i>Continue Shopping</a><a href="#"><i class="fal fa-trash"></i>Clear Shopping Cart</a></div>
+                <div class="cart__table__footer"><a href="/"><i class="fal fa-long-arrow-left"></i>Tiếp tục mua hàng</a><button class="btn -red btn-clear-shopping-cart"><i class="fal fa-trash"></i>Clear Shopping Cart</button></div>
               </div>
               <div class="cart__total">
                 <div class="row">
                   <div class="col-12 col-md-8">
                     <p class="text-center text-{{couponMessageColor}}">{{couponMessage}}</p>
                     <div class="cart__total__discount">
-                      <p>Nhập mã giảm giá ở đây nè</p>
+                      <p>Nhập mã giảm giá</p>
                       <div class="input-validator">
                         <form class="form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
                         
                           <input type="text" id="discountCode" name="discountCode" required="true" placeholder="Your code here"/>
-                              <button type="submit" class="btn -dark btn-apply-coupon">Bấm để giảm giá
+                              <button type="submit" class="btn -dark btn-apply-coupon">Áp dụng
                               </button>
                         </form>
                       </div>
@@ -77,19 +77,21 @@
                       <table>
                         <tbody>
                           <tr>
-                            <th>Giảm</th>
+                            <th>Giảm giá:</th>
                             <td>{{discount}}%</td>
                           </tr>
                           <tr>
-                            <th>Tạm tính</th>
+                            <th>Tổng giá gốc:</th>
                             <td>{{subTotalPrice}}</td>
                           </tr>
                           <tr>
-                            <th>Tổng</th>
+                            <th>Tống giá</th>
                             <td class="final-price">{{totalPrice}}</td>
                           </tr>
                         </tbody>
-                      </table><a class="btn -dark" href="/cart/checkout">Thanh toán thôi</a>
+                      </table>
+                       <p class="text-danger text-center pt-1">{{errorCheckoutMessage}}</p>
+                      <a class="btn -dark" href="/cart/checkout?nextURL={{currentURL}}">Proceed to checkout</a>
                     </div>
                   </div>
                 </div>

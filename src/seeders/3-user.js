@@ -7,7 +7,7 @@ module.exports = {
         email: 'thinhnguyenphuc55@gmail.com',
         address: '414 Duong Ba Trac',
         phoneNumber: "0944779167",
-        fullname: 'Nguyen Phuc Thinh'
+        fullName: 'Nguyen Phuc Thinh'
       }];
       Users.forEach((item, index) => {
           item.createdAt = Sequelize.literal('NOW()');
