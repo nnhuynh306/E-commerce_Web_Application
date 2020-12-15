@@ -2687,6 +2687,7 @@ transition: 0.2s ease-in-out; }
           border: 1px solid #e1e1e1;
           height: 3.21429em;
           width: 100%;
+          background: black;
           transition: 0.2s ease-in-out;
           -webkit-appearance: none;
           padding: 1.25rem;
@@ -2898,4 +2899,13 @@ transition: 0.2s ease-in-out; }
 }
 .review-block-description{
 	font-size:13px;
+}
+
+#shippingAddress {
+  width: 100%; 
+  max-width: 100%;
+}
+
+#discountCode {
+  width: 100%;
 }

@@ -23,7 +23,7 @@ module.exports = {
       phoneNumber: {
         type: Sequelize.STRING
       },
-      fullname: {
+      fullName: {
         type: Sequelize.STRING
       },
       isAdmin: {

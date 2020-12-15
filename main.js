@@ -78,10 +78,7 @@ app.get('/testDB',(req,res)=>{
 });
 
 app.get('/testing', (req, res) => {
-  var productController = require(__dirname + '/src/controllers/productController');
-  productController.getProductById(1).then(data => {
-    res.json(data);
-  })
+  res.render('checkout_confirm');
 })
 
 //ERROR HANDLER

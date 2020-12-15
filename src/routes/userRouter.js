@@ -62,6 +62,7 @@ router.get('/signup', function(req, res) {
 router.post('/signup', function(req, res, next) {
     let email  =  req.body.email;
     let name =  req.body.username;
+    let fullName =  req.body.fullName;
     let pass = req.body.password;
     let confirmPassword = req.body.confirmPassword
 
@@ -71,6 +72,7 @@ router.post('/signup', function(req, res, next) {
             preName: name,
             prePass: pass,
             preRePass: confirmPassword,
+            preFullName: fullName,
             message: `Mail không được để trống`,
             type: 'danger'
         })
@@ -82,6 +84,7 @@ router.post('/signup', function(req, res, next) {
             preName: name,
             prePass: pass,
             preRePass: confirmPassword,
+            preFullName: fullName,
             message: `Tên đăng nhập không được để trống`,
             type: 'danger'
         })
@@ -92,6 +95,7 @@ router.post('/signup', function(req, res, next) {
             preName: name,
             prePass: pass,
             preRePass: confirmPassword,
+            preFullName: fullName,
             message: `Độ dài mật khẩu phải lớn hơn 3`,
             type: 'danger'
         })
@@ -103,6 +107,7 @@ router.post('/signup', function(req, res, next) {
             preName: name,
             prePass: pass,
             preRePass: confirmPassword,
+            preFullName: fullName,
             message: `Mật khẩu nhập lại không trùng khớp`,
             type: 'danger'
         })
@@ -121,6 +126,7 @@ router.post('/signup', function(req, res, next) {
                     preName: name,
                     prePass: pass,
                     preRePass: confirmPassword,
+                    preFullName: fullName,
                     message: `Tên đăng nhập đã tồn tại`,
                     type: 'danger'
                 })
@@ -135,6 +141,7 @@ router.post('/signup', function(req, res, next) {
                                 preName: name,
                                 prePass: pass,
                                 preRePass: confirmPassword,
+                                preFullName: fullName,
                                 message: `Email đã được đăng ký bởi một tài khoản khác`,
                                 type: 'danger'
                             })
@@ -142,7 +149,9 @@ router.post('/signup', function(req, res, next) {
                         user = {
                             email: email,
                             name: name,
-                            pass: pass
+                            pass: pass,
+                            fullName: fullName,
+                            isAdmin: false
                         }
                         return userController
                             .createUser(user)

@@ -11,8 +11,14 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      requireOrder: {
+      note: {
         type: Sequelize.TEXT
+      },
+      fullName: {
+        type: Sequelize.STRING
+      },
+      phoneNumber: {
+        type: Sequelize.STRING
       },
       totalPrice: {
         type: Sequelize.FLOAT
