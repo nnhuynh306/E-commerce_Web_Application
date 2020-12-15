@@ -16,10 +16,10 @@
                     </colgroup>
                     <thead>
                       <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -60,12 +60,12 @@
                   <div class="col-12 col-md-8">
                     <p class="text-center text-{{couponMessageColor}}">{{couponMessage}}</p>
                     <div class="cart__total__discount">
-                      <p>Enter coupon code. It will be applied at checkout.</p>
+                      <p>Nhập mã giảm giá ở đây nè</p>
                       <div class="input-validator">
                         <form class="form-apply-coupon" method="POST" action="/cart/coupon?nextURL={{currentURL}}">
                         
                           <input type="text" id="discountCode" name="discountCode" required="true" placeholder="Your code here"/>
-                              <button type="submit" class="btn -dark btn-apply-coupon">Apply
+                              <button type="submit" class="btn -dark btn-apply-coupon">Bấm để giảm giá
                               </button>
                         </form>
                       </div>
@@ -73,23 +73,23 @@
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="cart__total__content">
-                      <h3>Cart</h3>
+                      <h3>Giỏ hàng</h3>
                       <table>
                         <tbody>
                           <tr>
-                            <th>Discount</th>
+                            <th>Giảm</th>
                             <td>{{discount}}%</td>
                           </tr>
                           <tr>
-                            <th>Subtotal</th>
+                            <th>Tạm tính</th>
                             <td>{{subTotalPrice}}</td>
                           </tr>
                           <tr>
-                            <th>Total</th>
+                            <th>Tổng</th>
                             <td class="final-price">{{totalPrice}}</td>
                           </tr>
                         </tbody>
-                      </table><a class="btn -dark" href="/cart/checkout">Proceed to checkout</a>
+                      </table><a class="btn -dark" href="/cart/checkout">Thanh toán thôi</a>
                     </div>
                   </div>
                 </div>
