@@ -89,23 +89,23 @@
 
 
     <!--New arrivals-->
-    <div class="product-tab -style-2 mt-5">
+    <div id="product" class="product-tab -style-2 mt-5">
         <div class="container">
             <div class="product-tab__header">
                 <h5>Hàng mới về</h5>
                 <div class="product-tab-slide__header__controller">
                     <ul>
-                        <li class="active"><a href="#">Tất cả</a></li>
-                        <li><a href="/shop-fullwidth-4col/perfume">nước hoa</a></li>
-                        <li><a href="/shop-fullwidth-4col/cosmetic">mỹ phẩm</a></li>
-                        <li><a href="/shop-fullwidth-4col/fashion">thời trang</a></li>
-                        <li><a href="/shop-fullwidth-4col/skincare">chăm sóc da</a></li>
+                        <li id="all" class="active"><a href="#">Tất cả</a></li>
+                        <li id="perfume"><a href="#perfume">Nước hoa</a></li>
+                        <li id="cosmetic"><a href="#cosmetic">Mỹ phẩm</a></li>
+                        <li id="fashion"><a href="#fashion">Thời trang</a></li>
+                        <li id="skincare"><a href="#skincare">Chăm sóc da</a></li>
                     </ul><a class="btn -white" href="shop-fullwidth-4col">Còn nữa</a>
                 </div>
             </div>
             <div class="product-tab__content">
                 <div class="product-tab_content__wrapper">
-                    <div class="row mx-n1 mx-md-n3">
+                    <div class="row mx-n1 mx-md-n3" id="sanpham">
                         {{#each Product}}
                         <div class="col-6 col-md-3 px-1 px-md-3 mb-4">
                             <div class="product ">
@@ -140,7 +140,6 @@
         </div>
     </div>
 
-
     <!--Best seller-->
     <div class="product-tab-slide ">
         <div class="container">
@@ -173,7 +172,7 @@
                     </div>
                     <div class="product-content">
                         <div class="product-content__header">
-                            <div class="product-category">eyes</div>
+                            <div class="product-category">{{this.Category.name}}</div>
                                 <div class="rate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                         </div><a class="product-name" href="product-detail">{{this.name}}</a>
                         <div class="product-content__footer">
