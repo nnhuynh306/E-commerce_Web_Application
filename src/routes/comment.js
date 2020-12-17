@@ -8,7 +8,8 @@ router.post('/', function(req, res) {
     let productID = parseInt(req.body.productID);
     let userID = parseInt(req.session.user.id);
     commentController.insertComment(userID, productID, rating, comment)
-    res.redirect('product-detail');
+    let url = 'product-detail/' + productID;
+    res.redirect(url);
 });
 
 module.exports = router
