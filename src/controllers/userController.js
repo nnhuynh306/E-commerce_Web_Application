@@ -46,7 +46,7 @@ controller.getUserByEmail= (email) => {
     })
 }
 
-controller.updateUser = (user) => {
+controller.updateUserProfile = (user) => {
     return models.User.update({
         name: user.name,
         phoneNumber: user.phoneNumber,
@@ -55,6 +55,18 @@ controller.updateUser = (user) => {
     }, {
         where: {
             id: user.id,
+        }
+    })
+}
+
+controller.changeUserPassword = (id, password) => {
+    var salt = bcrypt.genSaltSync(10);
+    password = bcrypt.hashSync(password, salt);
+    return models.User.update({
+        pass: password,
+    }, {
+        where: {
+            id: id,
         }
     })
 }
