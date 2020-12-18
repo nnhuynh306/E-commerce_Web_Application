@@ -166,11 +166,11 @@
                             </div>
                         </div>
                         <!--remove a product tab content-->
-                        <div class="tab-pane fade {{active_edit_product}}" id="v-pills-remove-product" role="tabpanel" aria-labelledby="v-pills-pills-remove-product-tab">
+                        <div class="tab-pane fade {{active_remove_product}}" id="v-pills-remove-product" role="tabpanel" aria-labelledby="v-pills-pills-remove-product-tab">
                             <div class="container p-4">
                                 <div class="container">
                                     <legend class="pb-1 text-center font-weight-bold">Xóa sản phẩm</legend>
-                                    <form action="/admin/edit-product" method="get">
+                                    <form action="/admin/remove-product" method="get">
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
@@ -190,6 +190,76 @@
                                             </div>
                                             <div class="col text-center align-self-center">
                                                 <button type="submit" class="submit-btn" id="profile-submit">Tìm thông tin</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Edit product tab content-->
+                        <div class="tab-pane fade {{active_category_management}}" id="v-pills-category-management" role="tabpanel" aria-labelledby="v-pills-category-management-tab">
+                            <div class="container p-4">
+                                <div class="container">
+                                    <legend class="pb-1 text-center font-weight-bold">Truy vấn phân loại của sản phẩm</legend>
+                                    <form action="/admin/category-management-find" method="get">
+                                        <div class="row pb-3">
+                                            <div class="col-xs-12 col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="category_id" >ID</label><br>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="category_id" id="category_id" class="input-full-width" value="" placeholder="Mã phân loại" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="category_name" >Tên sản phẩm</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="category_name" id="category_name" class="input-full-width" value="" placeholder="Tên phân loại" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col text-center align-self-center">
+                                                <button type="submit" class="submit-btn" id="profile-submit">Tìm thông tin</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <legend class="pb-1 text-center font-weight-bold">Kết quả truy vấn</legend>
+                                    <form action="/admin/category-management-update" method="get">
+                                        <div class="row pb-3">
+                                            <div class="col-xs-12 col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="category_name_result" >Tên sản phẩm</label><br>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="category_name_result" id="category_name_result" class="input-full-width" value="{{category_name_result}}" placeholder="Sửa tên phân loại" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col text-center align-self-center">
+                                                <button type="submit" class="submit-btn" id="profile-submit">Cập nhật</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <legend class="pb-1 text-center font-weight-bold">Thêm mới phân loại</legend>
+                                    <form action="/admin/category-management-add" method="get">
+                                        <div class="row pb-3">
+                                            <div class="col-xs-12 col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="category_name" >Tên phân loại</label><br>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="category_name" id="category_name" class="input-full-width" placeholder="Tên phân loại" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col text-center align-self-center">
+                                                <button type="submit" class="submit-btn" id="profile-submit">Thêm mới phân loại</button>
                                             </div>
                                         </div>
                                     </form>
