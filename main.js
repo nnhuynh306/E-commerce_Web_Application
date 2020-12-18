@@ -47,6 +47,11 @@ app.use((req, res, next) => {
   res.locals.cartQuantity = cart.getTotalQuantity();
 
   res.locals.username = req.session.user ? req.session.user.name : "";
+  res.locals.userFullName = req.session.user ? req.session.user.fullName : "";
+  res.locals.userAddress = req.session.user ? req.session.user.address : "";
+  res.locals.userPhoneNumber = req.session.user ? req.session.user.phoneNumber : "";
+  res.locals.userEmail = req.session.user ? req.session.user.email : "";
+
   res.locals.userLoggedIn = req.session.user ? true: false;
   next();
 })
