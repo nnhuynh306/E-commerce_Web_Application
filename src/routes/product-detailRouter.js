@@ -22,10 +22,6 @@ router.get('/:id', function(req, res) {
         controller.getProductById(productID).then(product => {
             colors = [];
             res.locals.product = product;
-            for(attr of product.ProductAttributes)
-            {
-                colors.push({color:toColor(attr.name)});
-            }
             res.locals.colors = colors;
             res.render('product-detail');
         })

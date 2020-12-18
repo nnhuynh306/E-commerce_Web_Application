@@ -140,19 +140,32 @@
                                         <div id="change-pass-fieldset">
                                             <legend class="pb-3 text-center">Thay đổi mật khẩu</legend>
                                             <div class="row pb-3 text-center">
+                                                <div class="col-12">
+                                                <p class="text-{{cpMessageType}}">{{cpMessage}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row pb-3 text-center">
                                             <div class="col-xs-12 col-sm-4 col-md-3">
-                                                <label for="old-pass">Mật khẩu cũ: </label>
+                                                <label for="oldPass">Mật khẩu cũ: </label>
                                             </div>
                                             <div class="col-xs-12 col-sm-8 col-md-9">
-                                                <input type="text" name="old-pass" id="old-pass">
+                                                <input type="password" name="oldPass" id="oldPass" required>
                                             </div>
                                             </div>
                                             <div class="row pb-3 text-center">
                                             <div class="col-xs-12 col-sm-4 col-md-3">
-                                                <label for="new-pass">Mật khẩu mới: </label>
+                                                <label for="newPass">Mật khẩu mới: </label>
                                             </div>
                                             <div class="col-xs-12 col-sm-8 col-md-9">
-                                                <input type="text" name="new-pass" id="new-pass">
+                                                <input type="password" name="newPass" id="newPass">
+                                            </div>
+                                            </div>
+                                            <div class="row pb-3 text-center">
+                                            <div class="col-xs-12 col-sm-4 col-md-3">
+                                                <label for="reNewPass">Mật khẩu mới: </label>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-8 col-md-9">
+                                                <input type="password" name="reNewPass" id="newPass">
                                             </div>
                                             </div>
                                             <div class="row pb-3 justify-content-center">
