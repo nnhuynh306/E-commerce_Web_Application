@@ -16,7 +16,7 @@ router.get('/', userController.isLoggedIn, (req, res) => {
     res.render('cart')
 });
 
-router.post('/', (req, res) => {
+router.post('/',userController.isLoggedIn, (req, res) => {
     var productId = req.body.id;
     var quantity = req.body.quantity;
 
@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/', userController.isLoggedIn, (req, res) => {
     if (req.body.deleteAll) {
         req.session.cart.empty();
         res.sendStatus(204);
@@ -46,7 +46,7 @@ router.delete('/', (req, res) => {
     }
 })
 
-router.put('/', (req, res) => {
+router.put('/', userController.isLoggedIn, (req, res) => {
     var productId = req.body.id;
     var quantity = parseInt(req.body.quantity);
     req.session.cart.update(productId, quantity);
@@ -127,7 +127,7 @@ router.post('/checkout', userController.isLoggedIn, (req, res) => {
     
 })
 
-router.post('/coupon', (req, res , next) => {
+router.post('/coupon',userController.isLoggedIn, (req, res , next) => {
     if (req.session.user) {
         var cart = req.session.cart;
         var code = req.body.discountCode;
@@ -137,7 +137,7 @@ router.post('/coupon', (req, res , next) => {
     }
 })
 
-router.get('/checkout/confirm', (req, res) => {
+router.get('/checkout/confirm',userController.isLoggedIn, (req, res) => {
     res.render('checkout_confirm')
 })
 

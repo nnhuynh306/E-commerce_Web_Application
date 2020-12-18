@@ -46,4 +46,17 @@ controller.getUserByEmail= (email) => {
     })
 }
 
+controller.updateUser = (user) => {
+    return models.User.update({
+        name: user.name,
+        phoneNumber: user.phoneNumber,
+        email: user.email,
+        address: user.address,
+    }, {
+        where: {
+            id: user.id,
+        }
+    })
+}
+
 module.exports = controller;
