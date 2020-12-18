@@ -53,6 +53,8 @@ app.use((req, res, next) => {
 //ROUTER
 
 
+app.use('/admin', require(__dirname + '/src/routes/adminRouter'))
+
 app.use('/my_profile', require(__dirname + '/src/routes/my_profileRouter'))
 
 app.use('/cart', require(__dirname + '/src/routes/cartRouter'))
