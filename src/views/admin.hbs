@@ -1,0 +1,130 @@
+<!--My profile-->
+    <!--History-->
+    {{#if userLoggedIn}}
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-12 px-0">
+                        <div class="nav flex-sm-column flex-row nav-pills px-0" id="profile-pills" role="tablist" aria-orientation="vertical">
+                            <a class="profile-pill {{active_edit_product}}" id="v-pills-edit-product-tab" data-toggle="pill" href="#v-pills-edit-product" role="tab" aria-controls="v-pills-edit-product" aria-selected="true">Chỉnh sửa sản phẩm</a>
+                            <a class="profile-pill {{active_add_product}}" id="v-pills-add-product-tab" data-toggle="pill" href="#v-pills-add-product" role="tab" aria-controls="v-pills-add-product" aria-selected="false">Trạng thái đơn hàng</a>
+                            <a class="profile-pill {{active_remove_product}}" id="v-pills-remove-product-tab" data-toggle="pill" href="#v-pills-remove-product" role="tab" aria-controls="v-pills-remove-product" aria-selected="true">Lịch sử mua hàng</a>
+                            <a class="profile-pill {{active_order_management}}" id="v-pills-order-management-tab" data-toggle="pill" href="#v-pills-order-management" role="tab" aria-controls="v-pills-order-management" aria-selected="false">Sổ địa chỉ</a>
+                            <a class="profile-pill {{active_comment_management}}" id="v-pills-comment-management-tab" data-toggle="pill" href="#v-pills-comment-management" role="tab" aria-controls="v-pills-comment-management" aria-selected="false">Bảo mật</a>
+                            <a class="profile-pill {{active_category_management}}" id="v-pills-category-management-tab" data-toggle="pill" href="#v-pills-category-management" role="tab" aria-controls="v-pills-category-management" aria-selected="false">Cài đặt</a>
+                        </div>                        
+                    </div>
+
+                    <div class="col-sm-9 col-xs-12 px-0">
+                        <div class="tab-content" id="profile-pills-tabContent">
+                        <!--Edit product tab content-->
+                        <div class="tab-pane fade {{active_edit_product}}" id="v-pills-edit-product" role="tabpanel" aria-labelledby="v-pills-edit-product-tab">
+                            <div class="container p-4">
+                                <div class="container">
+                                    <legend class="pb-1 text-center font-weight-bold">Truy vấn sản phẩm</legend>
+                                    <form action="/admin/edit-product" method="get">
+                                        <div class="row pb-3">
+                                            <div class="col-xs-12 col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="product_id" >ID</label><br>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="product_id" id="product_id" class="input-full-width" value="" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="product_name" >Tên sản phẩm</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="product_name" id="product_name" class="input-full-width" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col text-center align-self-center">
+                                                <button type="submit" class="submit-btn" id="profile-submit">Tìm thông tin</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <legend class="pb-1 text-center font-weight-bold">Kết quả truy vấn</legend>
+                                    <form action="/admin/edit-product" method="get">
+                                        <div class="row pb-3">
+                                            <div class="col-xs-12 col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="product_name_result" >Tên sản phẩm</label><br>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="product_name_result" id="product_name_result" class="input-full-width" value="" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="stock_result" >Số Lượng</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="stock_result" id="stock_result" class="input-full-width" value="" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="price_result" >Giá</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="price_result" id="price_result" class="input-full-width" value="" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="category_result" >Phân loại</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="category_result" id="category_result" class="input-full-width" value="" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="description_result" >Mô tả</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="description_result" id="description_result" class="input-full-width" value="" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="small_image_result" >Hình nhỏ</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="file" name="small_image_result" id="small_image_result" >
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="big_image_result" >Hình lớn</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="file" name="big_image_result" id="big_image_result" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col text-center align-self-center">
+                                                <button type="submit" class="submit-btn" id="profile-submit">Cập nhật</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div> 
+        </div>
+    {{else}}
+        <h1 class="text-center">REQUIRE USER TO LOGIN (MOVE TO LOGIN PAGE)<br>
+            <h5 class = 'text-center'><a  href="/my_profile/demo?activeTab={{page}}">click here to access my profile for demo</a></h5>
+            <h3 class = 'text-center'>Đây là demo cho phân hệ user và anonymous </h3>
+        </h1>
+    {{/if}}
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!--JS for header-->
+        <script src="./assets/js/jquery-3.5.1.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/bootstrap-drawer.min.js"></script>
+        <script src="./assets/js/jquery.countdown.min.js"></script>
+        <script src="./assets/js/main.min.js"></script>
