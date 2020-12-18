@@ -211,18 +211,6 @@
                                 </thead>
                                 <tbody>
                                     {{#if order_management}}
-                                    {{#each order_management}}
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox" name="order_selected" value="order-{{id}}" id="order-{{id}}">
-                                            </td>
-                                            <td>{{id}}</td>
-                                            <td>{{customer}}</td>
-                                            <td>{{total}}</td>
-                                            <td>{{state}}</td>
-                                        </tr>
-                                        
-                                    {{/each}}
                                     <form action="/admin/delete-order" method="get">
                                         {{#each order_management}}
                                         <tr>
