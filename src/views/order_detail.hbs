@@ -1,0 +1,90 @@
+<div class="container ">
+    <h1 class="text-center py-4">THÔNG TIN ĐƠN ĐẶT HÀNG #id</h1>
+   <table class="order-detail">
+        <tbody>
+            <tr>
+                <td>
+                    Ngày đặt hàng
+                </td>
+                <td>
+                    {{order.createdAt}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Trạng thái
+                </td>
+                <td>
+                    {{order.state}}
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    Ngày giao hàng
+                </td>
+                <td>
+                    {{order.deliveryDate}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Tổng tiền
+                </td>
+                <td>
+                    {{order.totalPrice}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Người nhận
+                </td>
+                <td>
+                    {{order.fullName}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Số điện thoại
+                </td>
+                <td>
+                    {{order.phoneNumber}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Địa chỉ
+                </td>
+                <td>
+                    {{order.address}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ghi chú
+                </td>
+                <td>
+                    {{order.note}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sản phẩm
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-7 "><p class="font-weight-bold">Tên sản phẩm</p></div>
+                        <div class="col-md-2 text-center"><span>Số lượng</span></div>
+                        <div class="col-md-3 text-center"><span>Giá tiền gốc</span></div>
+                    </div>
+                    {{#each order.OrderDetails}}
+                        <div class="row">
+                            <div class="col-md-7 "><a href="/product-detail/{{ProductId}}">{{ProductId}}</a></div>
+                            <div class="col-md-2 text-center"><span>2</span></div>
+                            <div class="col-md-3 text-center"><span>1000000</span></div>
+                        </div>
+                    {{/each}}
+                </td>   
+            </tr>
+        </tbody>
+   </table>
+</div>

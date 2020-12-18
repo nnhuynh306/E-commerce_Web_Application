@@ -70,6 +70,8 @@ app.use('/user', require(__dirname + '/src/routes/userRouter'))
 
 app.use('/shop-fullwidth-4col', require(__dirname + '/src/routes/shop-fullwidth-4colRouter'))
 
+app.use('/order_detail', require(__dirname + '/src/routes/order_detailRouter'))
+
 app.use('/', require(__dirname + '/src/routes/homepageRouter'))
 app.use('/comment', require(__dirname + '/src/routes/comment'))
 app.use('/search', require(__dirname + '/src/routes/searchRouter'))
@@ -86,7 +88,7 @@ app.get('/testDB',(req,res)=>{
 });
 
 app.get('/testing', (req, res) => {
-  res.render('checkout_confirm');
+  res.render('order_detail');
 })
 
 //ERROR HANDLER

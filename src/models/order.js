@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     fullName: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
     totalPrice: DataTypes.FLOAT,
-    state: DataTypes.STRING
+    state: DataTypes.STRING,
+    deliveryDate: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Order',
