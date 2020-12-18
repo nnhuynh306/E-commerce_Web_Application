@@ -7,9 +7,9 @@
                         <div class="cart-items__wrapper">
                             <div class="navigation-sidebar">
                                 <div class="search-box">
-                                    <form>
-                                        <input type="text" placeholder="Bạn cần gì?"/>
-                                        <button><img src="/assets/images/header/search-icon.png" alt="Search icon"/></button>
+                                    <form action='/search' method="POST">
+                                        <input type="text" placeholder="Bạn cần gì?" name="keyword"/>
+                                        <button type="submit"><img src="/assets/images/header/search-icon.png" alt="Search icon"/></button>
                                     </form>
                                 </div>
                                 <div class="navigator-mobile">

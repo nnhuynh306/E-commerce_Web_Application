@@ -2,11 +2,11 @@
     <div class="menu -style-6">
         <div class="container">
           <div class="menu__wrapper">
-                <div class="menu-functions "><a class="menu-icon -search" href="#"><img src="/assets/images/header/search-icon.png" alt="Search icon"/></a>
+                <div class="menu-functions "><a class="menu-icon -search" href=""><img src="/assets/images/header/search-icon.png" alt="Search icon"/></a>
                   <div class="search-box">
-                    <form>
-                      <input type="text" placeholder="Bạn cần gì?" name="search"/>
-                      <button><img src="/assets/images/header/search-icon.png" alt="Search icon"/></button>
+                    <form action="/search" method="POST">
+                      <input type="text" placeholder="Bạn cần gì?" name="keyword"/>
+                      <button type="submit"><img src="/assets/images/header/search-icon.png" alt="Search icon"/></button>
                     </form>
                   </div>
                 </div>
