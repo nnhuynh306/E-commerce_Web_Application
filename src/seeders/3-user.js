@@ -2,12 +2,12 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
       var Users = [{
-        name: 'thinhnguyenphuc',
-        pass: '$2y$12$MJHly8VRv4W.WwRkdspB5eH0otvKLT8Eioc7OcEspwXuiSh2HZsNG',
+        name: 'admin',
+        pass: '$2y$12$rm5InTT7CQxWD94BDXqXMOcLEyEM6yRTP1.XYr6oWnMVKGysNLo/W',
         email: 'thinhnguyenphuc55@gmail.com',
         address: '414 Duong Ba Trac',
         phoneNumber: "0944779167",
-        fullName: 'Nguyen Phuc Thinh',
+        fullName: 'Admin',
         isAdmin: true
       }];
       Users.forEach((item, index) => {
