@@ -35,11 +35,7 @@
                           <li>Mã sản phẩm: {{product.id}}</li>
                           <li>Hàng tồn: {{product.stock}}</li>
                         </ul>
-                        <form class="form-add-to-cart" data-id={{product.id}}>
-                          <div class="product-detail__colors"><span>Màu:</span>
-                          {{#each colors}}
-                            <div class="product-detail__colors__item" style="background-color: {{color}} "></div>
-                          {{/each}}
+                        <form class="form-add-to-cart" data-id={{product.id}}>   
                           </div>
                           <div class="product-detail__controller">
                               <div class="quantity-controller -border -round">

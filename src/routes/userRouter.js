@@ -158,12 +158,12 @@ router.post('/signup', function(req, res, next) {
                             .then(user => {
                                 if (req.session.nextURL) {
                                     res.render('login', {
-                                        message: 'You have signed up.',
+                                        message: 'Bạn đã đăng ký thành công',
                                         type: 'primary',
                                     })
                                 } else {
                                     res.render('login', {
-                                        message: 'You have signed up.',
+                                        message: 'Bạn đã đăng ký thành công',
                                         type: 'primary',
                                     })
                                 }

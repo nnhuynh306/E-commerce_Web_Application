@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   OrderDetail.init({
     productQuantity: DataTypes.INTEGER,
-    productAttribute: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'OrderDetail',

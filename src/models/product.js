@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product.belongsTo(models.Category);
       Product.hasMany(models.OrderDetail)
-      Product.hasMany(models.Comment)
-      Product.hasMany(models.ProductAttribute)
+      Product.hasMany(models.Comment);
+ 
     }
   };
   Product.init({
