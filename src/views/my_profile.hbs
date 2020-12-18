@@ -77,57 +77,50 @@
                                     <div class="container" id="history_nav_bar">
                                         <div class="container-fluid" >
                                             <div class="row" >
-                                                <div class="col-3 " id="date"><span>Ngày tháng năm</span></div>
-                                                <div class="col-3 " id="name_product"><span>Tên hàng</span></div>
-                                                <div class="col-2 " id="quantity"><span>Số lượng</span></div>
-                                                <div class="col-2 " id="price"><span>Giá tiền</span></div>
-                                                <div class="col-2 " id="status"><span>Trạng thái</span></div>
+                                                <div class="col-3 text-center" ><span>Ngày đặt hàng</span></div>
+                                                <div class="col-3 text-center" ><span>Ngày giao hàng</span></div>
+                                                <div class="col-3 text-center" ><span>ID đơn hàng</span></div>
+                                                <div class="col-3 text-center" ><span>Giá tiền</span></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="container" id="history">
                                         <div class="container-fluid" id="content">
-                                            <div class="row">
-                                                <div class="col-3" id="date"><span>13/01/2020</span></div>
-                                                <div class="col-3" id="name_product"><a href="/product-detail.html">Velvet Melon High Intensity</a></div>
-                                                <div class="col-2" id="quantity"><span>1</span></div>
-                                                <div class="col-2" id="price"><span>$38.00</span></div>
-                                                <div class="col-2" id="status"><span>Đã giao</span></div>
+                                            {{#each completeOrders}}
+                                                <div class="row">
+                                                <div class="col-3" ><span>{{createdAt}}</span></div>
+                                                <div class="col-3" ><span>{{deliveryDate}}</span></div>
+                                                <div class="col-3" ><a href="/my_profile/order_detail?id={{id}}">{{id}}</a></div>
+                                                <div class="col-3" ><span>{{totalPrice}}</span></div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-3" id="date"><span>14/01/2020</span></div>
-                                                <div class="col-3" id="name_product"><a href="/product-detail.html">The expert mascaraa</a></div>
-                                                <div class="col-2" id="quantity"><span>1</span></div>
-                                                <div class="col-2" id="price"><span>$35.00</span></div>
-                                                <div class="col-2" id="status"><span>Đang vận chuyển</span></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3" id="date"><span>16/01/2020</span></div>
-                                                <div class="col-3" id="name_product"><a href="/product-detail.html">Leather shopper bag</a></div>
-                                                <div class="col-2" id="quantity"><span>1</span></div>
-                                                <div class="col-2" id="price"><span>$30.00</span></div>
-                                                <div class="col-2" id="status"><span>Đã giao</span></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3" id="date"><span>20/01/2018</span></div>
-                                                <div class="col-3" id="name_product"><a href="/product-detail.html">The expert mascaraa</a></div>
-                                                <div class="col-2" id="quantity"><span>1</span></div>
-                                                <div class="col-2" id="price"><span>$35.00</span></div>
-                                                <div class="col-2" id="status"><span>Thanh toán</span></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3" id="date"><span>23/01/2020</span></div>
-                                                <div class="col-3" id="name_product"><a href="/product-detail.html">Luxe jewel lipstick</a></div>
-                                                <div class="col-2" id="quantity"><span>2</span></div>
-                                                <div class="col-2" id="price"><span>$38.00</span></div>
-                                                <div class="col-2" id="status"><span>Đã giao</span></div>
-                                            </div>
+                                            {{/each}}                                    
                                         </div>
                                     </div>
                                 </div>
                                 <!--Status tab content-->
                                 <div class="tab-pane fade {{active_status}}" id="v-pills-status" role="tabpanel" aria-labelledby="v-pills-status-tab">
-                                    Chức năng chưa được hỗ trợ
+                                    <div class="container" id="history_nav_bar">
+                                        <div class="container-fluid" >
+                                            <div class="row" >
+                                                <div class="col-3 text-center" ><span>Ngày đặt hàng</span></div>
+                                                <div class="col-3 text-center" ><span>ID đơn hàng</span></div>
+                                                <div class="col-3 text-center" ><span>Giá tiền</span></div>
+                                                <div class="col-3 text-center" ><span>Trạng thái</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container" id="history">
+                                        <div class="container-fluid" id="content">
+                                            {{#each deliverOrders}}
+                                                <div class="row">
+                                                <div class="col-3" ><span>{{createdAt}}</span></div>
+                                                <div class="col-3" ><a href="/my_profile/order_detail?id={{id}}">{{id}}</a></div>
+                                                <div class="col-3" ><span>{{totalPrice}}</span></div>
+                                                <div class="col-3" ><span>{{state}}</span></div>
+                                            </div>
+                                            {{/each}}                                    
+                                        </div>
+                                    </div>
                                 </div>
                                 <!--Address tab content-->
                                 <div class="tab-pane fade {{active_address}}" id="v-pills-address" role="tabpanel" aria-labelledby="v-pills-address-tab">
@@ -183,11 +176,6 @@
                 </div>
             </div>
         </div>
-    {{else}}
-        <h1 class="text-center">REQUIRE USER TO LOGIN (MOVE TO LOGIN PAGE)<br>
-            <h5 class = 'text-center'><a  href="/my_profile/demo?activeTab={{page}}">click here to access my profile for demo</a></h5>
-            <h3 class = 'text-center'>Đây là demo cho phân hệ user và anonymous </h3>
-        </h1>
     {{/if}}
         
         <!-- Optional JavaScript -->

@@ -25,4 +25,8 @@ controller.saveOrder = (cart, order, next) => {
         })
 }
 
+controller.getOrder = (id) => {
+    return module
+}
+
 module.exports = controller;
