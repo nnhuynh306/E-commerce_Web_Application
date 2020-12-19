@@ -16,13 +16,28 @@
                                     <ul>
                                         <li><a href="/">Home</a></li>
                                         <li><a class="dropdown-menu-controller" href="#">Tài khoản<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
+                                        {{#unless userLoggedIn}}
                                             <ul class="dropdown-content">
                                                 <ul class="dropdown-menu__col">
-                                                    <li><a href="login.html">Đăng nhập</a></li>
-                                                    <li><a href="register.html">Đăng ký</a></li>
-                                                    <li><a href="my_profile_edit_profile">Thông tin cá nhân</a></li>
+                                                    <li><a href="/user/login?nextURL={{currentURL}}">Đăng nhập</a><li>
+                                                    <li><a href="/signup">Đăng ký</a></li>
                                                 </ul>
                                             </ul>
+                                        {{else}}
+                                            <ul class="dropdown-content">
+                                                <a href="/my_profile?firstActive=edit_profile">Hồ sơ</a>
+                                                <br>
+                                                <a href="/my_profile?firstActive=history">Lịch sử mua hàng</a>
+                                                <br>
+                                                <a href="/my_profile?firstActive=status">Kiểm tra đơn hàng </a>
+                                                <br>
+                                                <a href="/my_profile?firstActive=address">Địa chỉ </a>
+                                                <br>
+                                                <a href="/my_profile?firstActive=security">Bảo mật</a>
+                                                <br>
+                                                <a href="/my_profile?firstActive=setting">Cài đặt khác</a>
+                                            </ul>
+                                        {{/unless}}
                                         </li>
                                         <li><a class="dropdown-menu-controller" href="#">Shop<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
                                             <ul class="dropdown-content">
