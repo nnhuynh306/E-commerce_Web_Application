@@ -11,8 +11,6 @@
                             <a class="profile-pill {{active_remove_product}}" id="v-pills-remove-product-tab" data-toggle="pill" href="#v-pills-remove-product" role="tab" aria-controls="v-pills-remove-product" aria-selected="true">Xóa sản phẩm</a>
                             <a class="profile-pill {{active_order_management}}" id="v-pills-order-management-tab" data-toggle="pill" href="#v-pills-order-management" role="tab" aria-controls="v-pills-order-management" aria-selected="false">Quản lý đơn hàng</a>
                             <a class="profile-pill {{active_user_management}}" id="v-pills-user-management-tab" data-toggle="pill" href="#v-pills-user-management" role="tab" aria-controls="v-pills-user-management" aria-selected="false">Quản lý người dùng</a>
-                            <a class="profile-pill {{active_comment_management}}" id="v-pills-comment-management-tab" data-toggle="pill" href="#v-pills-comment-management" role="tab" aria-controls="v-pills-comment-management" aria-selected="false">Quản lý bình luận</a>
-                            <a class="profile-pill {{active_category_management}}" id="v-pills-category-management-tab" data-toggle="pill" href="#v-pills-category-management" role="tab" aria-controls="v-pills-category-management" aria-selected="false">Quản lý phân loại</a>
                         </div>                        
                     </div>
 
@@ -27,16 +25,16 @@
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_id" >ID</label><br>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="product_id" id="product_id" class="input-full-width" value="" placeholder="Mã sản phẩm" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_name" >Tên sản phẩm</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="product_name" id="product_name" class="input-full-width" value="" placeholder="Tên sản phẩm" required>
                                                     </div>
                                                 </div>
@@ -52,46 +50,46 @@
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_name_result" >Tên sản phẩm</label><br>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="product_name_result" id="product_name_result" class="input-full-width" value="{{product_name_result}}" placeholder="Sửa tên sản phẩm" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="stock_result">Số Lượng</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="stock_result" id="stock_result" class="input-full-width" value="{{stock_result}}" placeholder="Sửa số lượng" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="price_result" >Giá</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="price_result" id="price_result" class="input-full-width" value="{{price_result}}" placeholder="Sửa giá" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="category_result" >Phân loại</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="category_result" id="category_result" class="input-full-width" value="{{category_result}}" placeholder="Sửa phân loại" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="description_result" >Mô tả</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="description_result" id="description_result" class="input-full-width" value="{{description_result}}" placeholder="Thêm đặc tả sản phẩm" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="small_image_result" >Hình nhỏ</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="file" name="small_image_result" id="small_image_result" >
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="big_image_result" >Hình lớn</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="file" name="big_image_result" id="big_image_result" >
                                                     </div>
                                                 </div>
@@ -113,46 +111,46 @@
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_name" >Tên sản phẩm</label><br>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="product_name" id="product_name" class="input-full-width" placeholder="Tên sản phẩm" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="stock">Số Lượng</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="stock" id="stock" class="input-full-width" placeholder="Số lượng" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="price" >Giá</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="price" id="price" class="input-full-width" placeholder="Giá" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="category" >Phân loại</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="category" id="category" class="input-full-width" placeholder="Phân loại" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="description" >Mô tả</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="description" id="description" class="input-full-width" placeholder="Đặc tả sản phẩm" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="small_image" >Hình nhỏ</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="file" name="small_image" id="small_image" >
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="big_image" >Hình lớn</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="file" name="big_image" id="big_image" >
                                                     </div>
                                                 </div>
@@ -174,22 +172,22 @@
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-2 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_id" >ID</label><br>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-2 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="product_id" id="product_id" class="input-full-width" value="" placeholder="Mã sản phẩm" required>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-2 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_name" >Tên sản phẩm</label>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                    <div class="pb-2 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="product_name" id="product_name" class="input-full-width" value="" placeholder="Tên sản phẩm" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Tìm thông tin</button>
+                                                <button type="submit" class="submit-btn" id="profile-submit">Xóa</button>
                                             </div>
                                         </div>
                                     </form>
@@ -226,11 +224,10 @@
                                         <tr>
                                             <td colspan="5">
                                                 <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Xóa order được chọn</button>
+                                                <button type="submit" class="submit-btn" id="profile-submit">Xóa orders được chọn</button>
                                                 </div>
                                             </td>
                                         </tr>
-                                        
                                     </form>
                                     {{else}}
                                     <tr class="text-center">
@@ -314,76 +311,6 @@
                                             </div>
                                         </div>
                                     </form>
-                        </div>
-
-                        <!--category tab content-->
-                        <div class="tab-pane fade {{active_category_management}}" id="v-pills-category-management" role="tabpanel" aria-labelledby="v-pills-category-management-tab">
-                            <div class="container p-4">
-                                <div class="container">
-                                    <legend class="pb-1 text-center font-weight-bold">Truy vấn phân loại của sản phẩm</legend>
-                                    <form action="/admin/category-management-find" method="get">
-                                        <div class="row pb-3">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
-                                                        <label for="category_id" >ID</label><br>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="category_id" id="category_id" class="input-full-width" value="" placeholder="Mã phân loại" required>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
-                                                        <label for="category_name" >Tên sản phẩm</label>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="category_name" id="category_name" class="input-full-width" value="" placeholder="Tên phân loại" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Tìm thông tin</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <hr>
-                                    <legend class="pb-1 text-center font-weight-bold">Kết quả truy vấn</legend>
-                                    <form action="/admin/category-management-update" method="get">
-                                        <div class="row pb-3">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
-                                                        <label for="category_name_result" >Tên sản phẩm</label><br>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="category_name_result" id="category_name_result" class="input-full-width" value="{{category_name_result}}" placeholder="Sửa tên phân loại" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Cập nhật</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <hr>
-                                    <legend class="pb-1 text-center font-weight-bold">Thêm mới phân loại</legend>
-                                    <form action="/admin/category-management-add" method="get">
-                                        <div class="row pb-3">
-                                            <div class="col-xs-12 col-sm-10">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 col-md-3">
-                                                        <label for="category_name" >Tên phân loại</label><br>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="category_name" id="category_name" class="input-full-width" placeholder="Tên phân loại" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Thêm mới phân loại</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                         </div>                        
                     </div>
