@@ -3,6 +3,10 @@ var models = require('../models')
 var Coupon = models.Coupon;
 var url = require('url')
 
+//downloaded from: https://drive.google.com/drive/folders/1f3ZEn0Lv80syXtTk6jkLIjO31-W_nbv9
+//created by: ThS. Trần Thị Bích Hạnh
+//modified by: Huỳnh Nhật Nam
+
 module.exports = function Cart(oldCart) {
     this.items = oldCart.items || {};
     this.totalQuantity = oldCart.totalQuantity || 0;

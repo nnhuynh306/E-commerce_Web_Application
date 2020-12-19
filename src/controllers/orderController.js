@@ -1,4 +1,5 @@
 var models = require('../models')
+const { Op } = require("sequelize");
 
 let controller = {};
 
@@ -25,8 +26,42 @@ controller.saveOrder = (cart, order, next) => {
         })
 }
 
-controller.getOrder = (id) => {
-    return module
+controller.getCompleteOrdersOfUser = (UserId) => {
+    return models.Order.findAll({
+        where: {
+            UserId: UserId,
+            state: {
+                [Op.iLike]: '%Đã giao',
+            }
+        },
+        order: [["createdAt", 'DESC']]
+    })
+}
+
+controller.getUncompleteOrdersOfUser = (UserId) => {
+    return models.Order.findAll({
+        where: {
+            UserId: UserId,
+            state: {
+                [Op.notILike]: '%Đã giao',
+            }
+        },
+        order: [["createdAt", 'DESC']]
+    })
+}
+
+controller.getOrderIncludeDetail = (id) => {
+    return models.Order.findOne({
+        where: {
+            id: id,
+        },
+        include: {
+            model: models.OrderDetail,
+            include: {
+                model: models.Product,
+            }
+        }
+    })
 }
 
 module.exports = controller;

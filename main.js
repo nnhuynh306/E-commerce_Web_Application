@@ -87,8 +87,17 @@ app.get('/testDB',(req,res)=>{
     res.render('testDB.php')
 });
 
+app.set('json spaces', 2)
 app.get('/testing', (req, res) => {
-  res.render('order_detail');
+  
+    var orderCon = require('./src/controllers/orderController')
+
+    orderCon.getUncompleteOrdersOfUser(1).then(
+      (data) => {
+        // res.send(JSON.stringify(data, null, 4))
+        res.send(data);
+      }
+    )
 })
 
 //ERROR HANDLER

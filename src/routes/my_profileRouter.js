@@ -1,8 +1,22 @@
 const express = require('express')
 var router = express.Router()
 var userController = require('../controllers/userController')
+var orderController = require('../controllers/orderController')
 const user = require('../models/user')
 router.use(express.static('../public'))
+
+function getData(res, req) {
+    return new Promise((resolve, reject)=> {
+        orderController.getCompleteOrdersOfUser(req.session.user.id).then(orders => {
+            res.locals.completeOrders = orders;
+            orderController.getUncompleteOrdersOfUser(req.session.user.id).then(orders => {
+                res.locals.deliverOrders = orders;
+                resolve();
+            })
+        })
+
+    })
+}
 
 router.get('/',userController.isLoggedIn, (req, res) => {
 
@@ -10,7 +24,8 @@ router.get('/',userController.isLoggedIn, (req, res) => {
     res.locals.epMessageType = req.query.epMessageType;
     res.locals.cpMessage = req.query.cpMessage;
     res.locals.cpMessageType = req.query.cpMessageType;
-  
+    
+    //get first active tab
     var firstActive = req.query.firstActive;
     var activeTabClass = "active_"
     if (firstActive == null) {
@@ -19,7 +34,12 @@ router.get('/',userController.isLoggedIn, (req, res) => {
         activeTabClass = activeTabClass + firstActive;
     }
     res.locals[activeTabClass] = "show active";
-    res.render('my_profile')
+
+    //get orders data
+    getData(res, req).then(()=> {
+        res.render('my_profile')
+    })
+
 })
 
 router.post('/',userController.isLoggedIn, (req, res) => {

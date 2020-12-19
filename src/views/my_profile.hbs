@@ -88,10 +88,10 @@
                                         <div class="container-fluid" id="content">
                                             {{#each completeOrders}}
                                                 <div class="row">
-                                                <div class="col-3" ><span>{{createdAt}}</span></div>
-                                                <div class="col-3" ><span>{{deliveryDate}}</span></div>
-                                                <div class="col-3" ><a href="/my_profile/order_detail?id={{id}}">{{id}}</a></div>
-                                                <div class="col-3" ><span>{{totalPrice}}</span></div>
+                                                <div class="col-3 text-center" ><span>{{createdAt}}</span></div>
+                                                <div class="col-3 text-center" ><span>{{deliveryDate}}</span></div>
+                                                <div class="col-3 text-center" ><a href="/my_profile/order_detail?id={{id}}">{{id}}</a></div>
+                                                <div class="col-3 text-center" ><span>{{totalPrice}}</span></div>
                                             </div>
                                             {{/each}}                                    
                                         </div>
@@ -113,10 +113,10 @@
                                         <div class="container-fluid" id="content">
                                             {{#each deliverOrders}}
                                                 <div class="row">
-                                                <div class="col-3" ><span>{{createdAt}}</span></div>
-                                                <div class="col-3" ><a href="/my_profile/order_detail?id={{id}}">{{id}}</a></div>
-                                                <div class="col-3" ><span>{{totalPrice}}</span></div>
-                                                <div class="col-3" ><span>{{state}}</span></div>
+                                                <div class="col-3 text-center" ><span>{{createdAt}}</span></div>
+                                                <div class="col-3 text-center" ><a href="/my_profile/order_detail?id={{id}}">{{id}}</a></div>
+                                                <div class="col-3 text-center" ><span>{{totalPrice}}</span></div>
+                                                <div class="col-3 text-center" ><span>{{state}}</span></div>
                                             </div>
                                             {{/each}}                                    
                                         </div>
