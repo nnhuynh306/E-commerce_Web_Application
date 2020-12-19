@@ -12,7 +12,20 @@ router.get('/', function (req, res) {
             category_result: "Nước hoa",
             description_result: "Hương thơm ngào ngạt toát ra làm tôi thấy vui vẻ"
         },
-
+        order_management: [
+            {
+                "id": 101,
+                "customer": "Thinhnguyenphuc",
+                "total": 508,
+                "state": "Chưa giao hàng"
+            },
+            {
+                "id": 109,
+                "customer": "Namhuynhnhat",
+                "total": 9669,
+                "state": "Đã nhận hàng",
+            },
+        ]
     })
 });
 
