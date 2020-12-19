@@ -25,7 +25,29 @@ router.get('/', function (req, res) {
                 "total": 9669,
                 "state": "Đã nhận hàng",
             },
-        ]
+        ],
+        user_management: [
+            {
+                "id": 101,
+                "username": "Thinhnguyenphuc"
+            },
+            {
+                "id": 102,
+                "username": "Namhuynhnhat"
+            },
+            {
+                "id": 103,
+                "username": "Khanhmaidang"
+            },
+            {
+                "id": 104,
+                "username": "Duyphamvu47"
+            },
+            {
+                "id": 105,
+                "username": "hoanghuyhonguyen"
+            }
+        ]  
     })
 });
 
