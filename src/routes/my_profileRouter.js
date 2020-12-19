@@ -147,5 +147,26 @@ router.post('/change_pass',userController.isLoggedIn, (req, res) => {
     
 })
 
+router.get('/order_detail', userController.isLoggedIn, (req, res) => {
+    var orderId = req.query.id;
+    orderController.getOrderIncludeDetail(orderId).then(order => {
+        if (order) {
+            if (order.UserId === req.session.user.id) {
+                order.OrderDetails.forEach(detail => {
+                    detail.totalPrice = detail.Product.price * detail.productQuantity;
+                });
+                res.locals.order = order;
+                res.render('order_detail')
+            } else {
+                res.locals.message = "Đơn đặt hàng này không thuộc về bạn"
+                res.render('order_detail')
+            }
+        } else {
+            res.locals.message = "Đơn đặt hàng không tồn tại"
+            res.render('order_detail')
+        }
+    })
+})
+
 
 module.exports = router
