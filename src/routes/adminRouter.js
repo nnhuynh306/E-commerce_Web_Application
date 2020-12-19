@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
             },
             {
                 "id": 105,
-                "username": "hoanghuyhonguyen"
+                "username": "Hoanghuyhonguyen"
             }
         ]  
     })
