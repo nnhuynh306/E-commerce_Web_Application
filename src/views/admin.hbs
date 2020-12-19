@@ -10,7 +10,7 @@
                             <a class="profile-pill {{active_add_product}}" id="v-pills-add-product-tab" data-toggle="pill" href="#v-pills-add-product" role="tab" aria-controls="v-pills-add-product" aria-selected="false">Thêm sản phẩm</a>
                             <a class="profile-pill {{active_remove_product}}" id="v-pills-remove-product-tab" data-toggle="pill" href="#v-pills-remove-product" role="tab" aria-controls="v-pills-remove-product" aria-selected="true">Xóa sản phẩm</a>
                             <a class="profile-pill {{active_order_management}}" id="v-pills-order-management-tab" data-toggle="pill" href="#v-pills-order-management" role="tab" aria-controls="v-pills-order-management" aria-selected="false">Quản lý đơn hàng</a>
-                            <a class="profile-pill {{active_add_product}}" id="v-pills-user-management-tab" data-toggle="pill" href="#v-pills-user-management" role="tab" aria-controls="v-pills-user-management" aria-selected="false">Quản lý người dùng</a>
+                            <a class="profile-pill {{active_user_management}}" id="v-pills-user-management-tab" data-toggle="pill" href="#v-pills-user-management" role="tab" aria-controls="v-pills-user-management" aria-selected="false">Quản lý người dùng</a>
                             <a class="profile-pill {{active_comment_management}}" id="v-pills-comment-management-tab" data-toggle="pill" href="#v-pills-comment-management" role="tab" aria-controls="v-pills-comment-management" aria-selected="false">Quản lý bình luận</a>
                             <a class="profile-pill {{active_category_management}}" id="v-pills-category-management-tab" data-toggle="pill" href="#v-pills-category-management" role="tab" aria-controls="v-pills-category-management" aria-selected="false">Quản lý phân loại</a>
                         </div>                        
@@ -198,9 +198,9 @@
                         </div>
                         <!--order management tab content-->
                         <div class="tab-pane fade  {{active_order_management}}" id="v-pills-order-management" role="tabpanel" aria-labelledby="v-pills-order-management-tab">
-                            <legend class="pb-1 text-center font-weight-bold">Quản lý đơn hàng</legend>
+                            <legend class="pt-4 text-center font-weight-bold">Quản lý đơn hàng</legend>
                             <table class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="thead-dark text-center">
                                     <tr>
                                         <th scope="col"></th>
                                         <th scope="col">ID</th>
@@ -233,42 +233,90 @@
                                         
                                     </form>
                                     {{else}}
-                                    <form action="/admin/delete-order" method="get">
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox" name="order_selected" value="check-1" id="check-1">
-                                            </td>
-                                            <td>BBB</td>
-                                            <td>ccc</td>
-                                            <td>ddd</td>
-                                            <td>eee</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox" name="order_selected" value="check-2" id="check-2">
-                                            </td>
-                                            <td>gg</td>
-                                            <td>hhh</td>
-                                            <td>jjj</td>
-                                            <td>kkk</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td colspan="5">
-                                                <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Xóa order được chọn</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                    </form>
+                                    <tr class="text-center">
+                                        <td colspan="5">
+                                            Không có dữ liệu trả về
+                                        </td>
+                                    </tr>   
                                     {{/if}}
                                     
                                 </tbody>
                             </table>
                         </div>
+                        <!--user management tab content-->
+                        <div class="tab-pane fade  {{active_user_management}}" id="v-pills-user-management" role="tabpanel" aria-labelledby="v-pills-user-management-tab">
+                            <legend class="pt-4 text-center font-weight-bold">Quản lý Người dùng</legend>
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark text-center">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Tên đăng nhập</th>
+                                        <th scope="col">Reset mật khẩu</th>
+                                        <th scope="col">Xóa tài khoản</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="thead-light">
+                                    {{#if order_management}}
+                                        {{#each order_management}}
+                                        <tr>
+                                            <td>{{id}}</td>
+                                            <td>{{username}}</td>
+                                            <td>
+                                                <form action="/admin/user-manager-reset-pw" method="get">
+                                                    <input type="hidden" id="cust{{id}}" name="userID" value="{{id}}">
+                                                    <div class="col text-center align-self-center">
+                                                    <button type="submit" class="submit-btn" id="profile-submit">Reset MK</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="/admin/user-manager-delete" method="get">
+                                                    <input type="hidden" id="custDL{{id}}" name="userID" value="{{id}}">
+                                                    <div class="col text-center align-self-center">
+                                                    <button type="submit" class="submit-btn" id="profile-submit">Xóa</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    {{else}}
+                                    <tr class="text-center">
+                                        <td colspan="4">
+                                            Không có dữ liệu trả về
+                                        </td>
+                                    </tr>                      
+                                    {{/if}}
+                                    
+                                </tbody>
+                            </table>
+                            <hr>
+                            <legend class="pb-1 text-center font-weight-bold">Tạo tài khoản mới</legend>
+                                    <form action="/admin/user-manager-create" method="get">
+                                        <div class="row pb-3">
+                                            <div class="col-xs-12 col-sm-10">
+                                                <div class="row ml-3">
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="username" >Tên đăng nhập</label><br>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="text" name="username" id="username" class="input-full-width" value="" placeholder="Mã sản phẩm" required>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4 col-md-3">
+                                                        <label for="us_password" >Mật khẩu</label>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-8 col-md-9">
+                                                        <input type="password" name="us_password" id="us_password" class="input-full-width" value="" placeholder="Tên sản phẩm" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col mr-3 text-center align-self-center">
+                                                <button type="submit" class="submit-btn" id="profile-submit">Tạo tài khoản</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                        </div>
 
-                        <!--Edit product tab content-->
+                        <!--category tab content-->
                         <div class="tab-pane fade {{active_category_management}}" id="v-pills-category-management" role="tabpanel" aria-labelledby="v-pills-category-management-tab">
                             <div class="container p-4">
                                 <div class="container">
