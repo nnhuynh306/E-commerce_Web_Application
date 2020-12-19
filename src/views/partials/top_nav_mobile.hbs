@@ -13,10 +13,12 @@
                                     </form>
                                 </div>
                                 <div class="navigator-mobile">
+                                    
                                     <ul>
                                         <li><a href="/">Home</a></li>
                                         <li><a class="dropdown-menu-controller" href="#">Tài khoản<span class="dropable-icon"><i class="fas fa-angle-down"></i></span></a>
                                         {{#unless userLoggedIn}}
+                                        
                                             <ul class="dropdown-content">
                                                 <ul class="dropdown-menu__col">
                                                     <li><a href="/user/login?nextURL={{currentURL}}">Đăng nhập</a><li>
@@ -24,7 +26,10 @@
                                                 </ul>
                                             </ul>
                                         {{else}}
+                                        
                                             <ul class="dropdown-content">
+                                                <span class="text-white font-weight-bold ml-3">{{username}}</span>
+                                                <br>
                                                 <a href="/my_profile?firstActive=edit_profile">Hồ sơ</a>
                                                 <br>
                                                 <a href="/my_profile?firstActive=history">Lịch sử mua hàng</a>
@@ -36,6 +41,8 @@
                                                 <a href="/my_profile?firstActive=security">Bảo mật</a>
                                                 <br>
                                                 <a href="/my_profile?firstActive=setting">Cài đặt khác</a>
+                                                <br>
+                                                <a href="/user/logout?nextURL=/">Log out</a>
                                             </ul>
                                         {{/unless}}
                                         </li>
