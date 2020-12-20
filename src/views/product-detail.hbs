@@ -39,8 +39,12 @@
                           </div>
                           <div class="product-detail__controller">
                               <div class="quantity-controller -border -round">
-                                <input type="number" class="border-0" id="product-quantity" class="form-control" min="1" max="{{product.stock}}" value="1" required>
-                                
+                                {{#if product.stock}}
+                                  <input type="number" class="border-0" id="product-quantity" class="form-control" min="1" max="{{product.stock}}" value="1" required>
+                                {{else}}
+                                  <input type="hidden" id="product-quantity" value="0">
+                                  <p>Hết hàng</p>
+                                {{/if}}                                                       
                               </div>
                               {{#if userLoggedIn}}
                                 <button type="submit" class="btn -round -red"><i class="fas fa-shopping-bag"></i></button>

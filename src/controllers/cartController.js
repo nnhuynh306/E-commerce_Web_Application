@@ -52,7 +52,13 @@ module.exports = function Cart(oldCart) {
             storedItem = this.items[id];
         }
         storedItem.item.price = parseFloat(storedItem.item.price);
+
+        var newQuantity = storedItem.quantity + parseInt(quantity);
+        if (newQuantity > item.stock) {
+            return null;
+        }
         storedItem.quantity += parseInt(quantity);
+
         storedItem.price = parseFloat(storedItem.item.price * storedItem.quantity);
         this.totalQuantity = this.getTotalQuantity();
         this.totalPrice = this.getTotalPrice();
@@ -71,6 +77,9 @@ module.exports = function Cart(oldCart) {
     this.update = (id, quantity) => {
         var storedItem = this.items[id];
         if (storedItem && quantity >= 1) {
+            if (quantity > storedItem.item.stock) {
+                return null;
+            }
             storedItem.quantity = quantity;
             storedItem.price = parseFloat(storedItem.item.price * storedItem.quantity);
             this.totalQuantity = this.getTotalQuantity();
@@ -228,5 +237,67 @@ module.exports = function Cart(oldCart) {
                     id: this.couponID,
                 }
             })
+    }
+
+    //if new quantity = 0 remove from cart
+    this.applyNewQuantity = (id, newQuantity) => {
+        var storedItem = this.items[id];
+        if (storedItem) {
+            if (newQuantity >= 1) {
+                storedItem.quantity = newQuantity;
+            } else {
+                this.remove(id);
+            }
+        }
+    }
+
+    this.getAllProductInDatabase = () => {
+        var array = [];
+        this.generateArray().forEach(item => {
+            array.push(models.Product.findOne({
+                where: {
+                    id: item.item.id,
+                }
+            }))
+        });
+        return Promise.all(array)
+    }
+
+    this.checkAndUpdateStock = (res) => {
+        this.getAllProductInDatabase().then(products => {
+            var error = `| `;
+            products.forEach(product => {
+                var checkItem = this.items[product.id];
+                if (checkItem) {
+                    if (product.stock == 0) {
+                        error += `${product.name} hết hàng, xóa sản phẩm khỏi giỏ hàng | `;
+                        this.remove(product.id);
+                    } else if (product.stock < checkItem.quantity) {
+                        error += `${product.name} không đủ hàng, giảm số lượng thành ${product.stock} | `;
+                        checkItem.quantity = product.stock;
+                    }
+                }
+            })
+
+            if (error.length > 2) {
+                error = error.replace(/&/g, '%26')
+                res.redirect(`/cart?error=${error}`);
+            } else {
+                products.forEach(product => {
+                    var newStock = product.stock - this.items[product.id].quantity;
+                    if (newStock < 0) {
+                        res.redirect(`/cart?error=Một lỗi không mong muốn đã xảy ra. Xin hãy thử lại`);
+                    }
+                    models.Product.update({
+                        stock: newStock,
+                    },
+                    {
+                        where: {
+                            id: product.id,
+                        }
+                    })
+                })
+            }
+        })
     }
 };

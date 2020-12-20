@@ -14,6 +14,9 @@
                       <col style="width: 17%"/>
                       <col style="width: 9%"/>
                     </colgroup>
+                    {{#if error}}
+                      <div><p class="text-danger text-center font-weight-bold pb-3">{{error}}</p></div>
+                    {{/if}}
                     <thead>
                       <tr>
                         <th>Sản phẩm</th>
@@ -40,16 +43,18 @@
                         </td>
                         <td>{{item.price}}</td>
                         <td>
-                              <input type="number" id="quantity{{item.id}}" class="form-control" min="1" max="10" value="{{quantity}}">
+                              <input type="number" id="quantity{{item.id}}" class="form-control" min="1" max="{{item.stock}}" value="{{quantity}}">
                         </td>
                         <td>{{price}}</td>
                         <td><button type="submit"  class="btn btn-primary -round  cart-button"><i class="fas fa-check"></i></button>
                             <button class="btn -round -red cart-button btn-cart-remove" data-id="{{item.id}}"><i class="fas fa-trash"></i></button>
                         </td>
                       </tr>
+            
                       </form>
                       {{/each}}
                       {{/if}}
+                      
                     </tbody>
                   </table>
                 </div>

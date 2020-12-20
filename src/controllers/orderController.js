@@ -19,10 +19,12 @@ controller.saveOrder = (cart, order, next) => {
                 models.OrderDetail.create(orderDetail);
             })
 
-            cart.applyDiscountDatabase().then(()=> {
-                cart.empty();
-                next();
-            });
+            if (cart.couponCheck) {
+                cart.applyDiscountDatabase().then(()=> {
+                    cart.empty();
+                    next();
+                });
+            }
     
         })
 }

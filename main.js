@@ -90,15 +90,7 @@ app.get('/testDB',(req,res)=>{
 app.set('json spaces', 2)
 app.get('/testing', (req, res) => {
   
-    var orderCon = require('./src/controllers/orderController')
-    var converter = require('./src/utility/timeConverter')
-    orderCon.getCompleteOrdersOfUser(1).then(
-      (data) => {
-        // res.send(JSON.stringify(data, null, 4))
-        console.log(Object.keys(data[0].createdAt))
-        res.send(data[0].createdAt);
-      }
-    )
+    console.log(req.session.cart.generateArray())
 })
 
 //ERROR HANDLER

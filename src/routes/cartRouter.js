@@ -12,7 +12,8 @@ router.get('/', userController.isLoggedIn, (req, res) => {
     res.locals.discount = parseInt(cart.discount * 100);
     res.locals.couponMessage = req.query.couponMessage;
     res.locals.couponMessageColor = req.query.couponMessageColor;
-    res.locals.errorCheckoutMessage = req.query.errorCheckoutMessage;
+    res.locals.error = req.query.error;
+    console.log(res.locals.error);
     res.render('cart')
 });
 
@@ -20,16 +21,27 @@ router.post('/',userController.isLoggedIn, (req, res) => {
     var productId = req.body.id;
     var quantity = req.body.quantity;
 
-    if (quantity <= 0) {
-        res.render('cart');
+    if (quantity === "0") {
+        res.sendStatus(501);
+        res.end;
     }
-
+    
     productController.getProductById(productId).then(product => {
         if (product) {
-            req.session.cart.add(product, productId, quantity);
-            res.sendStatus(204);
-            res.end();  
+            var addProduct = req.session.cart.add(product, productId, quantity);  
+
+            if (addProduct) {
+                res.sendStatus(204);
+                res.end();
+            } else {
+                res.sendStatus(501);
+                res.end();
+            }
         } 
+        else {
+            res.sendStatus(503);
+            res.end();
+        }
     })
 })
 
@@ -49,9 +61,14 @@ router.delete('/', userController.isLoggedIn, (req, res) => {
 router.put('/', userController.isLoggedIn, (req, res) => {
     var productId = req.body.id;
     var quantity = parseInt(req.body.quantity);
-    req.session.cart.update(productId, quantity);
-    res.sendStatus(204);
-    res.end();
+    var updateItem = req.session.cart.update(productId, quantity);
+
+    if (updateItem) {
+        res.sendStatus(204);
+        res.end();
+    } else {
+        res.locals.error = `Sản phẩm $`
+    }
 })
 
 router.get('/checkout',userController.isLoggedIn, (req, res) => {
@@ -60,7 +77,7 @@ router.get('/checkout',userController.isLoggedIn, (req, res) => {
     var cart = req.session.cart;
 
     if (cart.isEmpty()) {
-        return res.redirect(`/cart?errorCheckoutMessage= Giỏ hàng trống`);
+        return res.redirect(`/cart?error= Giỏ hàng trống`);
     }
 
     res.locals.infoErrorMessage = req.query.infoErrorMessage;
@@ -84,7 +101,7 @@ router.post('/checkout', userController.isLoggedIn, (req, res) => {
 
     if (cart.isEmpty()) {
         return res.redirect(`/cart?errorCheckoutMessage= Giỏ hàng trống`);
-    }
+    } 
 
     res.locals.items = cart.generateArray();
     res.locals.totalPrice = cart.getTotalPrice();
@@ -120,6 +137,8 @@ router.post('/checkout', userController.isLoggedIn, (req, res) => {
         state: "Đang giao",
         UserId: req.session.user.id,
     }
+
+    cart.checkAndUpdateStock(res);
 
     orderController.saveOrder(cart, order, () => {
         res.redirect('/cart/checkout/confirm');
