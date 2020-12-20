@@ -529,6 +529,7 @@ router.get('/', function(req, res) {
             }
             return comparison;
           }
+          const tmp=[];
           sortController.getAll().then(Product=> {
             Product.forEach(element => {
                 tmp.push(element.dataValues);
@@ -552,6 +553,7 @@ router.get('/', function(req, res) {
             }
             return comparison;
           }
+          const tmp=[];
           sortController.getAll().then(Product=> {
             Product.forEach(element => {
                 tmp.push(element.dataValues);

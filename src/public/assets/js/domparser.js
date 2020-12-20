@@ -124,7 +124,8 @@ function az(){
       var here=window.location.href
       here=here.split("/",5)
       var tmp=here[4]
-      console.log(tmp)
+      if(tmp==undefined)
+            tmp=""
       $.ajax({
             type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
             url : '/shop-fullwidth-4col/'+tmp+'/az', //gửi dữ liệu sang trang perfume az
@@ -143,7 +144,8 @@ function za(){
       var here=window.location.href
       here=here.split("/",5)
       var tmp=here[4]
-      console.log(tmp)
+      if(tmp==undefined)
+            tmp=""
       $.ajax({
             type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
             url : '/shop-fullwidth-4col/'+tmp+'/za', //gửi dữ liệu sang trang perfume az
@@ -162,7 +164,8 @@ function high_low(){
       var here=window.location.href
       here=here.split("/",5)
       var tmp=here[4]
-      console.log(tmp)
+      if(tmp==undefined)
+            tmp=""
       $.ajax({
             type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
             url : '/shop-fullwidth-4col/'+tmp+'/high_low', //gửi dữ liệu sang trang perfume az
@@ -182,7 +185,8 @@ function low_high(){
       var here=window.location.href
       here=here.split("/",5)
       var tmp=here[4]
-      console.log(tmp)
+      if(tmp==undefined)
+            tmp=""
       $.ajax({
             type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
             url : '/shop-fullwidth-4col/'+tmp+'/low_high', //gửi dữ liệu sang trang perfume az
