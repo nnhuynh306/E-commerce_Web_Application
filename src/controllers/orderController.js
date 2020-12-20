@@ -24,6 +24,9 @@ controller.saveOrder = (cart, order, next) => {
                     cart.empty();
                     next();
                 });
+            } else {
+                cart.empty();
+                next();
             }
     
         })
