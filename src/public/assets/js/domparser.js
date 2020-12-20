@@ -4,6 +4,8 @@ var skincare = $("#skincare");
 var cosmetic = $("#cosmetic");
 var all = $("#all");
 
+
+
 perfume.click(function()
 {
       $("#all").removeClass("active");
@@ -116,3 +118,94 @@ skincare.click(function()
         });
         return false;
   });
+
+
+function az(){
+      var here=window.location.href
+      here=here.split("/",5)
+      var tmp=here[4]
+      console.log(tmp)
+      $.ajax({
+            type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
+            url : '/shop-fullwidth-4col/'+tmp+'/az', //gửi dữ liệu sang trang perfume az
+            success : function(Product)  // Hàm thực thi khi nhận dữ liệu được từ server
+                      { 
+                           
+                           let parser = new DOMParser();
+                           let parsedHtml = parser.parseFromString(Product, 'text/html');
+                           $('#sanpham').html(parsedHtml.querySelector("#sanpham"));
+                      }
+            });
+            return false;
+};
+
+function za(){
+      var here=window.location.href
+      here=here.split("/",5)
+      var tmp=here[4]
+      console.log(tmp)
+      $.ajax({
+            type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
+            url : '/shop-fullwidth-4col/'+tmp+'/za', //gửi dữ liệu sang trang perfume az
+            success : function(Product)  // Hàm thực thi khi nhận dữ liệu được từ server
+                      { 
+                           
+                           let parser = new DOMParser();
+                           let parsedHtml = parser.parseFromString(Product, 'text/html');
+                           $('#sanpham').html(parsedHtml.querySelector("#sanpham"));
+                      }
+            });
+            return false;
+};
+
+function high_low(){
+      var here=window.location.href
+      here=here.split("/",5)
+      var tmp=here[4]
+      console.log(tmp)
+      $.ajax({
+            type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
+            url : '/shop-fullwidth-4col/'+tmp+'/high_low', //gửi dữ liệu sang trang perfume az
+            success : function(Product)  // Hàm thực thi khi nhận dữ liệu được từ server
+                      { 
+                           
+                           let parser = new DOMParser();
+                           let parsedHtml = parser.parseFromString(Product, 'text/html');
+                           $('#sanpham').html(parsedHtml.querySelector("#sanpham"));
+                      }
+            });
+            return false;
+};
+
+
+function low_high(){
+      var here=window.location.href
+      here=here.split("/",5)
+      var tmp=here[4]
+      console.log(tmp)
+      $.ajax({
+            type : 'GET', //Sử dụng kiểu gửi dữ liệu POST
+            url : '/shop-fullwidth-4col/'+tmp+'/low_high', //gửi dữ liệu sang trang perfume az
+            success : function(Product)  // Hàm thực thi khi nhận dữ liệu được từ server
+                      { 
+                           
+                           let parser = new DOMParser();
+                           let parsedHtml = parser.parseFromString(Product, 'text/html');
+                           $('#sanpham').html(parsedHtml.querySelector("#sanpham"));
+                      }
+            });
+            return false;
+};
+
+
+function sortProduct(){
+
+      var tmp = $("#sort").val();
+      if(tmp=="az")
+            az();
+      else if(tmp=="za")
+            za();
+      else if(tmp=="high_low")
+            high_low();
+      else if(tmp=="low_high") low_high();
+};

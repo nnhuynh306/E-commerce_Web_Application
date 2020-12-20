@@ -3,12 +3,13 @@
         <div class="shop">
             <div class="container-full-half">
                 <div class="shop-header">
-                    <select class="customed-select" name="#">
+                    <select class="customed-select" name="sort" id="sort">
                         <option value="az">A to Z</option>
                         <option value="za">Z to A</option>
-                        <option value="low-high">Low to High Price</option>
-                        <option value="high-low">High to Low Price</option>
+                        <option value="low_high">Low to High Price</option>
+                        <option value="high_low">High to Low Price</option>
                     </select>
+                    <input type="submit" onclick="sortProduct()" value="Sort">
                 </div>
                 <div class="shop-products">
                     <div class="shop-products__grid">
