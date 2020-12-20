@@ -1,5 +1,6 @@
 var models = require('../models')
 const { Op } = require("sequelize");
+const sequelize = require('sequelize');
 
 let controller = {};
 
@@ -28,6 +29,17 @@ controller.saveOrder = (cart, order, next) => {
 
 controller.getCompleteOrdersOfUser = (UserId) => {
     return models.Order.findAll({
+        // attributes: [
+        //     'id',
+        //     [sequelize.fn('date_format', sequelize.col('createdAt'), '%Y-%m-%d'), 'createdAt'],
+        //     'address',
+        //     'note',
+        //     'fullName',
+        //     'phoneNumber',
+        //     'totalPrice',
+        //     'state',
+        //     'deliveryDate',
+        // ],
         where: {
             UserId: UserId,
             state: {

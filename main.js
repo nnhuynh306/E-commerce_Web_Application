@@ -91,11 +91,12 @@ app.set('json spaces', 2)
 app.get('/testing', (req, res) => {
   
     var orderCon = require('./src/controllers/orderController')
-
-    orderCon.getUncompleteOrdersOfUser(1).then(
+    var converter = require('./src/utility/timeConverter')
+    orderCon.getCompleteOrdersOfUser(1).then(
       (data) => {
         // res.send(JSON.stringify(data, null, 4))
-        res.send(data);
+        console.log(Object.keys(data[0].createdAt))
+        res.send(data[0].createdAt);
       }
     )
 })
