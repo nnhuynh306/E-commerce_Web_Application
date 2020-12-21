@@ -13,7 +13,6 @@ router.get('/', userController.isLoggedIn, (req, res) => {
     res.locals.couponMessage = req.query.couponMessage;
     res.locals.couponMessageColor = req.query.couponMessageColor;
     res.locals.error = req.query.error;
-    console.log(res.locals.error);
     res.render('cart')
 });
 

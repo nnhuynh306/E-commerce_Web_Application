@@ -8,15 +8,15 @@ const port = process.env.PORT || 3000;
 //CREATE HANDLEBARS
 var hbs = require('express-handlebars')
 
-app.use(express.static(__dirname + '/src/public'));
+app.use(express.static(__dirname + '/public'));
 
-app.set('views', __dirname + '/src/views');
+app.set('views', __dirname + '/views');
 
 app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'layout',
-    layoutsDir: __dirname + '/src/views/layouts',
-    partialsDir: __dirname + '/src/views/partials',
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials',
     runtimeOptions:{
       allowProtoPropertiesByDefault: true
     }
@@ -38,7 +38,7 @@ app.use(session({
     cookie: { maxAge: null }}
 ));
 
-var Cart = require(__dirname + '/src/controllers/cartController')
+var Cart = require(__dirname + '/controllers/cartController')
 
 app.use((req, res, next) => {
   res.locals.currentURL = req.path;
@@ -58,30 +58,23 @@ app.use((req, res, next) => {
 //ROUTER
 
 
-app.use('/admin', require(__dirname + '/src/routes/adminRouter'))
+app.use('/admin', require(__dirname + '/routes/adminRouter'))
 
-app.use('/my_profile', require(__dirname + '/src/routes/my_profileRouter'))
+app.use('/my_profile', require(__dirname + '/routes/my_profileRouter'))
 
-app.use('/cart', require(__dirname + '/src/routes/cartRouter'))
+app.use('/cart', require(__dirname + '/routes/cartRouter'))
 
-app.use('/product-detail', require(__dirname + '/src/routes/product-detailRouter'))
+app.use('/product-detail', require(__dirname + '/routes/product-detailRouter'))
 
-app.use('/user', require(__dirname + '/src/routes/userRouter'))
+app.use('/user', require(__dirname + '/routes/userRouter'))
 
-app.use('/shop-fullwidth-4col', require(__dirname + '/src/routes/shop-fullwidth-4colRouter'))
+app.use('/shop-fullwidth-4col', require(__dirname + '/routes/shop-fullwidth-4colRouter'))
 
-app.use('/order_detail', require(__dirname + '/src/routes/order_detailRouter'))
+app.use('/order_detail', require(__dirname + '/routes/order_detailRouter'))
 
-app.use('/', require(__dirname + '/src/routes/homepageRouter'))
-app.use('/comment', require(__dirname + '/src/routes/comment'))
-app.use('/search', require(__dirname + '/src/routes/searchRouter'))
-
-app.get('/createTable', (req,res)=>{
-    let models = require('./src/models');
-    models.sequelize.sync().then(() => {
-      res.send('table created');
-    });
-  });
+app.use('/', require(__dirname + '/routes/homepageRouter'))
+app.use('/comment', require(__dirname + '/routes/comment'))
+app.use('/search', require(__dirname + '/routes/searchRouter'))
 
 app.get('/testDB',(req,res)=>{
     res.render('testDB.php')
