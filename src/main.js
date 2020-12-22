@@ -53,6 +53,7 @@ app.use((req, res, next) => {
   res.locals.userEmail = req.session.user ? req.session.user.email : "";
 
   res.locals.userLoggedIn = req.session.user ? true: false;
+  res.locals.userIsAdmin = req.session.user? (req.session.user.isAdmin? true: false): false;
   next();
 })
 //ROUTER

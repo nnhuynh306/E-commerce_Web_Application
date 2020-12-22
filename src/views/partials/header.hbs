@@ -35,6 +35,9 @@
                             </div>
                             </div>
                         </li>
+                        {{#if userIsAdmin}}
+                            <li><a href="/admin">Admin Manager</a></li>
+                        {{/if}}
                         <li><a href="/user/logout?nextURL={{currentURL}}">Log out</a></li>
                     </ul>
                 </div>

@@ -71,4 +71,17 @@ controller.changeUserPassword = (id, password) => {
     })
 }
 
+controller.isAdmin = (req, res ,next) => {
+    if (req.session.user) {
+        if (req.session.user.isAdmin) {
+            next();
+        } else {
+            res.locals.message = "FORBIDDEN ACCESS"
+            res.status(403).render('error');
+        }
+    } else {
+        res.redirect(`/user/login?nextURL=${req.originalUrl}`);
+    }
+}
+
 module.exports = controller;

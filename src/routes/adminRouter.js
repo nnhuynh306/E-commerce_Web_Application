@@ -3,7 +3,7 @@ var router = express.Router()
 let userController = require('../controllers/userController')
 const productController = require('./../controllers/productController')
 
-router.get('/', function (req, res) {
+router.get('/',userController.isAdmin, function (req, res) {
     res.render("admin", {
         pageStyle: "admin-controller",
         product_find_result: {
@@ -53,7 +53,7 @@ router.get('/', function (req, res) {
 });
 
 
-router.post('/remove-product', function(req, res) {
+router.post('/remove-product',userController.isAdmin, function(req, res) {
     let product_id = req.body.product_id;
     productController.removeProductByID(product_id)
     .then(function(){
@@ -66,7 +66,7 @@ router.post('/remove-product', function(req, res) {
 });
 
 
-router.post('/edit-product-find', function(req, res){
+router.post('/edit-product-find',userController.isAdmin, function(req, res){
     let product_id = req.body.product_id;
     productController.getProductById(product_id)
     .then(data => {
@@ -92,7 +92,7 @@ router.post('/edit-product-find', function(req, res){
 });
 
 
-router.post('/edit-product-update', function(req, res){
+router.post('/edit-product-update',userController.isAdmin, function(req, res){
     let product_edit = {
         name: req.body.product_name_result,
         stock: req.body.stock_result,

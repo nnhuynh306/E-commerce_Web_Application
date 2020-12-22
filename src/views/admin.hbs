@@ -1,6 +1,5 @@
 <!--My profile-->
     <!--History-->
-    {{#if userLoggedIn}}
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -319,12 +318,6 @@
                 </div>
             </div> 
         </div>
-    {{else}}
-        <h1 class="text-center">REQUIRE USER TO LOGIN (MOVE TO LOGIN PAGE)<br>
-            <h5 class = 'text-center'><a  href="/my_profile/demo?activeTab={{page}}">click here to access my profile for demo</a></h5>
-            <h3 class = 'text-center'>Đây là demo cho phân hệ user và anonymous </h3>
-        </h1>
-    {{/if}}
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
