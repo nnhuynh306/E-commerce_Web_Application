@@ -205,39 +205,52 @@
                             </div>
                         </div>
                         <!--order management tab content-->
-                        <div class="tab-pane fade  {{active_order_management}}" id="v-pills-order-management" role="tabpanel" aria-labelledby="v-pills-order-management-tab">
+                        <div class="tab-pane fade show active{{active_order_management}}" id="v-pills-order-management" role="tabpanel" aria-labelledby="v-pills-order-management-tab">
                             <legend class="pt-4 text-center font-weight-bold">Quản lý đơn hàng</legend>
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-dark text-center">
                                     <tr>
-                                        <th scope="col"></th>
                                         <th scope="col">ID</th>
                                         <th scope="col">Tên khách hàng</th>
                                         <th scope="col">Tổng tiền</th>
                                         <th scope="col">Trạng thái</th>
+                                        <th scope="col">Xem chi tiết</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {{#if order_management}}
-                                    <form action="/admin/delete-order" method="get">
+                                    <form action="/admin/show-orders" method="post">
                                         {{#each order_management}}
+                                        {{#with dataValues}}
                                         <tr>
-                                            <td>
-                                                <input type="checkbox" name="order_selected" value="{{id}}" id="order-{{id}}">
-                                            </td>
                                             <td>{{id}}</td>
+
+                                            {{#if customer}}
                                             <td>{{customer}}</td>
+                                            {{else}}
+                                            <td> <div class="alert alert-info text-center font-weight-light font-italic" role="alert">không có tên KH</div> </td>
+                                            {{/if}}
+
                                             <td>{{total}}</td>
                                             <td>{{state}}</td>
+                                            <td>
+                                                <div class="container text-center">
+                                                <a href="/admin/order_detail?id={{id}}" target="_blank">
+                                                    <button type="button" class="submit-btn">Chi tiết</button>
+                                                </a>
+                                                </div>
+                                            </td>
                                         </tr>
+                                        {{/with}}
                                         {{/each}}
                                         <tr>
                                             <td colspan="5">
                                                 <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Xóa các order được chọn</button>
+                                                {{!-- <button type="submit" class="submit-btn" id="profile-submit">Xem chi tiết các order được chọn</button> --}}
                                                 </div>
                                             </td>
                                         </tr>
+                                        <input type="hidden" name="order_selected" value="-1">
                                     </form>
                                     {{else}}
                                     <tr class="text-center">

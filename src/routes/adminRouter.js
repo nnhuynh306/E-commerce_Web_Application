@@ -2,8 +2,9 @@ const express = require('express');
 var router = express.Router()
 let userController = require('../controllers/userController')
 const productController = require('./../controllers/productController')
+const orderController = require('../controllers/orderController')
 
-router.get('/',userController.isAdmin, function (req, res) {
+router.get('/', userController.isAdmin, orderController.asyncGetCompleteOrders, async function (req, res) {
     res.render("admin", {
         pageStyle: "admin-controller",
         // product_find_result: {
@@ -14,20 +15,7 @@ router.get('/',userController.isAdmin, function (req, res) {
         //     description_result: "Hương thơm ngào ngạt toát ra làm tôi thấy vui vẻ"
         // },
         // product_edit_error: true;
-        order_management: [
-            {
-                "id": 101,
-                "customer": "Thinhnguyenphuc",
-                "total": 508,
-                "state": "Chưa giao hàng"
-            },
-            {
-                "id": 109,
-                "customer": "Namhuynhnhat",
-                "total": 9669,
-                "state": "Đã nhận hàng",
-            },
-        ],
+        order_management: await res.allOrders,
         user_management: [
             {
                 "id": 101,
@@ -120,6 +108,39 @@ router.post('/edit-product-update',userController.isAdmin, function(req, res){
         res.send(error)
     })
 
+})
+
+router.post('/show-orders', userController.isAdmin, (req, res) => {
+    var orderId = req.body.order_selected;
+    if (orderId === '-1') {
+        res.redirect('/admin');
+    }
+    else {
+        orderId.forEach(e => {
+            console.log(e);
+        })
+    }
+})
+
+router.get('/order_detail', userController.isLoggedIn, (req, res) => {
+    var orderId = req.query.id;
+    orderController.getOrderIncludeDetail(orderId).then(order => {
+        if (order) {
+            if (order.UserId === req.session.user.id) {
+                order.OrderDetails.forEach(detail => {
+                    detail.totalPrice = detail.Product.price * detail.productQuantity;
+                });
+                res.locals.order = order;
+                res.render('order_detail')
+            } else {
+                res.locals.message = "Đơn đặt hàng này không thuộc về bạn"
+                res.render('order_detail')
+            }
+        } else {
+            res.locals.message = "Đơn đặt hàng không tồn tại"
+            res.render('order_detail')
+        }
+    })
 })
 
 module.exports = router
