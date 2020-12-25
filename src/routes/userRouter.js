@@ -65,6 +65,39 @@ router.post('/signup', function(req, res, next) {
     let fullName =  req.body.fullName;
     let pass = req.body.password;
     let confirmPassword = req.body.confirmPassword
+    let format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    let space = /[  ]/;
+    if (format.test(name) || format.test(fullName)) {
+        let messageWarning;
+        if(format.test(name) ){
+            messageWarning = "Tên đăng nhập không được chứa ký tự đặc biệt";
+        }else
+         if(format.test(fullName)){
+             messageWarning = "Họ tên không được chứa ký tự đặc biệt"
+        }
+
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: "",
+            preRePass: "",
+            preFullName: fullName,
+            message: messageWarning,
+            type: 'danger'
+        })
+    }
+
+    if(space.test(pass)){
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: pass,
+            preRePass: confirmPassword,
+            preFullName: fullName,
+            message: `Mật khẩu không được chứa ký tự khoảng cách`,
+            type: 'danger'
+        })
+    }
 
     if (email.length ==0) {
         return res.render('sign_up', {
@@ -89,6 +122,19 @@ router.post('/signup', function(req, res, next) {
             type: 'danger'
         })
     }
+    if(fullName.length==0){
+        return res.render('sign_up', {
+            preEmail: email,
+            preName: name,
+            prePass: pass,
+            preRePass: confirmPassword,
+            preFullName: fullName,
+            message: `Họ tên không được để trống`,
+            type: 'danger'
+        })
+
+    }
+
     if (pass.length < 3) {
         return res.render('sign_up', {
             preEmail: email,
