@@ -21,6 +21,13 @@ router.post('/login', (req, res, next) => {
 
     let username = req.body.username;
     let password = req.body.password;
+    let format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if(format.test(username)){
+        res.render('login', {
+            message: 'Tên đăng nhập không được chứa ký tự đặc biệt',
+            type: 'danger'
+        })
+    }
 
     userController
         .getUserByUsernameOrEmail(username)
