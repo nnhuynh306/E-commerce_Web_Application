@@ -6,13 +6,14 @@ const productController = require('./../controllers/productController')
 router.get('/',userController.isAdmin, function (req, res) {
     res.render("admin", {
         pageStyle: "admin-controller",
-        product_find_result: {
-            product_name_result: "Nước rửa tay con mèo vằn",
-            stock_result: 69,
-            price_result: 99.8,
-            category_result: "Nước hoa",
-            description_result: "Hương thơm ngào ngạt toát ra làm tôi thấy vui vẻ"
-        },
+        // product_find_result: {
+        //     product_name_result: "Nước rửa tay con mèo vằn",
+        //     stock_result: 69,
+        //     price_result: 99.8,
+        //     category_result: "Nước hoa",
+        //     description_result: "Hương thơm ngào ngạt toát ra làm tôi thấy vui vẻ"
+        // },
+        // product_edit_error: true;
         order_management: [
             {
                 "id": 101,
@@ -66,7 +67,7 @@ router.post('/remove-product',userController.isAdmin, function(req, res) {
 });
 
 
-router.post('/edit-product-find',userController.isAdmin, function(req, res){
+router.post('/edit-product-find', userController.isAdmin, function(req, res){
     let product_id = req.body.product_id;
     productController.getProductById(product_id)
     .then(data => {
@@ -83,11 +84,17 @@ router.post('/edit-product-find',userController.isAdmin, function(req, res){
         }
         res.render("admin", {
             pageStyle: "admin-controller",
+            active_edit_product: 'show active',
             product_find_result
         })
     })
     .catch(function(error){
-        res.send(error)
+        //res.send(error)
+        res.render("admin", {
+            pageStyle: "admin-controller",
+            active_edit_product: 'show active',
+            product_edit_error: true,
+        })
     })
 });
 
