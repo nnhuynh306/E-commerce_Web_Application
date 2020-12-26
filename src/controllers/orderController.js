@@ -81,4 +81,22 @@ controller.getOrderIncludeDetail = (id) => {
     })
 }
 
+controller.asyncGetCompleteOrders = async (req, res, next) => {
+    try {
+        res.allOrders = await models.Order.findAll({
+            attributes: [
+                'id', 
+                ['fullName', 'customer'],
+                ['totalPrice', 'total'],
+                'state',
+            ],
+            order: [["createdAt", 'DESC']]
+        })
+    } catch (error) {
+        console.log(error);
+    }
+
+    return next();
+}
+
 module.exports = controller;
