@@ -2,31 +2,20 @@ const express = require('express');
 var router = express.Router()
 let userController = require('../controllers/userController')
 const productController = require('./../controllers/productController')
+const orderController = require('../controllers/orderController')
 
-router.get('/',userController.isAdmin, function (req, res) {
+router.get('/', userController.isAdmin, orderController.asyncGetCompleteOrders, async function (req, res) {
     res.render("admin", {
         pageStyle: "admin-controller",
-        product_find_result: {
-            product_name_result: "Nước rửa tay con mèo vằn",
-            stock_result: 69,
-            price_result: 99.8,
-            category_result: "Nước hoa",
-            description_result: "Hương thơm ngào ngạt toát ra làm tôi thấy vui vẻ"
-        },
-        order_management: [
-            {
-                "id": 101,
-                "customer": "Thinhnguyenphuc",
-                "total": 508,
-                "state": "Chưa giao hàng"
-            },
-            {
-                "id": 109,
-                "customer": "Namhuynhnhat",
-                "total": 9669,
-                "state": "Đã nhận hàng",
-            },
-        ],
+        // product_find_result: {
+        //     product_name_result: "Nước rửa tay con mèo vằn",
+        //     stock_result: 69,
+        //     price_result: 99.8,
+        //     category_result: "Nước hoa",
+        //     description_result: "Hương thơm ngào ngạt toát ra làm tôi thấy vui vẻ"
+        // },
+        // product_edit_error: true;
+        order_management: await res.allOrders,
         user_management: [
             {
                 "id": 101,
@@ -66,7 +55,7 @@ router.post('/remove-product',userController.isAdmin, function(req, res) {
 });
 
 
-router.post('/edit-product-find',userController.isAdmin, function(req, res){
+router.post('/edit-product-find', userController.isAdmin, function(req, res){
     let product_id = req.body.product_id;
     productController.getProductById(product_id)
     .then(data => {
@@ -83,11 +72,17 @@ router.post('/edit-product-find',userController.isAdmin, function(req, res){
         }
         res.render("admin", {
             pageStyle: "admin-controller",
+            active_edit_product: 'show active',
             product_find_result
         })
     })
     .catch(function(error){
-        res.send(error)
+        //res.send(error)
+        res.render("admin", {
+            pageStyle: "admin-controller",
+            active_edit_product: 'show active',
+            product_edit_error: true,
+        })
     })
 });
 
@@ -113,6 +108,39 @@ router.post('/edit-product-update',userController.isAdmin, function(req, res){
         res.send(error)
     })
 
+})
+
+router.post('/show-orders', userController.isAdmin, (req, res) => {
+    var orderId = req.body.order_selected;
+    if (orderId === '-1') {
+        res.redirect('/admin');
+    }
+    else {
+        orderId.forEach(e => {
+            console.log(e);
+        })
+    }
+})
+
+router.get('/order_detail', userController.isLoggedIn, (req, res) => {
+    var orderId = req.query.id;
+    orderController.getOrderIncludeDetail(orderId).then(order => {
+        if (order) {
+            if (order.UserId === req.session.user.id) {
+                order.OrderDetails.forEach(detail => {
+                    detail.totalPrice = detail.Product.price * detail.productQuantity;
+                });
+                res.locals.order = order;
+                res.render('order_detail')
+            } else {
+                res.locals.message = "Đơn đặt hàng này không thuộc về bạn"
+                res.render('order_detail')
+            }
+        } else {
+            res.locals.message = "Đơn đặt hàng không tồn tại"
+            res.render('order_detail')
+        }
+    })
 })
 
 module.exports = router
