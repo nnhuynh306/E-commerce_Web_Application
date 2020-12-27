@@ -79,7 +79,7 @@ router.post('/signup', function(req, res, next) {
         if(format.test(name) ){
             messageWarning = "Tên đăng nhập không được chứa ký tự đặc biệt";
         }else
-         if(format.test(fullName)){
+         if(format.test(fullName) && !space.test(fullName)){
              messageWarning = "Họ tên không được chứa ký tự đặc biệt"
         }
 
