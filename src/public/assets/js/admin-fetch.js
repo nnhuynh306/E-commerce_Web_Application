@@ -1,3 +1,23 @@
+$('document').ready(() => {
+    $('.input-upload-image').each(function () {
+        const hiddenBase64 = $('.hidden-base64-check', this);
+        const img =  $('.img', this);
+        const input = $('.input-file', this);
+        const reader = new FileReader;
+        reader.onload = () => {
+            const dataURL = reader.result;
+
+            img.attr("src", dataURL);
+        }
+
+        input.on("change", () => {
+            hiddenBase64.val("1");
+            reader.abort();
+            reader.readAsDataURL(input.prop('files')[0]);
+        });
+    });
+});
+
 function fetchUpdateProductFind() {
 	const message = $('#update-product-message');
 	const loading = $('#edit_product_loading_spinner');
@@ -28,9 +48,11 @@ function fetchUpdateProductFind() {
 			document.querySelector('#price_result').value = data.price_result
 			document.querySelector('#category_result').value = data.category_result
 			document.querySelector('#categodyID_result').value = data.categodyID_result
-			document.querySelector('#description_result').value = data.description_result
-			document.querySelector('#bigImagePath_result').value = data.bigImagePath_result
-			document.querySelector('#smallImagePath_result').value = data.smallImagePath_result
+            document.querySelector('#description_result').value = data.description_result
+            document.querySelector('#bigImagePath_result_isbase64').value = 0
+            document.querySelector('#bigImagePath_result').src = data.bigImagePath_result
+            document.querySelector('#smallImagePath_result_isbase64').value = 0
+			document.querySelector('#smallImagePath_result').src = data.smallImagePath_result
 			document.querySelector('#id_result').value = data.id_result
 		}
 	}).catch(error => {
@@ -57,9 +79,11 @@ function fetchUpdateData() {
 				'stock_result': document.querySelector('#stock_result').value,
 				'price_result': document.querySelector('#price_result').value,
 				'category_result': document.querySelector('#category_result').value,
-				'description_result': document.querySelector('#description_result').value,
-				'bigImagePath_result': document.querySelector('#bigImagePath_result').value,
-				'smallImagePath_result': document.querySelector('#smallImagePath_result').value,
+                'description_result': document.querySelector('#description_result').value,
+                'bigImagePath_result_isbase64': document.querySelector('#bigImagePath_result_isbase64').value,
+                'bigImagePath_result': document.getElementById('bigImagePath_result').getAttribute('src'),
+                'smallImagePath_result_isbase64': document.querySelector('#smallImagePath_result_isbase64').value,
+				'smallImagePath_result': document.getElementById('smallImagePath_result').getAttribute('src'),
 				'id_result': document.querySelector('#id_result').value,
 				'categodyID_result': document.querySelector('#categodyID_result').value,
 		})

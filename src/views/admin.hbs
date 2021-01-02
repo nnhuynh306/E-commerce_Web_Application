@@ -90,16 +90,27 @@
                                                         <input type="text" name="description_result" id="description_result" class="input-full-width" placeholder="Thêm đặc tả sản phẩm" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
-                                                        <label for="smallImagePath_resultt" >Đường dẫn ảnh nhỏ</label>
+                                                        <label for="smallImagePath_resultt" >Ảnh nhỏ</label>
                                                     </div>
-                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="smallImagePath_result" id="smallImagePath_result" class="input-full-width" placeholder="Thêm đường dẫn ảnh nhỏ" required>
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9 input-upload-image">
+                                                        <input type="file" name="smallImagePath_result" id="smallImagePath_result_file" class="input-file" placeholder="Thêm đường dẫn ảnh nhỏ">
+                                                        <input type="hidden" class="hidden-base64-check" name="smallImagePath_result_isbase64" id="smallImagePath_result_isbase64" value="0">
+
+                                                        <div class="container text-center">
+                                                            <img src="" class="img img-thumbnail mt-2" id="smallImagePath_result" alt="" width="150">
+                                                        </div>
                                                     </div>
+                                                    
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
-                                                        <label for="bigImagePath_result" >Đường dẫn ảnh lớn</label>
+                                                        <label for="bigImagePath_result" >Ảnh lớn</label>
                                                     </div>
-                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="bigImagePath_result" id="bigImagePath_result" class="input-full-width" placeholder="Thêm đường dẫn ảnh lớn" required>
+                                                    <div class="pb-1 col-xs-12 col-sm-8 col-md-9 input-upload-image">
+                                                        <input type="file" name="bigImagePath_result" id="bigImagePath_result_file" class="input-file" placeholder="Thêm đường dẫn ảnh lớn">
+                                                        <input type="hidden" class="hidden-base64-check" name="bigImagePath_result_isbase64" id="bigImagePath_result_isbase64" value="0">
+
+                                                        <div class="container text-center">
+                                                            <img src="" class="img img-thumbnail mt-2" id="bigImagePath_result" alt=""  width="300">
+                                                        </div>
                                                     </div>
                                                     <input type="hidden" name="id_result" id="id_result" class="input-full-width">
                                                     
@@ -119,7 +130,7 @@
                             <div class="container p-4">
                                 <div class="container">
                                     <legend class="pb-1 text-center font-weight-bold">Thêm sản phẩm</legend>
-                                    <form action="/admin/add-product" method="get">
+                                    <form action="/admin/add-product" method="post" enctype="multipart/form-data">
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
