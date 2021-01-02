@@ -39,8 +39,11 @@
                                     </form>
                                     <hr>
                                     <legend class="pb-1 text-center font-weight-bold">Kết quả truy vấn</legend>
+                                    <div id="update-product-message">
+
+                                    </div>
                                     {{#if product_find_result}}
-                                    <form action="/admin/edit-product-update" method="post">
+                                    <form id="update-product-form" onsubmit="return fetchUpdateData()">
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
@@ -354,3 +357,35 @@
         <script src="./assets/js/bootstrap-drawer.min.js"></script>
         <script src="./assets/js/jquery.countdown.min.js"></script>
         <script src="./assets/js/main.min.js"></script>
+
+        <script>
+            function fetchUpdateData() {
+                console.log('look here!!')
+                const message = $('#update-product-message');
+
+                fetch ('/edit-product-find', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        'product_name_result': document.querySelector('#product_name_result');
+                        'stock_result': document.querySelector('#stock_result');
+                        'price_result': document.querySelector('#price_result');
+                        'category_result': document.querySelector('#category_result');
+                        'description_result': document.querySelector('#description_result');
+                        'bigImagePath_result': document.querySelector('#bigImagePath_result');
+                        'smallImagePath_result': document.querySelector('#smallImagePath_result');
+                        'id_result': document.querySelector('#id_result');
+                        'categodyID_result': document.querySelector('#categodyID_result');
+                    })
+                })
+                .then(response => response.json();) 
+                .then(data => {
+                    message.append('<div class="alert alert-success text-center" role="alert">chỉnh sửa thành công</div>');
+                })
+                .catch(error => {
+                    message.append('<div class="alert alert-danger text-center" role="alert">Có lỗi xảy ra trong quá trình truy vấn sản phẩm!!</div>');
+                })
+
+                return false;
+            }
+        </script>
