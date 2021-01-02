@@ -5,6 +5,10 @@ const { get } = require('http')
 const app = express()
 const port = process.env.PORT || 3000;
 
+//LIMIT FETCH application/json files uploader (base64 image)
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
 //CREATE HANDLEBARS
 var hbs = require('express-handlebars')
 
@@ -37,6 +41,10 @@ app.use(session({
     secret: 'somesecret', 
     cookie: { maxAge: null }}
 ));
+
+//FILEUPLOAD
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
 
 var Cart = require(__dirname + '/controllers/cartController')
 

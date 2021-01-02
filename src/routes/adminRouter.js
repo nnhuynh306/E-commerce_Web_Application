@@ -3,6 +3,8 @@ var router = express.Router()
 let userController = require('../controllers/userController')
 const productController = require('./../controllers/productController')
 const orderController = require('../controllers/orderController')
+const uploader = require('../utility/uploaderMiddleware')
+
 
 router.get('/', userController.isAdmin, orderController.asyncGetCompleteOrders, async function (req, res) {
     res.render("admin", {
@@ -38,6 +40,7 @@ router.get('/', userController.isAdmin, orderController.asyncGetCompleteOrders, 
                 "username": "Hoanghuyhonguyen"
             }
         ],
+        active_edit_product: 'show active',
     })
 });
 
@@ -70,44 +73,70 @@ router.post('/edit-product-find', userController.isAdmin, function(req, res){
             smallImagePath_result: data.smallImagePath,
             id_result: data.id
         }
-        res.render("admin", {
-            pageStyle: "admin-controller",
-            active_edit_product: 'show active',
-            product_find_result
-        })
+        // res.render("admin", {
+        //     pageStyle: "admin-controller",
+        //     active_edit_product: 'show active',
+        //     product_find_result
+        // })
+        res.status(200);
+        res.json(product_find_result);
     })
     .catch(function(error){
-        //res.send(error)
-        res.render("admin", {
-            pageStyle: "admin-controller",
-            active_edit_product: 'show active',
-            product_edit_error: true,
-        })
+        res.status(500);
+        res.send(JSON.stringify(error));
+        // res.render("admin", {
+        //     pageStyle: "admin-controller",
+        //     active_edit_product: 'show active',
+        //     product_edit_error: true,
+        // })
     })
 });
 
 
-router.post('/edit-product-update',userController.isAdmin, function(req, res){
-    let product_edit = {
-        name: req.body.product_name_result,
-        stock: req.body.stock_result,
-        price: req.body.price_result,
-        category: req.body.category_result,
-        description: req.body.description_result,
-        bigImagePath: req.body.bigImagePath_result,
-        smallImagePath: req.body.smallImagePath_result,
-        id: req.body.id_result,
-        CategoryId: req.body.categodyID_result
-    };
-    console.log(product_edit);
-    productController.editProduct(product_edit)
-    .then(function() {
-        res.send("Successfully")
-    })
-    .catch(function(error) {
-        res.send(error)
-    })
+router.post('/edit-product-update',userController.isAdmin, async function(req, res){
+    try {
+        bigImageisbase64 = req.body.bigImagePath_result_isbase64 === '1';
+        smallImageisbase64 = req.body.smallImagePath_result_isbase64 === '1';
 
+        let bigImage = (bigImageisbase64) ? await uploader.uploadBase64(req.body.bigImagePath_result, { upload_preset: 'dangshop' }) : {'secure_url':  req.body.bigImagePath_result};
+
+        let smallImage = (smallImageisbase64) ? await uploader.uploadBase64(req.body.smallImagePath_result, { upload_preset: 'dangshop' }) : {'secure_url':  req.body.smallImagePath_result};
+
+        let bigImagePath = bigImage.secure_url;
+        let smallImagePath = smallImage.secure_url;
+        // console.log(bigImagePath);
+        // console.log(smallImagePath);
+
+        let product_edit = {
+            name: req.body.product_name_result,
+            stock: req.body.stock_result,
+            price: req.body.price_result,
+            category: req.body.category_result,
+            description: req.body.description_result,
+            bigImagePath: await bigImagePath,
+            smallImagePath: await smallImagePath,
+            id: req.body.id_result,
+            CategoryId: req.body.categodyID_result
+        };
+        productController.editProduct(product_edit)
+        .then(function() {
+            res.status(200);
+            res.json();
+        })
+        .catch(function(error) {
+            res.status(500);
+            res.json(JSON.stringify(error));
+        })
+    } catch (err) {
+        res.status(err.status || 500).json(err.message);
+    }
+})
+
+router.post('/add-product',userController.isAdmin, uploader.uploadImage, async (req, res) => {
+    console.log(await res.urls);
+    console.log(req.body);
+    res.status(200);
+    res.redirect('/admin');
 })
 
 router.post('/show-orders', userController.isAdmin, (req, res) => {
