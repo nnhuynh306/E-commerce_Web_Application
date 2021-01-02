@@ -70,19 +70,22 @@ router.post('/edit-product-find', userController.isAdmin, function(req, res){
             smallImagePath_result: data.smallImagePath,
             id_result: data.id
         }
-        res.render("admin", {
-            pageStyle: "admin-controller",
-            active_edit_product: 'show active',
-            product_find_result
-        })
+        // res.render("admin", {
+        //     pageStyle: "admin-controller",
+        //     active_edit_product: 'show active',
+        //     product_find_result
+        // })
+        res.status(200);
+        res.json(product_find_result);
     })
     .catch(function(error){
-        //res.send(error)
-        res.render("admin", {
-            pageStyle: "admin-controller",
-            active_edit_product: 'show active',
-            product_edit_error: true,
-        })
+        res.status(500);
+        res.send(JSON.stringify(error));
+        // res.render("admin", {
+        //     pageStyle: "admin-controller",
+        //     active_edit_product: 'show active',
+        //     product_edit_error: true,
+        // })
     })
 });
 
@@ -106,7 +109,7 @@ router.post('/edit-product-update',userController.isAdmin, function(req, res){
     })
     .catch(function(error) {
         res.status(500);
-        res.send(error)
+        res.json(JSON.stringify(error));
     })
 
 })

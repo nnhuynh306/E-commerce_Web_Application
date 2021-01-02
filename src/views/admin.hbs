@@ -20,7 +20,7 @@
                             <div class="container p-4">
                                 <div class="container">
                                     <legend class="pb-1 text-center font-weight-bold">Truy vấn sản phẩm</legend>
-                                    <form action="/admin/edit-product-find" method="post">
+                                    <form onsubmit="return fetchUpdateProductFind()">
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
@@ -37,68 +37,72 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="container text-center" id="edit_product_loading_spinner">
+                                        
+                                    </div>
                                     <hr>
                                     <legend class="pb-1 text-center font-weight-bold">Kết quả truy vấn</legend>
+                                    
                                     <div id="update-product-message">
 
                                     </div>
-                                    {{#if product_find_result}}
+                                    
                                     <form id="update-product-form" onsubmit="return fetchUpdateData()">
                                         <div class="row pb-3">
                                             <div class="col-xs-12 col-sm-10">
                                                 <div class="row">
                                                     
-                                                    {{#with product_find_result}}
+                                                    
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="product_name_result" >Tên sản phẩm</label><br>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="product_name_result" id="product_name_result" class="input-full-width" value="{{product_name_result}}" placeholder="Sửa tên sản phẩm" required>
+                                                        <input type="text" name="product_name_result" id="product_name_result" class="input-full-width" placeholder="Sửa tên sản phẩm" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="stock_result">Số Lượng</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="stock_result" id="stock_result" class="input-full-width" value="{{stock_result}}" placeholder="Sửa số lượng" required>
+                                                        <input type="text" name="stock_result" id="stock_result" class="input-full-width" placeholder="Sửa số lượng" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="price_result" >Giá</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="price_result" id="price_result" class="input-full-width" value="{{price_result}}" placeholder="Sửa giá" required>
+                                                        <input type="text" name="price_result" id="price_result" class="input-full-width" placeholder="Sửa giá" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="categodyID_result" >Mã phân loại</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="categodyID_result" id="categodyID_result" class="input-full-width" value="{{categodyID_result}}" placeholder="Sửa phân loại" required>
+                                                        <input type="text" name="categodyID_result" id="categodyID_result" class="input-full-width" placeholder="Sửa phân loại" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="category_result" >Phân loại</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="category_result" id="category_result" class="input-full-width" value="{{category_result}}" placeholder="Sửa phân loại" readonly>
+                                                        <input type="text" name="category_result" id="category_result" class="input-full-width" placeholder="Sửa phân loại" readonly>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="description_result" >Mô tả</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="description_result" id="description_result" class="input-full-width" value="{{description_result}}" placeholder="Thêm đặc tả sản phẩm" required>
+                                                        <input type="text" name="description_result" id="description_result" class="input-full-width" placeholder="Thêm đặc tả sản phẩm" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="smallImagePath_resultt" >Đường dẫn ảnh nhỏ</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="smallImagePath_result" id="smallImagePath_result" class="input-full-width" value="{{smallImagePath_result}}" placeholder="Thêm đường dẫn ảnh nhỏ" required>
+                                                        <input type="text" name="smallImagePath_result" id="smallImagePath_result" class="input-full-width" placeholder="Thêm đường dẫn ảnh nhỏ" required>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="bigImagePath_result" >Đường dẫn ảnh lớn</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
-                                                        <input type="text" name="bigImagePath_result" id="bigImagePath_result" class="input-full-width" value="{{bigImagePath_result}}" placeholder="Thêm đường dẫn ảnh lớn" required>
+                                                        <input type="text" name="bigImagePath_result" id="bigImagePath_result" class="input-full-width" placeholder="Thêm đường dẫn ảnh lớn" required>
                                                     </div>
-                                                    <input type="hidden" name="id_result" id="id_result" class="input-full-width" value="{{id_result}}">
-                                                    {{/with}}
+                                                    <input type="hidden" name="id_result" id="id_result" class="input-full-width">
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col text-center align-self-center">
@@ -106,13 +110,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    {{else}}
-                                        {{#if product_edit_error}}
-                                    <div class="alert alert-danger text-center" role="alert">Có lỗi xảy ra trong quá trình truy vấn sản phẩm!!</div>
-                                        {{else}}
-                                    <div class="alert alert-info text-center" role="alert">Không có kết quả truy vấn trả về</div>
-                                        {{/if}}
-                                    {{/if}}
+                                    
                                 </div>
                             </div>
                         </div>
