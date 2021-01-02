@@ -213,3 +213,38 @@ function sortProduct(){
             high_low();
       else if(tmp=="low_high") low_high();
 };
+
+function fetchUpdateData() {
+      console.log('look here!!')
+      const message = $('#update-product-message');
+
+      fetch ('/admin/edit-product-update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+              'product_name_result': document.querySelector('#product_name_result').value,
+              'stock_result': document.querySelector('#stock_result').value,
+              'price_result': document.querySelector('#price_result').value,
+              'category_result': document.querySelector('#category_result').value,
+              'description_result': document.querySelector('#description_result').value,
+              'bigImagePath_result': document.querySelector('#bigImagePath_result').value,
+              'smallImagePath_result': document.querySelector('#smallImagePath_result').value,
+              'id_result': document.querySelector('#id_result').value,
+              'categodyID_result': document.querySelector('#categodyID_result').value,
+          })
+      }).then(
+            responseFetch => {
+							if (!response.ok) throw new Error(response.status);
+							return responseFetch;
+            }
+      ).then(data => {
+        	message.empty();
+          message.append('<div class="alert alert-success text-center" role="alert">chỉnh sửa thành công</div>');
+      }).catch(error => {
+					message.empty();
+					let tempMessage = '<div class="alert alert-danger text-center" role="alert">ERROR:+' +(error) + '</div>';
+          message.append(tempMessage);
+      })
+
+      return false;
+  }

@@ -67,7 +67,7 @@
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
                                                         <input type="text" name="price_result" id="price_result" class="input-full-width" value="{{price_result}}" placeholder="Sửa giá" required>
                                                     </div>
-                                                        <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
+                                                    <div class="pb-1 col-xs-12 col-sm-4 col-md-3">
                                                         <label for="categodyID_result" >Mã phân loại</label>
                                                     </div>
                                                     <div class="pb-1 col-xs-12 col-sm-8 col-md-9">
@@ -102,7 +102,7 @@
                                                 </div>
                                             </div>
                                             <div class="col text-center align-self-center">
-                                                <button type="submit" class="submit-btn" id="profile-submit">Cập nhật</button>
+                                                <button type="submit" class="submit-btn" id="">Cập nhật</button>
                                             </div>
                                         </div>
                                     </form>
@@ -357,35 +357,3 @@
         <script src="./assets/js/bootstrap-drawer.min.js"></script>
         <script src="./assets/js/jquery.countdown.min.js"></script>
         <script src="./assets/js/main.min.js"></script>
-
-        <script>
-            function fetchUpdateData() {
-                console.log('look here!!')
-                const message = $('#update-product-message');
-
-                fetch ('/edit-product-find', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        'product_name_result': document.querySelector('#product_name_result');
-                        'stock_result': document.querySelector('#stock_result');
-                        'price_result': document.querySelector('#price_result');
-                        'category_result': document.querySelector('#category_result');
-                        'description_result': document.querySelector('#description_result');
-                        'bigImagePath_result': document.querySelector('#bigImagePath_result');
-                        'smallImagePath_result': document.querySelector('#smallImagePath_result');
-                        'id_result': document.querySelector('#id_result');
-                        'categodyID_result': document.querySelector('#categodyID_result');
-                    })
-                })
-                .then(response => response.json();) 
-                .then(data => {
-                    message.append('<div class="alert alert-success text-center" role="alert">chỉnh sửa thành công</div>');
-                })
-                .catch(error => {
-                    message.append('<div class="alert alert-danger text-center" role="alert">Có lỗi xảy ra trong quá trình truy vấn sản phẩm!!</div>');
-                })
-
-                return false;
-            }
-        </script>

@@ -88,24 +88,24 @@ router.post('/edit-product-find', userController.isAdmin, function(req, res){
 
 
 router.post('/edit-product-update',userController.isAdmin, function(req, res){
-    console.log(req.body)
-    // let product_edit = {
-    //     name: req.body.product_name_result,
-    //     stock: req.body.stock_result,
-    //     price: req.body.price_result,
-    //     category: req.body.category_result,
-    //     description: req.body.description_result,
-    //     bigImagePath: req.body.bigImagePath_result,
-    //     smallImagePath: req.body.smallImagePath_result,
-    //     id: req.body.id_result,
-    //     CategoryId: req.body.categodyID_result
-    // };
-    // console.log(product_edit);
-    // productController.editProduct(product_edit)
+    let product_edit = {
+        name: req.body.product_name_result,
+        stock: req.body.stock_result,
+        price: req.body.price_result,
+        category: req.body.category_result,
+        description: req.body.description_result,
+        bigImagePath: req.body.bigImagePath_result,
+        smallImagePath: req.body.smallImagePath_result,
+        id: req.body.id_result,
+        CategoryId: req.body.categodyID_result
+    };
+    productController.editProduct(product_edit)
     .then(function() {
-        res.send("Successfully")
+        res.status(200);
+        res.json();
     })
     .catch(function(error) {
+        res.status(500);
         res.send(error)
     })
 
