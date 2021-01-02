@@ -73,13 +73,14 @@ router.post('/signup', function(req, res, next) {
     let pass = req.body.password;
     let confirmPassword = req.body.confirmPassword
     let format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    let formatWithoutSpace = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     let space = /[  ]/;
-    if (format.test(name) || format.test(fullName)) {
+    if (format.test(name) || formatWithoutSpace.test(fullName)) {
         let messageWarning;
         if(format.test(name) ){
             messageWarning = "Tên đăng nhập không được chứa ký tự đặc biệt";
         }else
-         if(format.test(fullName)){
+         if(formatWithoutSpace.test(fullName)){
              messageWarning = "Họ tên không được chứa ký tự đặc biệt"
         }
 
