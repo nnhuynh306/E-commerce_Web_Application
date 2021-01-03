@@ -20,5 +20,15 @@ controller.getAll = () => {
        }]
     })
 }
+controller.isExistID = (id) => {
+    return models.Category.count({ where: { id: id } })
+      .then(count => {
+          console.log(count);
+        if (count != 0) {
+          return true;
+        }
+        return false;
+    });
+}
 
 module.exports = controller;
