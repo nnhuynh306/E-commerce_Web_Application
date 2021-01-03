@@ -98,9 +98,9 @@ router.post('/edit-product-update',userController.isAdmin, async function(req, r
         bigImageisbase64 = req.body.bigImagePath_result_isbase64 === '1';
         smallImageisbase64 = req.body.smallImagePath_result_isbase64 === '1';
 
-        let bigImage = (bigImageisbase64) ? await uploader.uploadBase64(req.body.bigImagePath_result, { upload_preset: 'dangshop' }) : {'secure_url':  req.body.bigImagePath_result};
+        let bigImage = (bigImageisbase64) ? await uploader.uploadBase64(req.body.bigImagePath_result) : {'secure_url':  req.body.bigImagePath_result};
 
-        let smallImage = (smallImageisbase64) ? await uploader.uploadBase64(req.body.smallImagePath_result, { upload_preset: 'dangshop' }) : {'secure_url':  req.body.smallImagePath_result};
+        let smallImage = (smallImageisbase64) ? await uploader.uploadBase64(req.body.smallImagePath_result) : {'secure_url':  req.body.smallImagePath_result};
 
         let bigImagePath = bigImage.secure_url;
         let smallImagePath = smallImage.secure_url;

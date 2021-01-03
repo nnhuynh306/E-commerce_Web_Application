@@ -53,6 +53,8 @@ function uploadStream(fileBuffer, options) {
     });
 }
 
-middleware.uploadBase64 = cloudinary.uploader.upload;
+middleware.uploadBase64 = async function (base64ImageString) {
+    return cloudinary.uploader.upload(base64ImageString, { upload_preset: 'dangshop' });
+}
 
 module.exports = middleware;

@@ -23,6 +23,17 @@ function fetchUpdateProductFind() {
 	const loading = $('#edit_product_loading_spinner');
 	
 	loading.append('<div class="spinner-grow text-primary" role="status"> <span class="sr-only">Loading...</span></div><p class="text-primary">Tìm kiếm dữ liệu...</p>');
+	document.querySelector('#product_name_result').value = "";
+	document.querySelector('#stock_result').value = ""
+	document.querySelector('#price_result').value = ""
+	document.querySelector('#category_result').value = ""
+	document.querySelector('#categodyID_result').value = ""
+	document.querySelector('#description_result').value = ""
+	document.querySelector('#bigImagePath_result_isbase64').value = 0
+	document.querySelector('#bigImagePath_result').src = ""
+	document.querySelector('#smallImagePath_result_isbase64').value = 0
+	document.querySelector('#smallImagePath_result').src = ""
+	document.querySelector('#id_result').value = ""
 
 	fetch ("/admin/edit-product-find", {
 		method: 'POST',
@@ -70,6 +81,7 @@ function fetchUpdateData() {
 	const loading = $('#edit_product_loading_spinner');
 	
 	loading.append('<div class="spinner-grow text-primary" role="status"> <span class="sr-only">Loading...</span></div><p class="text-primary">Cập nhật dữ liệu...</p>');
+	message.empty();
 
 	fetch ('/admin/edit-product-update', {
 		method: 'POST',
