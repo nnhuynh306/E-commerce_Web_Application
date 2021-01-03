@@ -1,3 +1,7 @@
+let spinner = '<div class="spinner-grow text-primary" role="status"> <span class="sr-only">Loading...</span></div>';
+
+var trashError;
+
 $('document').ready(() => {
     $('.input-upload-image').each(function () {
         const hiddenBase64 = $('.hidden-base64-check', this);
@@ -22,7 +26,7 @@ function fetchUpdateProductFind() {
 	const message = $('#update-product-message');
 	const loading = $('#edit_product_loading_spinner');
 	
-	loading.append('<div class="spinner-grow text-primary" role="status"> <span class="sr-only">Loading...</span></div><p class="text-primary">Tìm kiếm dữ liệu...</p>');
+	loading.append(spinner + '<p class="text-primary">Tìm kiếm dữ liệu...</p>');
 	document.querySelector('#product_name_result').value = "";
 	document.querySelector('#stock_result').value = ""
 	document.querySelector('#price_result').value = ""
@@ -47,7 +51,7 @@ function fetchUpdateProductFind() {
 			return responseFetch.json();
 		}
 	).then(data => {
-		console.log(data);
+		//console.log(data);
 
 		message.empty();
 		if (jQuery.isEmptyObject(data)) {
@@ -80,7 +84,7 @@ function fetchUpdateData() {
 	const message = $('#update-product-message');
 	const loading = $('#edit_product_loading_spinner');
 	
-	loading.append('<div class="spinner-grow text-primary" role="status"> <span class="sr-only">Loading...</span></div><p class="text-primary">Cập nhật dữ liệu...</p>');
+	loading.append(spinner + '<p class="text-primary">Cập nhật dữ liệu...</p>');
 	message.empty();
 
 	fetch ('/admin/edit-product-update', {
@@ -111,6 +115,59 @@ function fetchUpdateData() {
 		message.empty();
 		let tempMessage = '<div class="alert alert-danger text-center" role="alert">ERROR:+' +(error) + '</div>';
 		message.append(tempMessage);
+	}).finally( () => {
+		loading.empty();
+	})
+
+	return false;
+}
+
+function fetchAddProduct() {
+	const message = $('#add-product-message');
+	const loading = $('#add_product_loading_spinner');
+	
+	loading.append(spinner + '<p class="text-primary">Thêm mới dữ liệu...</p>');
+	message.empty();
+	$('#add_product_category_name').val('');
+	$('#add_product_id').val('');
+
+	fetch ('/admin/add-product', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+				'product_name': document.querySelector('#product_name').value,
+				'stock': document.querySelector('#stock').value,
+				'price': document.querySelector('#price').value,
+				//'category': document.querySelector('#category').value,
+                'description': document.querySelector('#description').value,
+                'bigImagePath_isbase64': document.querySelector('#bigImagePath_isbase64').value,
+                'bigImagePath': document.getElementById('bigImagePath').getAttribute('src'),
+                'smallImagePath_isbase64': document.querySelector('#smallImagePath_isbase64').value,
+				'smallImagePath': document.getElementById('smallImagePath').getAttribute('src'),
+				
+				'categoryid': document.querySelector('#categoryid').value,
+		})
+	}).then(
+		responseFetch => {
+			if (!responseFetch.ok) {
+				responseFetch.json().then (errorMsg => {
+					message.empty();
+					let tempMessage = '<div class="alert alert-danger text-center" role="alert">ERROR:+' + errorMsg + '</div>';
+					message.append(tempMessage);
+				})
+			}
+			else {
+				responseFetch.json().then(data => {
+					message.empty();
+					message.append('<div class="alert alert-success text-center" role="alert">Thêm sản phẩm thành công</div>');
+					$('#add_product_category_name').val(data.catgory_name);
+					$('#add_product_id').val(data.id);
+				});
+			}
+		}
+	).catch(error => {
+		console.log(error.status + ': ' + error.message);
+		
 	}).finally( () => {
 		loading.empty();
 	})

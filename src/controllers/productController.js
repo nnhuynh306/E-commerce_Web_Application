@@ -40,4 +40,17 @@ controller.editProduct = (product) => {
     })
 };
 
+controller.addProduct = (product) => {
+    return models.Product.create({
+        name: product.name,
+        stock: product.stock,
+        brand: product.brand,
+        description: product.description,
+        price: product.price,
+        smallImagePath: product.smallImagePath,
+        bigImagePath: product.bigImagePath,
+        CategoryId: product.CategoryId
+    })
+}
+
 module.exports = controller;

@@ -3,6 +3,7 @@ var router = express.Router()
 let userController = require('../controllers/userController')
 const productController = require('./../controllers/productController')
 const orderController = require('../controllers/orderController')
+const categoryController = require('../controllers/categoryController')
 const uploader = require('../utility/uploaderMiddleware')
 
 
@@ -132,11 +133,74 @@ router.post('/edit-product-update',userController.isAdmin, async function(req, r
     }
 })
 
-router.post('/add-product',userController.isAdmin, uploader.uploadImage, async (req, res) => {
-    console.log(await res.urls);
-    console.log(req.body);
-    res.status(200);
-    res.redirect('/admin');
+router.post('/add-product', userController.isAdmin, async (req, res) => {
+    //console.log(await res.urls);
+    //console.log(JSON.stringify(req.body));
+    let isExist_categoryID = await categoryController.isExistID(req.body.categoryid);
+
+    console.log(isExist_categoryID);
+
+    if (isExist_categoryID) {
+        console.log('it is exited');
+        try {
+            console.log("uploading");
+            bigImageisbase64 = req.body.bigImagePath_isbase64 === '1';
+            smallImageisbase64 = req.body.smallImagePath_isbase64 === '1';
+    
+            let bigImage = await uploader.uploadBase64(req.body.bigImagePath);
+    
+            let smallImage = await uploader.uploadBase64(req.body.smallImagePath);
+    
+            let bigImagePath = bigImage.secure_url;
+            let smallImagePath = smallImage.secure_url;
+            // console.log(bigImagePath);
+            // console.log(smallImagePath);
+    
+            let product = {
+                name: req.body.product_name,
+                stock: req.body.stock,
+                price: req.body.price,
+                description: req.body.description,
+                bigImagePath: await bigImagePath,
+                smallImagePath: await smallImagePath,
+                CategoryId: req.body.categoryid
+            };
+            console.log(product)
+            productController.addProduct(product)
+            .then(function (users) {
+                if (users) {
+                    
+                    productController.getProductById(users.dataValues.id)
+                    .then(data => {
+                        let product_find = {
+                            catgory_name: data.Category.name,
+                            id: data.id
+                        }
+                        res.status(200).json(product_find);
+                    })
+                    .catch(function(error){
+                        res.status(500);
+                        res.json(JSON.stringify(error));
+                    })
+                } else {
+                    res.status(400).json('Error in insert new record');
+                }
+            })
+            .catch(function(error) {
+                res.status(509);
+                console.error(error);
+                res.json(JSON.stringify(error));
+            })
+        } catch (err) {
+            res.status(err.status || 511).json(err.message);
+        }
+    }
+    else {
+        res.status(501).json('Mã phân loại Không tồn tại!!')
+    }
+    
+
+    
 })
 
 router.post('/show-orders', userController.isAdmin, (req, res) => {
